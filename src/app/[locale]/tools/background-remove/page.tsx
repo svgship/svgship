@@ -5,8 +5,8 @@ import { useI18n } from '@/lib/i18n/context';
 import { removeBackground } from '@/lib/svg/background-remove';
 import { FileDropzone } from '@/components/ui/FileDropzone';
 import { DownloadButton } from '@/components/ui/DownloadButton';
-import { Header } from '@/components/layout/Header';
-import { Footer } from '@/components/layout/Footer';
+import { ToolPageLayout } from '@/components/ui/ToolPageLayout';
+import { Eraser, CheckCircle, AlertCircle } from 'lucide-react';
 
 export default function BackgroundRemovePage() {
   const { t } = useI18n();
@@ -40,53 +40,72 @@ export default function BackgroundRemovePage() {
   );
 
   return (
-    <>
-      <Header />
-      <main className="flex flex-1 flex-col items-center px-4 py-12">
-        <div className="w-full max-w-2xl">
-          <h1 className="text-3xl font-bold" style={{ color: 'var(--color-on-surface)' }}>
-            {t('tools.backgroundRemove.title')}
-          </h1>
-          <p className="mt-2" style={{ color: 'var(--color-on-surface-variant)' }}>
-            {t('tools.backgroundRemove.description')}
-          </p>
+    <ToolPageLayout
+      title={t('tools.backgroundRemove.title')}
+      description={t('tools.backgroundRemove.description')}
+      icon={<Eraser className="h-6 w-6 text-white" />}
+    >
+      <FileDropzone
+        accept={['.svg', 'image/svg+xml']}
+        onFile={handleFile}
+        label={t('tools.backgroundRemove.uploadHint')}
+        sublabel={t('tools.backgroundRemove.uploadSubtext')}
+        error={error}
+      />
 
-          <div className="mt-8">
-            <FileDropzone
-              accept={['.svg', 'image/svg+xml']}
-              onFile={handleFile}
-              label={t('tools.backgroundRemove.uploadHint')}
-              sublabel={t('tools.backgroundRemove.uploadSubtext')}
-              error={error}
-            />
+      {processing && (
+        <div className="mt-6 flex items-center justify-center gap-3">
+          <div
+            className="h-5 w-5 animate-spin rounded-full border-2 border-t-transparent"
+            style={{ borderColor: 'var(--color-primary)', borderTopColor: 'transparent' }}
+          />
+          <span className="text-sm font-medium" style={{ color: 'var(--color-primary)' }}>
+            {t('tools.backgroundRemove.processing')}
+          </span>
+        </div>
+      )}
+
+      {result && (
+        <div
+          className="animate-slide-up mt-6 rounded-2xl p-6"
+          style={{
+            background: 'var(--color-surface)',
+            border: '1px solid var(--color-outline-variant)',
+            boxShadow: 'var(--shadow-md)',
+          }}
+        >
+          <div className="flex items-center gap-3">
+            <div
+              className="flex h-10 w-10 items-center justify-center rounded-xl"
+              style={{
+                background: result.removed
+                  ? 'var(--color-success-container)'
+                  : 'var(--color-error-container)',
+              }}
+            >
+              {result.removed ? (
+                <CheckCircle className="h-5 w-5" style={{ color: 'var(--color-success)' }} />
+              ) : (
+                <AlertCircle className="h-5 w-5" style={{ color: 'var(--color-error)' }} />
+              )}
+            </div>
+            <p
+              className="text-lg font-bold"
+              style={{ color: 'var(--color-on-surface)', fontFamily: 'var(--font-heading)' }}
+            >
+              {result.removed
+                ? t('tools.backgroundRemove.result')
+                : 'No background detected to remove.'}
+            </p>
           </div>
 
-          {processing && (
-            <p className="mt-4 text-center" style={{ color: 'var(--color-primary)' }}>
-              {t('tools.backgroundRemove.processing')}
-            </p>
-          )}
-
-          {result && (
-            <div
-              className="mt-6 rounded-lg p-6"
-              style={{ background: 'var(--color-surface-container-low)' }}
-            >
-              <p className="text-lg font-semibold" style={{ color: 'var(--color-on-surface)' }}>
-                {result.removed
-                  ? t('tools.backgroundRemove.result')
-                  : 'No background detected to remove.'}
-              </p>
-              <div className="mt-4">
-                <DownloadButton data={result.data} filename="no-bg.svg">
-                  {t('tools.backgroundRemove.download')}
-                </DownloadButton>
-              </div>
-            </div>
-          )}
+          <div className="mt-5">
+            <DownloadButton data={result.data} filename="no-bg.svg">
+              {t('tools.backgroundRemove.download')}
+            </DownloadButton>
+          </div>
         </div>
-      </main>
-      <Footer />
-    </>
+      )}
+    </ToolPageLayout>
   );
 }

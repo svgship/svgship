@@ -1,6 +1,7 @@
 'use client';
 
 import { useCallback } from 'react';
+import { Download } from 'lucide-react';
 
 interface DownloadButtonProps {
   data: string;
@@ -20,7 +21,6 @@ export function DownloadButton({
   const handleDownload = useCallback(() => {
     if (disabled) return;
 
-    // Handle both data URLs and raw strings
     const blob = data.startsWith('data:')
       ? (() => {
           const [header, content] = data.split(',');
@@ -44,15 +44,30 @@ export function DownloadButton({
     <button
       onClick={handleDownload}
       disabled={disabled}
-      className="inline-flex items-center gap-2 rounded-lg px-6 py-3 text-sm font-medium transition-all"
+      className="inline-flex items-center gap-2 rounded-xl px-6 py-3 text-sm font-semibold text-white transition-all duration-200"
       style={{
-        background: disabled ? 'var(--color-surface-container)' : 'var(--color-primary)',
-        color: disabled ? 'var(--color-outline)' : 'var(--color-on-primary)',
+        background: disabled ? 'var(--color-surface-container)' : 'var(--gradient-primary)',
+        color: disabled ? 'var(--color-outline)' : 'white',
         cursor: disabled ? 'not-allowed' : 'pointer',
         minHeight: '44px',
+        opacity: disabled ? 0.5 : 1,
+        boxShadow: disabled ? 'none' : 'var(--shadow-md)',
+        fontFamily: 'var(--font-heading)',
+      }}
+      onMouseEnter={(e) => {
+        if (!disabled) {
+          e.currentTarget.style.transform = 'translateY(-1px)';
+          e.currentTarget.style.boxShadow = 'var(--shadow-lg)';
+        }
+      }}
+      onMouseLeave={(e) => {
+        if (!disabled) {
+          e.currentTarget.style.transform = 'translateY(0)';
+          e.currentTarget.style.boxShadow = 'var(--shadow-md)';
+        }
       }}
     >
-      <span className="material-symbols-outlined text-lg">download</span>
+      <Download className="h-4 w-4" />
       {children}
     </button>
   );

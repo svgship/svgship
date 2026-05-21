@@ -1,6 +1,7 @@
 'use client';
 
 import { useCallback, useRef, useState, type DragEvent, type ChangeEvent } from 'react';
+import { Upload } from 'lucide-react';
 
 interface FileDropzoneProps {
   accept: string[];
@@ -40,8 +41,7 @@ export function FileDropzone({
     (file: File) => {
       const err = validateFile(file);
       if (err) {
-        // Let parent handle error via onFile — we just pass the file
-        // Parent can check and show error
+        // Let parent handle error via onFile
       }
       onFile(file);
     },
@@ -71,11 +71,12 @@ export function FileDropzone({
       role="button"
       tabIndex={0}
       aria-label={label}
-      className="flex cursor-pointer flex-col items-center justify-center rounded-lg border-2 border-dashed p-12 transition-colors"
+      className="group relative flex cursor-pointer flex-col items-center justify-center rounded-2xl border-2 border-dashed p-12 transition-all duration-300"
       style={{
         borderColor: isDragActive ? 'var(--color-primary)' : 'var(--color-outline-variant)',
-        background: isDragActive ? 'var(--color-primary-container)' + '10' : 'transparent',
-        minHeight: '200px',
+        background: isDragActive ? 'var(--color-primary-container)' : 'var(--gradient-card)',
+        minHeight: '220px',
+        boxShadow: isDragActive ? 'var(--shadow-glow)' : 'none',
       }}
       onDragOver={(e) => {
         e.preventDefault();
@@ -99,13 +100,29 @@ export function FileDropzone({
         className="hidden"
         aria-hidden="true"
       />
-      <span
-        className="material-symbols-outlined text-4xl"
-        style={{ color: 'var(--color-on-surface-variant)' }}
+
+      <div
+        className="flex h-16 w-16 items-center justify-center rounded-2xl transition-all duration-300"
+        style={{
+          background: isDragActive
+            ? 'var(--gradient-primary)'
+            : 'var(--color-surface-container-high)',
+          transform: isDragActive ? 'scale(1.1)' : 'scale(1)',
+        }}
       >
-        upload_file
-      </span>
-      <p className="mt-4 text-base font-medium" style={{ color: 'var(--color-on-surface)' }}>
+        <Upload
+          className="h-7 w-7 transition-colors"
+          style={{ color: isDragActive ? 'white' : 'var(--color-primary)' }}
+        />
+      </div>
+
+      <p
+        className="mt-4 text-base font-semibold transition-colors"
+        style={{
+          color: isDragActive ? 'var(--color-primary)' : 'var(--color-on-surface)',
+          fontFamily: 'var(--font-heading)',
+        }}
+      >
         {isDragActive ? 'Drop file here' : label}
       </p>
       <p className="mt-1 text-sm" style={{ color: 'var(--color-on-surface-variant)' }}>
@@ -115,7 +132,7 @@ export function FileDropzone({
         Max {maxSizeMB}MB
       </p>
       {error && (
-        <p className="mt-3 text-sm" style={{ color: 'var(--color-error)' }}>
+        <p className="mt-3 text-sm font-medium" style={{ color: 'var(--color-error)' }}>
           {error}
         </p>
       )}

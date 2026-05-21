@@ -1,6 +1,12 @@
 import type { Metadata } from 'next';
-import { Inter, JetBrains_Mono } from 'next/font/google';
+import { Space_Grotesk, Inter, JetBrains_Mono } from 'next/font/google';
 import './globals.css';
+
+const spaceGrotesk = Space_Grotesk({
+  variable: '--font-space-grotesk',
+  subsets: ['latin'],
+  weight: ['400', '500', '600', '700'],
+});
 
 const inter = Inter({
   variable: '--font-inter',
@@ -29,7 +35,7 @@ export default function RootLayout({
 }>) {
   return (
     <html
-      className={`${inter.variable} ${jetbrainsMono.variable} h-full antialiased`}
+      className={`${spaceGrotesk.variable} ${inter.variable} ${jetbrainsMono.variable} h-full antialiased`}
       suppressHydrationWarning
     >
       <body className="flex min-h-full flex-col" style={{ fontFamily: 'var(--font-body)' }}>

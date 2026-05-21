@@ -5,8 +5,8 @@ import { useI18n } from '@/lib/i18n/context';
 import { pngToSvg } from '@/lib/svg/png-to-svg';
 import { FileDropzone } from '@/components/ui/FileDropzone';
 import { DownloadButton } from '@/components/ui/DownloadButton';
-import { Header } from '@/components/layout/Header';
-import { Footer } from '@/components/layout/Footer';
+import { ToolPageLayout } from '@/components/ui/ToolPageLayout';
+import { Image, CheckCircle } from 'lucide-react';
 
 export default function PngToSvgPage() {
   const { t } = useI18n();
@@ -47,56 +47,71 @@ export default function PngToSvgPage() {
   );
 
   return (
-    <>
-      <Header />
-      <main className="flex flex-1 flex-col items-center px-4 py-12">
-        <div className="w-full max-w-2xl">
-          <h1 className="text-3xl font-bold" style={{ color: 'var(--color-on-surface)' }}>
-            {t('tools.pngToSvg.title')}
-          </h1>
-          <p className="mt-2" style={{ color: 'var(--color-on-surface-variant)' }}>
-            {t('tools.pngToSvg.description')}
-          </p>
+    <ToolPageLayout
+      title={t('tools.pngToSvg.title')}
+      description={t('tools.pngToSvg.description')}
+      icon={<Image className="h-6 w-6 text-white" />}
+    >
+      <FileDropzone
+        accept={['.png', '.jpg', '.jpeg', 'image/png', 'image/jpeg']}
+        onFile={handleFile}
+        label={t('tools.pngToSvg.uploadHint')}
+        sublabel={t('tools.pngToSvg.uploadSubtext')}
+        error={error}
+      />
 
-          <div className="mt-8">
-            <FileDropzone
-              accept={['.png', '.jpg', '.jpeg', 'image/png', 'image/jpeg']}
-              onFile={handleFile}
-              label={t('tools.pngToSvg.uploadHint')}
-              sublabel={t('tools.pngToSvg.uploadSubtext')}
-              error={error}
-            />
+      {processing && (
+        <div className="mt-6 flex items-center justify-center gap-3">
+          <div
+            className="h-5 w-5 animate-spin rounded-full border-2 border-t-transparent"
+            style={{ borderColor: 'var(--color-primary)', borderTopColor: 'transparent' }}
+          />
+          <span className="text-sm font-medium" style={{ color: 'var(--color-primary)' }}>
+            {t('tools.pngToSvg.processing')}
+          </span>
+        </div>
+      )}
+
+      {result && (
+        <div
+          className="animate-slide-up mt-6 rounded-2xl p-6"
+          style={{
+            background: 'var(--color-surface)',
+            border: '1px solid var(--color-outline-variant)',
+            boxShadow: 'var(--shadow-md)',
+          }}
+        >
+          <div className="flex items-center gap-3">
+            <div
+              className="flex h-10 w-10 items-center justify-center rounded-xl"
+              style={{ background: 'var(--color-success-container)' }}
+            >
+              <CheckCircle className="h-5 w-5" style={{ color: 'var(--color-success)' }} />
+            </div>
+            <p
+              className="text-lg font-bold"
+              style={{ color: 'var(--color-on-surface)', fontFamily: 'var(--font-heading)' }}
+            >
+              {t('tools.pngToSvg.result')}
+            </p>
           </div>
 
-          {processing && (
-            <p className="mt-4 text-center" style={{ color: 'var(--color-primary)' }}>
-              {t('tools.pngToSvg.processing')}
-            </p>
-          )}
+          <div
+            className="mt-4 overflow-hidden rounded-xl border p-4"
+            style={{
+              borderColor: 'var(--color-outline-variant)',
+              background: 'var(--color-surface-container-low)',
+            }}
+            dangerouslySetInnerHTML={{ __html: result }}
+          />
 
-          {result && (
-            <div
-              className="mt-6 rounded-lg p-6"
-              style={{ background: 'var(--color-surface-container-low)' }}
-            >
-              <p className="text-lg font-semibold" style={{ color: 'var(--color-on-surface)' }}>
-                {t('tools.pngToSvg.result')}
-              </p>
-              <div
-                className="mt-3 rounded border p-4"
-                style={{ borderColor: 'var(--color-outline-variant)' }}
-                dangerouslySetInnerHTML={{ __html: result }}
-              />
-              <div className="mt-4">
-                <DownloadButton data={result} filename="converted.svg">
-                  {t('tools.pngToSvg.download')}
-                </DownloadButton>
-              </div>
-            </div>
-          )}
+          <div className="mt-5">
+            <DownloadButton data={result} filename="converted.svg">
+              {t('tools.pngToSvg.download')}
+            </DownloadButton>
+          </div>
         </div>
-      </main>
-      <Footer />
-    </>
+      )}
+    </ToolPageLayout>
   );
 }

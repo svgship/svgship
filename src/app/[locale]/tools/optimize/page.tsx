@@ -5,8 +5,8 @@ import { useI18n } from '@/lib/i18n/context';
 import { optimizeSvg } from '@/lib/svg/optimize';
 import { FileDropzone } from '@/components/ui/FileDropzone';
 import { DownloadButton } from '@/components/ui/DownloadButton';
-import { Header } from '@/components/layout/Header';
-import { Footer } from '@/components/layout/Footer';
+import { ToolPageLayout } from '@/components/ui/ToolPageLayout';
+import { Zap, CheckCircle } from 'lucide-react';
 
 export default function OptimizePage() {
   const { t } = useI18n();
@@ -52,59 +52,89 @@ export default function OptimizePage() {
     : 0;
 
   return (
-    <>
-      <Header />
-      <main className="flex flex-1 flex-col items-center px-4 py-12">
-        <div className="w-full max-w-2xl">
-          <h1 className="text-3xl font-bold" style={{ color: 'var(--color-on-surface)' }}>
-            {t('tools.optimize.title')}
-          </h1>
-          <p className="mt-2" style={{ color: 'var(--color-on-surface-variant)' }}>
-            {t('tools.optimize.description')}
-          </p>
+    <ToolPageLayout
+      title={t('tools.optimize.title')}
+      description={t('tools.optimize.description')}
+      icon={<Zap className="h-6 w-6 text-white" />}
+    >
+      <FileDropzone
+        accept={['.svg', 'image/svg+xml']}
+        onFile={handleFile}
+        label={t('tools.optimize.uploadHint')}
+        sublabel={t('tools.optimize.uploadSubtext')}
+        error={error}
+      />
 
-          <div className="mt-8">
-            <FileDropzone
-              accept={['.svg', 'image/svg+xml']}
-              onFile={handleFile}
-              label={t('tools.optimize.uploadHint')}
-              sublabel={t('tools.optimize.uploadSubtext')}
-              error={error}
-            />
+      {processing && (
+        <div className="mt-6 flex items-center justify-center gap-3">
+          <div
+            className="h-5 w-5 animate-spin rounded-full border-2 border-t-transparent"
+            style={{ borderColor: 'var(--color-primary)', borderTopColor: 'transparent' }}
+          />
+          <span className="text-sm font-medium" style={{ color: 'var(--color-primary)' }}>
+            {t('tools.optimize.processing')}
+          </span>
+        </div>
+      )}
+
+      {result && (
+        <div
+          className="animate-slide-up mt-6 rounded-2xl p-6"
+          style={{
+            background: 'var(--color-surface)',
+            border: '1px solid var(--color-outline-variant)',
+            boxShadow: 'var(--shadow-md)',
+          }}
+        >
+          <div className="flex items-center gap-3">
+            <div
+              className="flex h-10 w-10 items-center justify-center rounded-xl"
+              style={{ background: 'var(--color-success-container)' }}
+            >
+              <CheckCircle className="h-5 w-5" style={{ color: 'var(--color-success)' }} />
+            </div>
+            <p
+              className="text-lg font-bold"
+              style={{ color: 'var(--color-on-surface)', fontFamily: 'var(--font-heading)' }}
+            >
+              {t('tools.optimize.result', { saved: String(savedPercent) })}
+            </p>
           </div>
 
-          {processing && (
-            <p className="mt-4 text-center" style={{ color: 'var(--color-primary)' }}>
-              {t('tools.optimize.processing')}
-            </p>
-          )}
-
-          {result && (
-            <div
-              className="mt-6 rounded-lg p-6"
-              style={{ background: 'var(--color-surface-container-low)' }}
-            >
-              <p className="text-lg font-semibold" style={{ color: 'var(--color-on-surface)' }}>
-                {t('tools.optimize.result', { saved: String(savedPercent) })}
-              </p>
-              <div
-                className="mt-3 flex gap-4 text-sm"
-                style={{ color: 'var(--color-on-surface-variant)' }}
+          <div
+            className="mt-4 flex items-center gap-4 rounded-xl p-4 text-sm"
+            style={{ background: 'var(--color-surface-container-low)' }}
+          >
+            <div className="text-center">
+              <p style={{ color: 'var(--color-on-surface-variant)' }}>Original</p>
+              <p
+                className="mt-1 font-semibold"
+                style={{ color: 'var(--color-on-surface)', fontFamily: 'var(--font-heading)' }}
               >
-                <span>Original: {(result.originalSize / 1024).toFixed(1)} KB</span>
-                <span>→</span>
-                <span>Optimized: {(result.optimizedSize / 1024).toFixed(1)} KB</span>
-              </div>
-              <div className="mt-4">
-                <DownloadButton data={result.data} filename="optimized.svg">
-                  {t('tools.optimize.download')}
-                </DownloadButton>
-              </div>
+                {(result.originalSize / 1024).toFixed(1)} KB
+              </p>
             </div>
-          )}
+            <div className="text-2xl" style={{ color: 'var(--color-primary)' }}>
+              →
+            </div>
+            <div className="text-center">
+              <p style={{ color: 'var(--color-on-surface-variant)' }}>Optimized</p>
+              <p
+                className="mt-1 font-semibold"
+                style={{ color: 'var(--color-success)', fontFamily: 'var(--font-heading)' }}
+              >
+                {(result.optimizedSize / 1024).toFixed(1)} KB
+              </p>
+            </div>
+          </div>
+
+          <div className="mt-5">
+            <DownloadButton data={result.data} filename="optimized.svg">
+              {t('tools.optimize.download')}
+            </DownloadButton>
+          </div>
         </div>
-      </main>
-      <Footer />
-    </>
+      )}
+    </ToolPageLayout>
   );
 }

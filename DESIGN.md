@@ -1,11 +1,11 @@
 # SVGShip 设计系统
 
-基于 Material Design 3 色彩体系，面向 Cricut/手工社区用户。
+现代活力风格，面向 Cricut/手工社区用户。
 
 ## 设计原则
 
 1. **立即可用** — 用户首次访问即可下载模板，零摩擦
-2. **具体而非通用** — 每个 UI 元素都有明确用途，不使用装饰性元素
+2. **现代活力** — 蓝紫色系渐变，毛玻璃卡片，大胆排版
 3. **桌面优先** — 工具类产品，用户主要在电脑上使用
 4. **无障碍内建** — 键盘导航、屏幕阅读器、对比度从一开始就是内建的
 
@@ -15,38 +15,47 @@
 
 ```css
 :root {
-  /* 主色 */
-  --color-primary: #0047cf;
-  --color-primary-container: #165dff;
+  /* 主色 - Indigo/Violet 渐变 */
+  --color-primary: #6366f1;
+  --color-primary-hover: #4f46e5;
+  --color-primary-container: #eef2ff;
   --color-on-primary: #ffffff;
-  --color-on-primary-container: #eeefff;
+  --color-on-primary-container: #312e81;
 
-  /* 次要色 */
-  --color-secondary: #0055c8;
-  --color-secondary-container: #276eec;
+  /* 强调色 - Pink CTA */
+  --color-accent: #ec4899;
+  --color-accent-hover: #db2777;
+  --color-accent-container: #fdf2f8;
+
+  /* 次要色 - Violet */
+  --color-secondary: #8b5cf6;
+  --color-secondary-container: #f5f3ff;
   --color-on-secondary: #ffffff;
 
   /* 表面色 */
-  --color-surface: #f8f9fb;
-  --color-surface-container: #edeef0;
-  --color-surface-container-low: #f3f4f6;
-  --color-surface-container-high: #e7e8ea;
-  --color-surface-container-highest: #e1e2e4;
-  --color-on-surface: #191c1e;
-  --color-on-surface-variant: #434656;
+  --color-surface: #ffffff;
+  --color-surface-elevated: #ffffff;
+  --color-surface-container: #f8f7ff;
+  --color-surface-container-low: #fafafe;
+  --color-surface-container-high: #f0eeff;
+  --color-on-surface: #1e1b4b;
+  --color-on-surface-variant: #6b7280;
 
   /* 轮廓 */
-  --color-outline: #737688;
-  --color-outline-variant: #c3c5d9;
+  --color-outline: #9ca3af;
+  --color-outline-variant: #e5e7eb;
 
   /* 错误 */
-  --color-error: #ba1a1a;
-  --color-error-container: #ffdad6;
-  --color-on-error: #ffffff;
+  --color-error: #ef4444;
+  --color-error-container: #fef2f2;
+
+  /* 成功 */
+  --color-success: #10b981;
+  --color-success-container: #ecfdf5;
 
   /* 背景 */
-  --color-background: #f8f9fb;
-  --color-on-background: #191c1e;
+  --color-background: #fafafe;
+  --color-on-background: #1e1b4b;
 }
 ```
 
@@ -54,217 +63,211 @@
 
 ```css
 .dark {
-  --color-primary: #b6c4ff;
-  --color-primary-container: #0047cf;
-  --color-on-primary: #00164f;
-  --color-on-primary-container: #eeefff;
+  --color-primary: #818cf8;
+  --color-primary-hover: #a5b4fc;
+  --color-primary-container: rgba(99, 102, 241, 0.15);
+  --color-on-primary: #1e1b4b;
+  --color-on-primary-container: #c7d2fe;
 
-  --color-secondary: #b1c5ff;
-  --color-secondary-container: #0055c8;
-  --color-on-secondary: #001946;
+  --color-accent: #f472b6;
+  --color-accent-hover: #f9a8d4;
+  --color-accent-container: rgba(236, 72, 153, 0.15);
 
-  --color-surface: #0f172a;
-  --color-surface-container: #1e293b;
-  --color-surface-container-low: #1a2332;
-  --color-surface-container-high: #334155;
-  --color-surface-container-highest: #3d4b5f;
-  --color-on-surface: #e1e2e4;
-  --color-on-surface-variant: #c3c5d9;
+  --color-secondary: #a78bfa;
+  --color-secondary-container: rgba(139, 92, 246, 0.15);
 
-  --color-outline: #8d90a1;
-  --color-outline-variant: #434656;
+  --color-surface: #0f0f23;
+  --color-surface-elevated: #1a1a2e;
+  --color-surface-container: #16162a;
+  --color-surface-container-low: #121226;
+  --color-surface-container-high: #1e1e36;
+  --color-on-surface: #e8e6f0;
+  --color-on-surface-variant: #9ca3af;
 
-  --color-error: #ffb4ab;
-  --color-error-container: #93000a;
-  --color-on-error: #690005;
+  --color-outline: #6b7280;
+  --color-outline-variant: #2d2d44;
 
-  --color-background: #0f172a;
-  --color-on-background: #e1e2e4;
+  --color-error: #f87171;
+  --color-error-container: rgba(239, 68, 68, 0.15);
+
+  --color-success: #34d399;
+  --color-success-container: rgba(16, 185, 129, 0.15);
+
+  --color-background: #0f0f23;
+  --color-on-background: #e8e6f0;
 }
 ```
+
+## 渐变
+
+```css
+--gradient-primary: linear-gradient(135deg, #6366f1 0%, #8b5cf6 50%, #ec4899 100%);
+--gradient-primary-subtle: linear-gradient(135deg, #eef2ff 0%, #f5f3ff 50%, #fdf2f8 100%);
+--gradient-hero: linear-gradient(135deg, #312e81 0%, #4c1d95 40%, #6d28d9 70%, #7c3aed 100%);
+--gradient-card: linear-gradient(
+  135deg,
+  rgba(99, 102, 241, 0.05) 0%,
+  rgba(139, 92, 246, 0.05) 100%
+);
+```
+
+## 毛玻璃效果
+
+```css
+--glass-bg: rgba(255, 255, 255, 0.7);
+--glass-border: rgba(255, 255, 255, 0.3);
+--glass-shadow: 0 8px 32px rgba(99, 102, 241, 0.08);
+```
+
+使用方式：添加 `.glass` 类或手动设置 `backdrop-filter: blur(12px)`。
 
 ## 字体
 
 ```css
-:root {
-  --font-body: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-  --font-mono: 'JetBrains Mono', 'Fira Code', monospace;
-}
+--font-heading: 'Space Grotesk', -apple-system, BlinkMacSystemFont, sans-serif;
+--font-body: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+--font-mono: 'JetBrains Mono', 'Fira Code', monospace;
 ```
+
+- **标题**: Space Grotesk，字重 600-700
+- **正文**: Inter，字重 400
+- **代码**: JetBrains Mono
 
 ### 字体大小
 
-| 用途 | 大小 | 行高 | 字重 |
-|------|------|------|------|
-| 正文 | 16px | 24px | 400 |
-| 标签 | 12px | 16px | 500 |
-| 标题（大） | 40px | 48px | 700 |
-| 标题（中） | 32px | 40px | 600 |
-| 标题（小） | 24px | 32px | 600 |
+| 用途       | 大小 | 行高 | 字重 |
+| ---------- | ---- | ---- | ---- |
+| 正文       | 16px | 24px | 400  |
+| 标签       | 12px | 16px | 500  |
+| 标题（大） | 48px | 56px | 700  |
+| 标题（中） | 32px | 40px | 700  |
+| 标题（小） | 24px | 32px | 600  |
 
-## 间距
+## 阴影
 
 ```css
-:root {
-  --space-unit: 8px;
-  --space-xs: 4px;    /* 0.5x */
-  --space-sm: 8px;    /* 1x */
-  --space-md: 16px;   /* 2x */
-  --space-lg: 24px;   /* 3x */
-  --space-xl: 32px;   /* 4x */
-  --space-2xl: 48px;  /* 6x */
-  --space-3xl: 64px;  /* 8x */
-}
+--shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.05);
+--shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.07), 0 2px 4px -2px rgba(0, 0, 0, 0.05);
+--shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.08), 0 4px 6px -4px rgba(0, 0, 0, 0.04);
+--shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.08), 0 8px 10px -6px rgba(0, 0, 0, 0.04);
+--shadow-glow: 0 0 20px rgba(99, 102, 241, 0.15);
 ```
 
 ## 圆角
 
 ```css
-:root {
-  --radius-sm: 4px;
-  --radius-md: 8px;
-  --radius-lg: 12px;
-  --radius-full: 9999px;
-}
+--radius-sm: 8px;
+--radius-md: 12px;
+--radius-lg: 16px;
+--radius-xl: 24px;
+--radius-full: 9999px;
 ```
+
+卡片统一使用 `rounded-2xl` (16px)，按钮使用 `rounded-xl` (12px)。
+
+## 动画
+
+```css
+@keyframes fadeIn { ... }
+@keyframes slideUp { ... }
+@keyframes shimmer { ... }
+@keyframes float { ... }
+```
+
+- 页面进入: `animate-slide-up` (0.5s ease-out)
+- 骨架屏: `animate-shimmer`
+- 装饰元素: `animate-float` (3s 循环)
+- 悬停过渡: `transition-all duration-200`
+
+## 组件规范
+
+### Header
+
+- 高度: 64px
+- 毛玻璃背景 + sticky 定位
+- Logo: 图标 + 渐变文字 "SVGShip"
+- 导航链接: hover 时背景变色
+
+### 文件输入区（FileDropzone）
+
+- 圆角: `rounded-2xl` (16px)
+- 虚线边框，2px
+- 拖拽激活时: 主色边框 + 发光阴影 + 图标放大
+- 图标: Lucide React `Upload`
+
+### 下载按钮
+
+- 渐变背景 (`--gradient-primary`)
+- hover: 上移 1px + 阴影加深
+- 图标: Lucide React `Download`
+
+### 工具页布局（ToolPageLayout）
+
+- 统一的 Header + 图标标题区 + 内容 + Footer 结构
+- 图标: 渐变背景圆角方块 + 白色 Lucide 图标
+- 结果卡片: 白色背景 + 边框 + 阴影
+
+### 模板卡片
+
+- 圆角: `rounded-2xl`
+- 渐变卡片背景
+- hover: 上移 4px + 阴影加深 + 图片微放大
+- 分类标签: 渐变背景 pill
+
+### Hero 区域
+
+- 渐变背景 (`--gradient-hero`)
+- 装饰性浮动圆形（radial-gradient + animate-float）
+- 波浪分隔线（SVG path）
+- 徽章标签: 毛玻璃 pill
+- CTA 按钮: 毛玻璃 + 白色实心两种
+
+## 图标
+
+使用 **Lucide React** 图标库：
+
+- 统一 stroke 风格
+- 默认大小: 20px (h-5 w-5)
+- 工具页图标: 24px (h-6 w-6)
 
 ## 响应式断点
 
 ```css
 /* 桌面优先 */
-@media (max-width: 1024px) { /* 平板 */ }
-@media (max-width: 768px)  { /* 大手机 */ }
-@media (max-width: 640px)  { /* 手机 */ }
+@media (max-width: 1024px) {
+  /* 平板 */
+}
+@media (max-width: 768px) {
+  /* 大手机 */
+}
+@media (max-width: 640px) {
+  /* 手机 */
+}
 ```
 
 ### 布局规范
 
-| 元素 | 桌面 | 平板 | 手机 |
-|------|------|------|------|
-| 容器最大宽度 | 1280px | 100% | 100% |
-| 内边距 | 48px | 32px | 16px |
-| 模板网格 | 4 列 | 2 列 | 1 列 |
-| 工具页面 | 双栏 | 双栏 | 单栏 |
-
-## 组件规范
-
-### 文件输入区（FileDropzone）
-
-- 虚线边框，2px，颜色：--color-outline-variant
-- 内边距：48px
-- 居中图标 + 文案
-- 拖拽时边框变为实线，颜色：--color-primary
-- 支持点击选择和拖拽
-- 最小触摸目标：44px
-
-### 按钮
-
-**主按钮：**
-- 背景：--color-primary
-- 文字：--color-on-primary
-- 内边距：12px 24px
-- 圆角：--radius-md
-- 悬停：背景变亮 10%
-
-**次按钮：**
-- 背景：透明
-- 边框：1px solid --color-outline
-- 文字：--color-primary
-- 悬停：背景 --color-primary-container 10% 透明度
-
-### 模板卡片
-
-- 背景：--color-surface-container-low
-- 圆角：--radius-lg
-- 内边距：16px
-- SVG 预览图（16:9 或 1:1 比例）
-- 标题（16px，600 字重）
-- 分类标签（12px，--color-primary）
-- 下载按钮（次按钮样式）
-- 悬停：阴影 + 微微上移
-
-### 导航栏
-
-- 高度：64px
-- 背景：--color-surface
-- 底部边框：1px solid --color-outline-variant
-- Logo 左对齐
-- 导航项右对齐
-- 当前页面：--color-primary，底部 2px 指示条
-
-### 处理进度
-
-- 线性进度条（不确定状态用动画）
-- 百分比文字（如果可计算）
-- 处理中禁用操作按钮
+| 元素         | 桌面     | 平板     | 手机 |
+| ------------ | -------- | -------- | ---- |
+| 容器最大宽度 | 1280px   | 100%     | 100% |
+| 内边距       | 48px     | 32px     | 16px |
+| 模板网格     | 4 列     | 2 列     | 1 列 |
+| 工具页面     | 单栏居中 | 单栏居中 | 单栏 |
 
 ## 无障碍规范
 
-### 键盘导航
-
-- Tab 顺序：从上到下，从左到右
-- Enter：激活按钮和链接
-- Escape：关闭模态框和下拉菜单
-- 焦点样式：2px solid --color-primary，2px 偏移
-
-### ARIA 标签
-
-- 文件输入：`aria-label="上传 SVG 文件"`
-- 下载按钮：`aria-label="下载优化后的文件"`
-- 语言切换：`aria-label="切换语言"`
-- 模板卡片：`role="article"`，标题作为 `aria-label`
-
 ### 对比度
 
-- 正文文字：最低 4.5:1 对比度
-- 大文字（18px+）：最低 3:1 对比度
-- 交互元素：最低 3:1 对比度
+- 正文文字: 最低 4.5:1
+- 大文字 (18px+): 最低 3:1
+- 交互元素: 最低 3:1
 
 ### 触摸目标
 
-- 所有可点击元素：最小 44px × 44px
-- 按钮内边距确保足够点击区域
+- 所有可点击元素: 最小 44px × 44px
 
-## 暗色模式
+### 键盘导航
 
-- 使用 `.dark` 类切换
-- 所有颜色使用 CSS 变量，自动适配
-- 图片和 SVG 预览不需要特殊处理
-- 代码块使用 --color-surface-container
-
-## 图标
-
-- 使用 Material Symbols Outlined
-- 大小：24px 默认
-- 颜色：--color-on-surface-variant
-- 交互状态：悬停变为 --color-primary
-
-## 动画
-
-- 过渡时间：200ms（快速），300ms（标准），500ms（缓慢）
-- 缓动函数：ease-in-out
-- 避免过度动画，只在有意义的地方使用
-- 加载动画：骨架屏或 spinner
-
-## 空状态设计
-
-每个空状态包含：
-1. 插图（简洁、相关）
-2. 引导文案（说明当前状态）
-3. 主操作按钮（引导用户下一步）
-
-示例：
-- 模板浏览无结果：插图 + "没有找到匹配的模板" + "查看全部模板"按钮
-- 文件输入区：图标 + "拖拽 SVG 文件到这里" + "或点击选择文件"
-
-## 错误状态设计
-
-每个错误包含：
-1. 错误图标（红色）
-2. 具体错误信息（说明发生了什么）
-3. 建议操作（告诉用户怎么解决）
-
-示例：
-- 格式不支持："不支持的文件格式。请上传 SVG 或 PNG 文件。"
-- 文件过大："文件超过 10MB 限制。请压缩后重试。"
-- 处理失败："SVG 优化失败。文件可能已损坏。"
+- Tab 顺序: 从上到下
+- Enter: 激活按钮和链接
+- 焦点样式: 2px solid --color-primary

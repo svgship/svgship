@@ -47,3 +47,4 @@ next-env.d.ts
 SVGShip.html
 exported_image_optimized.svg
 logo.png
+.gstack/

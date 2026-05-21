@@ -6,9 +6,11 @@ import { Header } from '@/components/layout/Header';
 import { Footer } from '@/components/layout/Footer';
 import { DownloadButton } from '@/components/ui/DownloadButton';
 import { useState, useEffect } from 'react';
+import { ArrowLeft } from 'lucide-react';
+import Link from 'next/link';
 
 export default function TemplatePageClient({ template }: { template: Template }) {
-  const { t } = useI18n();
+  const { t, locale } = useI18n();
   const [svgData, setSvgData] = useState<string>('');
 
   useEffect(() => {
@@ -22,54 +24,82 @@ export default function TemplatePageClient({ template }: { template: Template })
     <>
       <Header />
       <main className="flex flex-1 flex-col items-center px-4 py-12">
-        <div className="w-full max-w-2xl">
+        <div className="animate-slide-up w-full max-w-3xl">
+          {/* Back link */}
+          <Link
+            href={`/${locale}/templates`}
+            className="mb-6 inline-flex items-center gap-2 text-sm font-medium transition-colors"
+            style={{ color: 'var(--color-on-surface-variant)' }}
+            onMouseEnter={(e) => {
+              e.currentTarget.style.color = 'var(--color-primary)';
+            }}
+            onMouseLeave={(e) => {
+              e.currentTarget.style.color = 'var(--color-on-surface-variant)';
+            }}
+          >
+            <ArrowLeft className="h-4 w-4" />
+            {t('templates.title')}
+          </Link>
+
+          {/* Preview */}
           <div
-            className="flex aspect-square items-center justify-center rounded-xl p-8"
-            style={{ background: 'var(--color-surface-container-low)' }}
+            className="flex aspect-square items-center justify-center rounded-3xl p-10"
+            style={{
+              background: 'var(--gradient-card)',
+              border: '1px solid var(--color-outline-variant)',
+              boxShadow: 'var(--shadow-lg)',
+            }}
           >
             <img
               src={template.file}
               alt={template.name}
-              className="max-h-full max-w-full object-contain"
+              className="max-h-full max-w-full object-contain drop-shadow-md"
             />
           </div>
 
-          <h1 className="mt-6 text-2xl font-bold" style={{ color: 'var(--color-on-surface)' }}>
-            {template.name}
-          </h1>
+          {/* Info */}
+          <div className="mt-8">
+            <h1
+              className="text-3xl font-bold tracking-tight"
+              style={{ color: 'var(--color-on-surface)', fontFamily: 'var(--font-heading)' }}
+            >
+              {template.name}
+            </h1>
 
-          <span
-            className="mt-2 inline-block rounded-full px-3 py-1 text-sm"
-            style={{
-              background: 'var(--color-primary-container)',
-              color: 'var(--color-on-primary-container)',
-            }}
-          >
-            {t(`templates.${template.category}`)}
-          </span>
-
-          <div className="mt-6 flex flex-wrap gap-2">
-            {template.tags.map((tag) => (
+            <div className="mt-4 flex flex-wrap items-center gap-3">
               <span
-                key={tag}
-                className="rounded-full px-2 py-1 text-xs"
+                className="inline-block rounded-full px-4 py-1.5 text-sm font-medium"
                 style={{
-                  background: 'var(--color-surface-container)',
-                  color: 'var(--color-on-surface-variant)',
+                  background: 'var(--gradient-primary)',
+                  color: 'white',
                 }}
               >
-                {tag}
+                {t(`templates.${template.category}`)}
               </span>
-            ))}
-          </div>
 
-          {svgData && (
-            <div className="mt-6">
-              <DownloadButton data={svgData} filename={`${template.slug}.svg`}>
-                {t('templates.download')}
-              </DownloadButton>
+              {template.tags.map((tag) => (
+                <span
+                  key={tag}
+                  className="rounded-full px-3 py-1 text-xs font-medium"
+                  style={{
+                    background: 'var(--color-surface-container)',
+                    color: 'var(--color-on-surface-variant)',
+                    border: '1px solid var(--color-outline-variant)',
+                  }}
+                >
+                  {tag}
+                </span>
+              ))}
             </div>
-          )}
+
+            {svgData && (
+              <div className="mt-8">
+                <DownloadButton data={svgData} filename={`${template.slug}.svg`}>
+                  {t('templates.download')}
+                </DownloadButton>
+              </div>
+            )}
+          </div>
         </div>
       </main>
       <Footer />
