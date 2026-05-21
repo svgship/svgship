@@ -1,4 +1,4 @@
-import { optimize as svgoOptimize } from 'svgo';
+import { optimize as svgoOptimize } from 'svgo/browser';
 import DOMPurify from 'dompurify';
 
 export function sanitizeSvg(svg: string): string {
