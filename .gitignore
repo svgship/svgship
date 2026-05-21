@@ -24,6 +24,9 @@
 .DS_Store
 *.pem
 
+# omc
+.omc/
+
 # debug
 npm-debug.log*
 yarn-debug.log*
@@ -39,3 +42,8 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# design references (not source code)
+SVGShip.html
+exported_image_optimized.svg
+logo.png
