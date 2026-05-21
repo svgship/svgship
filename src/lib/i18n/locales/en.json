@@ -1,0 +1,103 @@
+{
+  "common": {
+    "appName": "SVGShip",
+    "tagline": "Free SVG Tools & Templates for Cricut",
+    "download": "Download",
+    "upload": "Upload",
+    "cancel": "Cancel",
+    "retry": "Retry",
+    "loading": "Loading...",
+    "error": "Error",
+    "success": "Success"
+  },
+  "nav": {
+    "home": "Home",
+    "tools": "Tools",
+    "templates": "Templates",
+    "optimize": "SVG Optimizer",
+    "pngToSvg": "PNG to SVG",
+    "svgToPng": "SVG to PNG",
+    "backgroundRemove": "Background Remover",
+    "language": "Language"
+  },
+  "hero": {
+    "title": "Free SVG Templates & Tools",
+    "subtitle": "Download free SVG files for Cricut. Optimize, convert, and edit SVGs — all in your browser.",
+    "browseTemplates": "Browse Templates",
+    "tryTools": "Try Our Tools"
+  },
+  "tools": {
+    "optimize": {
+      "title": "SVG Optimizer",
+      "description": "Compress SVG files by removing metadata, optimizing paths, and reducing decimal precision.",
+      "uploadHint": "Drop SVG file here",
+      "uploadSubtext": "or click to select",
+      "processing": "Optimizing...",
+      "result": "Optimized! {saved}% smaller",
+      "download": "Download Optimized SVG"
+    },
+    "pngToSvg": {
+      "title": "PNG to SVG Converter",
+      "description": "Convert raster images to scalable SVG vectors using Potrace algorithm.",
+      "uploadHint": "Drop PNG/JPG file here",
+      "uploadSubtext": "or click to select",
+      "processing": "Converting...",
+      "result": "Conversion complete!",
+      "download": "Download SVG"
+    },
+    "svgToPng": {
+      "title": "SVG to PNG Converter",
+      "description": "Render SVG files as PNG images with custom dimensions.",
+      "uploadHint": "Drop SVG file here",
+      "uploadSubtext": "or click to select",
+      "processing": "Rendering...",
+      "result": "Render complete!",
+      "download": "Download PNG"
+    },
+    "backgroundRemove": {
+      "title": "Background Remover",
+      "description": "Remove solid-color backgrounds from SVG files.",
+      "uploadHint": "Drop SVG file here",
+      "uploadSubtext": "or click to select",
+      "processing": "Processing...",
+      "result": "Background removed!",
+      "download": "Download SVG"
+    }
+  },
+  "dropzone": {
+    "dragActive": "Drop file here",
+    "dragInactive": "Drop file here or click to browse",
+    "fileTypeHint": "Supported: {types}",
+    "sizeLimit": "Max file size: {size}MB"
+  },
+  "errors": {
+    "invalidFormat": "Unsupported file format. Please upload {expected} files.",
+    "fileTooLarge": "File exceeds {maxSize}MB limit. Please compress and try again.",
+    "processFailed": "Processing failed. The file may be corrupted.",
+    "unsafeContent": "File contains unsafe content (scripts or external references).",
+    "generic": "Something went wrong. Please try again."
+  },
+  "templates": {
+    "title": "Free SVG Templates",
+    "subtitle": "Download free SVG files for your Cricut cutting machine",
+    "search": "Search templates...",
+    "allCategories": "All",
+    "holidays": "Holidays",
+    "animals": "Animals",
+    "letters": "Letters",
+    "noResults": "No templates found",
+    "noResultsHint": "Try a different search term or category",
+    "download": "Download SVG"
+  },
+  "footer": {
+    "description": "Free browser-based SVG tools for Cricut crafters and designers.",
+    "tools": "Tools",
+    "resources": "Resources",
+    "templates": "Templates",
+    "blog": "Blog",
+    "about": "About",
+    "privacy": "Privacy",
+    "terms": "Terms",
+    "copyright": "© {year} SVGShip. All rights reserved."
+  }
+}

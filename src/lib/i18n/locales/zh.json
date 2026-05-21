@@ -1,0 +1,103 @@
+{
+  "common": {
+    "appName": "SVGShip",
+    "tagline": "免费 SVG 工具和模板，为 Cricut 而生",
+    "download": "下载",
+    "upload": "上传",
+    "cancel": "取消",
+    "retry": "重试",
+    "loading": "加载中...",
+    "error": "错误",
+    "success": "成功"
+  },
+  "nav": {
+    "home": "首页",
+    "tools": "工具",
+    "templates": "模板",
+    "optimize": "SVG 优化器",
+    "pngToSvg": "PNG 转 SVG",
+    "svgToPng": "SVG 转 PNG",
+    "backgroundRemove": "背景移除",
+    "language": "语言"
+  },
+  "hero": {
+    "title": "免费 SVG 模板和工具",
+    "subtitle": "下载免费 SVG 文件用于 Cricut。优化、转换、编辑 SVG — 全部在浏览器中完成。",
+    "browseTemplates": "浏览模板",
+    "tryTools": "试试我们的工具"
+  },
+  "tools": {
+    "optimize": {
+      "title": "SVG 优化器",
+      "description": "通过移除元数据、优化路径和减少小数位来压缩 SVG 文件。",
+      "uploadHint": "拖入 SVG 文件",
+      "uploadSubtext": "或点击选择文件",
+      "processing": "优化中...",
+      "result": "优化完成！体积减少 {saved}%",
+      "download": "下载优化后的 SVG"
+    },
+    "pngToSvg": {
+      "title": "PNG 转 SVG 转换器",
+      "description": "使用 Potrace 算法将光栅图片转换为可缩放的 SVG 矢量图。",
+      "uploadHint": "拖入 PNG/JPG 文件",
+      "uploadSubtext": "或点击选择文件",
+      "processing": "转换中...",
+      "result": "转换完成！",
+      "download": "下载 SVG"
+    },
+    "svgToPng": {
+      "title": "SVG 转 PNG 转换器",
+      "description": "将 SVG 文件渲染为自定义尺寸的 PNG 图片。",
+      "uploadHint": "拖入 SVG 文件",
+      "uploadSubtext": "或点击选择文件",
+      "processing": "渲染中...",
+      "result": "渲染完成！",
+      "download": "下载 PNG"
+    },
+    "backgroundRemove": {
+      "title": "背景移除工具",
+      "description": "移除 SVG 文件中的纯色背景。",
+      "uploadHint": "拖入 SVG 文件",
+      "uploadSubtext": "或点击选择文件",
+      "processing": "处理中...",
+      "result": "背景已移除！",
+      "download": "下载 SVG"
+    }
+  },
+  "dropzone": {
+    "dragActive": "释放文件到这里",
+    "dragInactive": "拖拽文件到这里，或点击选择",
+    "fileTypeHint": "支持格式：{types}",
+    "sizeLimit": "最大文件大小：{size}MB"
+  },
+  "errors": {
+    "invalidFormat": "不支持的文件格式。请上传 {expected} 文件。",
+    "fileTooLarge": "文件超过 {maxSize}MB 限制。请压缩后重试。",
+    "processFailed": "处理失败。文件可能已损坏。",
+    "unsafeContent": "文件包含不安全内容（脚本或外部引用）。",
+    "generic": "出了点问题，请重试。"
+  },
+  "templates": {
+    "title": "免费 SVG 模板",
+    "subtitle": "下载免费 SVG 文件用于 Cricut 切割机",
+    "search": "搜索模板...",
+    "allCategories": "全部",
+    "holidays": "节日",
+    "animals": "动物",
+    "letters": "字母",
+    "noResults": "没有找到模板",
+    "noResultsHint": "试试其他搜索词或分类",
+    "download": "下载 SVG"
+  },
+  "footer": {
+    "description": "免费浏览器端 SVG 工具，为 Cricut 手工爱好者和设计师打造。",
+    "tools": "工具",
+    "resources": "资源",
+    "templates": "模板",
+    "blog": "博客",
+    "about": "关于",
+    "privacy": "隐私",
+    "terms": "条款",
+    "copyright": "© {year} SVGShip. 保留所有权利。"
+  }
+}
