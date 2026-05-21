@@ -1,6 +1,7 @@
 'use client';
 
 import { createContext, useContext, useState, useCallback, type ReactNode } from 'react';
+import { useRouter, usePathname } from 'next/navigation';
 import type { Locale, TranslationDictionary } from '@/types';
 import en from './locales/en.json';
 import zh from './locales/zh.json';
@@ -33,7 +34,20 @@ export function I18nProvider({
   children: ReactNode;
   defaultLocale?: Locale;
 }) {
-  const [locale, setLocale] = useState<Locale>(defaultLocale);
+  const router = useRouter();
+  const pathname = usePathname();
+  const [locale, setLocaleState] = useState<Locale>(defaultLocale);
+
+  const setLocale = useCallback(
+    (newLocale: Locale) => {
+      setLocaleState(newLocale);
+      // Replace the locale segment in the URL
+      const segments = pathname.split('/');
+      segments[1] = newLocale;
+      router.push(segments.join('/'));
+    },
+    [pathname, router]
+  );
 
   const t = useCallback(
     (key: string, params?: Record<string, string | number>): string => {

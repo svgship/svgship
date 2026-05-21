@@ -7,6 +7,13 @@ export function generateStaticParams() {
   return locales.map((locale) => ({ locale }));
 }
 
-export default function LocaleLayout({ children }: { children: React.ReactNode }) {
-  return <I18nProvider defaultLocale="en">{children}</I18nProvider>;
+export default async function LocaleLayout({
+  children,
+  params,
+}: {
+  children: React.ReactNode;
+  params: Promise<{ locale: string }>;
+}) {
+  const { locale } = await params;
+  return <I18nProvider defaultLocale={locale as Locale}>{children}</I18nProvider>;
 }
