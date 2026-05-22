@@ -8,21 +8,34 @@ import { DownloadButton } from '@/components/ui/DownloadButton';
 import { ToolPageLayout } from '@/components/ui/ToolPageLayout';
 import { Download as DownloadIcon, CheckCircle } from 'lucide-react';
 
+const SCALE_OPTIONS = [
+  { value: 1, label: '1x' },
+  { value: 2, label: '2x' },
+  { value: 3, label: '3x' },
+  { value: 4, label: '4x' },
+];
+
 export default function SvgToPngPage() {
   const { t } = useI18n();
   const [result, setResult] = useState<string | null>(null);
   const [error, setError] = useState<string | null>(null);
   const [processing, setProcessing] = useState(false);
+  const [scale, setScale] = useState(2);
+  const [background, setBackground] = useState('');
+  const [svgContent, setSvgContent] = useState<string | null>(null);
+  const [fileName, setFileName] = useState('converted.png');
 
-  const handleFile = useCallback(
-    async (file: File) => {
+  const handleConvert = useCallback(
+    async (svg: string, name?: string) => {
       setError(null);
       setResult(null);
       setProcessing(true);
 
       try {
-        const text = await file.text();
-        const converted = await svgToPng(text);
+        const converted = await svgToPng(svg, {
+          scale,
+          background: background || undefined,
+        });
 
         if (!converted.success) {
           setError(converted.error ?? t('errors.processFailed'));
@@ -30,14 +43,32 @@ export default function SvgToPngPage() {
         }
 
         setResult(converted.data!);
+        if (name) {
+          setFileName(name.replace(/\.svg$/i, '.png'));
+        }
       } catch {
         setError(t('errors.generic'));
       } finally {
         setProcessing(false);
       }
     },
-    [t]
+    [scale, background, t]
   );
+
+  const handleFile = useCallback(
+    async (file: File) => {
+      const text = await file.text();
+      setSvgContent(text);
+      await handleConvert(text, file.name);
+    },
+    [handleConvert]
+  );
+
+  const handleReconvert = useCallback(async () => {
+    if (svgContent) {
+      await handleConvert(svgContent);
+    }
+  }, [svgContent, handleConvert]);
 
   return (
     <ToolPageLayout
@@ -52,6 +83,112 @@ export default function SvgToPngPage() {
         sublabel={t('tools.svgToPng.uploadSubtext')}
         error={error}
       />
+
+      {/* Options */}
+      <div className="mt-4 flex flex-wrap items-center gap-4">
+        <div className="flex items-center gap-2">
+          <span
+            className="text-sm font-medium"
+            style={{ color: 'var(--color-on-surface-variant)' }}
+          >
+            {t('tools.svgToPng.scale')}
+          </span>
+          <div className="flex gap-1">
+            {SCALE_OPTIONS.map((opt) => (
+              <button
+                key={opt.value}
+                onClick={() => setScale(opt.value)}
+                className="rounded-lg px-3 py-1.5 text-sm font-medium transition-all duration-200"
+                style={{
+                  background:
+                    scale === opt.value ? 'var(--color-primary)' : 'var(--color-surface-container)',
+                  color:
+                    scale === opt.value
+                      ? 'var(--color-on-primary)'
+                      : 'var(--color-on-surface-variant)',
+                  border: `1px solid ${scale === opt.value ? 'var(--color-primary)' : 'var(--color-outline-variant)'}`,
+                }}
+              >
+                {opt.label}
+              </button>
+            ))}
+          </div>
+        </div>
+
+        <div className="flex items-center gap-2">
+          <span
+            className="text-sm font-medium"
+            style={{ color: 'var(--color-on-surface-variant)' }}
+          >
+            {t('tools.svgToPng.background')}
+          </span>
+          <div className="flex items-center gap-1.5">
+            <button
+              onClick={() => setBackground('')}
+              className="rounded-lg px-3 py-1.5 text-sm font-medium transition-all duration-200"
+              style={{
+                background: !background ? 'var(--color-primary)' : 'var(--color-surface-container)',
+                color: !background ? 'var(--color-on-primary)' : 'var(--color-on-surface-variant)',
+                border: `1px solid ${!background ? 'var(--color-primary)' : 'var(--color-outline-variant)'}`,
+              }}
+            >
+              {t('tools.svgToPng.transparent')}
+            </button>
+            <button
+              onClick={() => setBackground('#ffffff')}
+              className="rounded-lg px-3 py-1.5 text-sm font-medium transition-all duration-200"
+              style={{
+                background:
+                  background === '#ffffff'
+                    ? 'var(--color-primary)'
+                    : 'var(--color-surface-container)',
+                color:
+                  background === '#ffffff'
+                    ? 'var(--color-on-primary)'
+                    : 'var(--color-on-surface-variant)',
+                border: `1px solid ${background === '#ffffff' ? 'var(--color-primary)' : 'var(--color-outline-variant)'}`,
+              }}
+            >
+              {t('tools.svgToPng.white')}
+            </button>
+            <button
+              onClick={() => setBackground('#000000')}
+              className="rounded-lg px-3 py-1.5 text-sm font-medium transition-all duration-200"
+              style={{
+                background:
+                  background === '#000000'
+                    ? 'var(--color-primary)'
+                    : 'var(--color-surface-container)',
+                color:
+                  background === '#000000'
+                    ? 'var(--color-on-primary)'
+                    : 'var(--color-on-surface-variant)',
+                border: `1px solid ${background === '#000000' ? 'var(--color-primary)' : 'var(--color-outline-variant)'}`,
+              }}
+            >
+              {t('tools.svgToPng.black')}
+            </button>
+          </div>
+        </div>
+      </div>
+
+      {svgContent && (
+        <div className="mt-3">
+          <button
+            onClick={handleReconvert}
+            disabled={processing}
+            className="rounded-xl px-4 py-2 text-sm font-medium transition-all duration-200"
+            style={{
+              background: 'var(--color-primary-container)',
+              color: 'var(--color-primary)',
+              border: '1px solid var(--color-primary)',
+              opacity: processing ? 0.5 : 1,
+            }}
+          >
+            {t('tools.svgToPng.reconvert')}
+          </button>
+        </div>
+      )}
 
       {processing && (
         <div className="mt-6 flex items-center justify-center gap-3">
@@ -97,7 +234,7 @@ export default function SvgToPngPage() {
           />
 
           <div className="mt-5">
-            <DownloadButton data={result} filename="converted.png" mimeType="image/png">
+            <DownloadButton data={result} filename={fileName} mimeType="image/png">
               {t('tools.svgToPng.download')}
             </DownloadButton>
           </div>

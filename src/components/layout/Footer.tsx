@@ -53,7 +53,7 @@ export function Footer() {
           <nav className="mt-4 flex flex-col gap-3">
             {[
               { href: '/tools/optimize', label: t('nav.optimize') },
-              { href: '/tools/png-to-svg', label: t('nav.pngToSvg') },
+              // { href: '/tools/png-to-svg', label: t('nav.pngToSvg') },
               { href: '/tools/svg-to-png', label: t('nav.svgToPng') },
               { href: '/tools/background-remove', label: t('nav.backgroundRemove') },
             ].map((item) => (

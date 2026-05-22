@@ -47,12 +47,18 @@
     },
     "svgToPng": {
       "title": "SVG to PNG Converter",
-      "description": "Render SVG files as PNG images with custom dimensions.",
+      "description": "Render SVG files as high-quality PNG images with custom scale and background.",
       "uploadHint": "Drop SVG file here",
       "uploadSubtext": "or click to select",
       "processing": "Rendering...",
       "result": "Render complete!",
-      "download": "Download PNG"
+      "download": "Download PNG",
+      "scale": "Scale",
+      "background": "Background",
+      "transparent": "Transparent",
+      "white": "White",
+      "black": "Black",
+      "reconvert": "Re-render"
     },
     "backgroundRemove": {
       "title": "Background Remover",

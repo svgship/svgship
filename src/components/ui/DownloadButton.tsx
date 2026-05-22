@@ -25,8 +25,15 @@ export function DownloadButton({
       ? (() => {
           const [header, content] = data.split(',');
           const isBase64 = header.includes('base64');
-          const bytes = isBase64 ? atob(content) : decodeURIComponent(content);
-          return new Blob([bytes], { type: mimeType });
+          if (isBase64) {
+            const binary = atob(content);
+            const bytes = new Uint8Array(binary.length);
+            for (let i = 0; i < binary.length; i++) {
+              bytes[i] = binary.charCodeAt(i);
+            }
+            return new Blob([bytes], { type: mimeType });
+          }
+          return new Blob([decodeURIComponent(content)], { type: mimeType });
         })()
       : new Blob([data], { type: mimeType });
 

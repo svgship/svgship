@@ -162,24 +162,25 @@ export default function Home() {
                 <Link
                   key={tool.key}
                   href={`/${locale}${tool.href}`}
-                  className="group relative overflow-hidden rounded-2xl p-6 transition-all duration-300"
-                  style={{
-                    background: 'var(--color-surface)',
-                    border: '1px solid var(--color-outline-variant)',
-                    boxShadow: 'var(--shadow-sm)',
-                    animationDelay: `${i * 80}ms`,
-                  }}
+                  className="glass-card group relative overflow-hidden p-6 transition-all duration-300"
+                  style={{ animationDelay: `${i * 80}ms` }}
                   onMouseEnter={(e) => {
                     e.currentTarget.style.transform = 'translateY(-4px)';
-                    e.currentTarget.style.boxShadow = 'var(--shadow-xl)';
-                    e.currentTarget.style.borderColor = tool.color;
+                    e.currentTarget.style.boxShadow = `var(--shadow-xl), 0 0 30px ${tool.color}20`;
+                    e.currentTarget.style.borderColor = `${tool.color}40`;
                   }}
                   onMouseLeave={(e) => {
                     e.currentTarget.style.transform = 'translateY(0)';
-                    e.currentTarget.style.boxShadow = 'var(--shadow-sm)';
-                    e.currentTarget.style.borderColor = 'var(--color-outline-variant)';
+                    e.currentTarget.style.boxShadow = 'var(--glass-shadow)';
+                    e.currentTarget.style.borderColor = 'var(--glass-border)';
                   }}
                 >
+                  {/* Gradient accent line */}
+                  <div
+                    className="absolute top-0 left-0 h-1 w-full opacity-0 transition-opacity duration-300 group-hover:opacity-100"
+                    style={{ background: `linear-gradient(90deg, ${tool.color}, transparent)` }}
+                  />
+
                   <div
                     className="flex h-12 w-12 items-center justify-center rounded-xl transition-transform duration-300 group-hover:scale-110"
                     style={{ background: `${tool.color}15` }}
@@ -243,20 +244,15 @@ export default function Home() {
                 <Link
                   key={template.id}
                   href={`/${locale}/templates/${template.slug}`}
-                  className="group overflow-hidden rounded-2xl transition-all duration-300"
-                  style={{
-                    background: 'var(--color-surface)',
-                    border: '1px solid var(--color-outline-variant)',
-                    boxShadow: 'var(--shadow-sm)',
-                    animationDelay: `${i * 60}ms`,
-                  }}
+                  className="glass-card group overflow-hidden transition-all duration-300"
+                  style={{ animationDelay: `${i * 60}ms` }}
                   onMouseEnter={(e) => {
                     e.currentTarget.style.transform = 'translateY(-4px)';
-                    e.currentTarget.style.boxShadow = 'var(--shadow-xl)';
+                    e.currentTarget.style.boxShadow = 'var(--shadow-xl), var(--shadow-glow)';
                   }}
                   onMouseLeave={(e) => {
                     e.currentTarget.style.transform = 'translateY(0)';
-                    e.currentTarget.style.boxShadow = 'var(--shadow-sm)';
+                    e.currentTarget.style.boxShadow = 'var(--glass-shadow)';
                   }}
                 >
                   <div

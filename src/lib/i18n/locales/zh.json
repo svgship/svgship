@@ -47,12 +47,18 @@
     },
     "svgToPng": {
       "title": "SVG 转 PNG 转换器",
-      "description": "将 SVG 文件渲染为自定义尺寸的 PNG 图片。",
+      "description": "将 SVG 文件渲染为高质量 PNG 图片，支持自定义缩放和背景色。",
       "uploadHint": "拖入 SVG 文件",
       "uploadSubtext": "或点击选择文件",
       "processing": "渲染中...",
       "result": "渲染完成！",
-      "download": "下载 PNG"
+      "download": "下载 PNG",
+      "scale": "缩放倍数",
+      "background": "背景",
+      "transparent": "透明",
+      "white": "白色",
+      "black": "黑色",
+      "reconvert": "重新渲染"
     },
     "backgroundRemove": {
       "title": "背景移除工具",
