@@ -34,5 +34,22 @@
     "about": "关于",
     "contact": "联系我们",
     "copyright": "© {year} SVGShip. 保留所有权利。"
+  },
+  "about": {
+    "title": "关于 SVGShip",
+    "subtitle": "一站式 SVG 资源导航站，帮助设计师和开发者快速找到所需资源。",
+    "missionTitle": "我们的使命",
+    "missionText": "SVGShip 从互联网上精选最优质的 SVG 资源，汇聚到一个地方。我们相信好的设计工具应该容易找到。无论你在寻找图标库、矢量插画、动画工具还是学习资源，这里都能满足你。",
+    "whatWeOfferTitle": "我们提供什么",
+    "offerIcons": "图标库",
+    "offerIconsDesc": "高质量 SVG 图标库，覆盖线性、面性、彩色、3D 等多种风格。",
+    "offerIllustrations": "插画与背景",
+    "offerIllustrationsDesc": "矢量插画、背景生成器和纹理素材，适用于网页和产品设计。",
+    "offerTools": "工具",
+    "offerToolsDesc": "SVG 编辑器、动画制作、优化压缩和格式转换工具。",
+    "offerTutorials": "教程与灵感",
+    "offerTutorialsDesc": "SVG 基础入门、动画进阶指南和社区创意灵感。",
+    "contactTitle": "联系我们",
+    "contactText": "有资源推荐？发现链接失效？欢迎联系我们。"
   }
 }

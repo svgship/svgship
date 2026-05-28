@@ -34,5 +34,22 @@
     "about": "About",
     "contact": "Contact",
     "copyright": "© {year} SVGShip. All rights reserved."
+  },
+  "about": {
+    "title": "About SVGShip",
+    "subtitle": "A one-stop navigation site for SVG resources, helping designers and developers find what they need quickly.",
+    "missionTitle": "Our Mission",
+    "missionText": "SVGShip curates the best SVG resources from across the web into one place. We believe great design tools should be easy to find. Whether you're looking for icon libraries, vector illustrations, animation tools, or learning resources — we've got you covered.",
+    "whatWeOfferTitle": "What We Offer",
+    "offerIcons": "Icon Libraries",
+    "offerIconsDesc": "High-quality SVG icon libraries in linear, filled, colorful, 3D and more styles.",
+    "offerIllustrations": "Illustrations & Backgrounds",
+    "offerIllustrationsDesc": "Vector illustrations, background generators, and textures for web and product design.",
+    "offerTools": "Tools",
+    "offerToolsDesc": "SVG editors, animators, optimizers, and converters for your workflow.",
+    "offerTutorials": "Tutorials & Inspiration",
+    "offerTutorialsDesc": "SVG basics, animation guides, and creative inspiration from the community.",
+    "contactTitle": "Get in Touch",
+    "contactText": "Have a suggestion for a resource to add? Found a broken link? We'd love to hear from you."
   }
 }
