@@ -35,6 +35,11 @@ export const metadata: Metadata = {
     'free icons',
     'design resources',
   ],
+  icons: {
+    icon: '/favicon.ico',
+    shortcut: '/favicon.ico',
+    apple: '/logo.svg',
+  },
 };
 
 export default async function RootLayout({
