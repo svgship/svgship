@@ -1,25 +1,24 @@
-export interface Template {
+export type CategorySlug = 'icons' | 'illustrations' | 'vectors' | 'animations';
+
+export interface SvgSite {
   id: string;
   name: string;
-  category: TemplateCategory;
-  tags: string[];
-  slug: string;
-  file: string;
-  seo: {
-    title: string;
-    description: string;
-    keywords: string[];
+  url: string;
+  description: {
+    zh: string;
+    en: string;
   };
+  logo?: string;
+  category: CategorySlug;
+  tags?: string[];
+  featured?: boolean;
 }
 
-export type TemplateCategory = 'holidays' | 'animals' | 'letters';
-
-export interface SvgProcessResult {
-  success: boolean;
-  data?: string;
-  error?: string;
-  originalSize?: number;
-  optimizedSize?: number;
+export interface Category {
+  slug: CategorySlug;
+  name: { zh: string; en: string };
+  description: { zh: string; en: string };
+  icon: string;
 }
 
 export type Locale = 'en' | 'zh';

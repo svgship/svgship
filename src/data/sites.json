@@ -1,0 +1,183 @@
+[
+  {
+    "id": "svgrepo",
+    "name": "SVGRepo",
+    "url": "https://www.svgrepo.com",
+    "description": {
+      "zh": "超过 50 万个免费 SVG 图标和插画，支持在线编辑和批量下载",
+      "en": "500K+ free SVG icons and illustrations with online editing and bulk download"
+    },
+    "category": "icons",
+    "tags": ["免费", "开源"],
+    "featured": true
+  },
+  {
+    "id": "lucide",
+    "name": "Lucide",
+    "url": "https://lucide.dev",
+    "description": {
+      "zh": "简洁美观的开源图标库，提供 1500+ SVG 图标，支持主流框架",
+      "en": "Beautiful open-source icon library with 1500+ SVG icons for popular frameworks"
+    },
+    "category": "icons",
+    "tags": ["免费", "开源"],
+    "featured": true
+  },
+  {
+    "id": "iconify",
+    "name": "Iconify",
+    "url": "https://iconify.design",
+    "description": {
+      "zh": "统一的图标框架，整合 150+ 图标集，超过 20 万个图标",
+      "en": "Unified icon framework combining 150+ icon sets with 200K+ icons"
+    },
+    "category": "icons",
+    "tags": ["免费", "开源"]
+  },
+  {
+    "id": "heroicons",
+    "name": "Heroicons",
+    "url": "https://heroicons.com",
+    "description": {
+      "zh": "Tailwind CSS 团队出品的精美 SVG 图标，提供 Outline、Solid、Mini 三种风格",
+      "en": "Beautiful SVG icons by the Tailwind CSS team in Outline, Solid, and Mini styles"
+    },
+    "category": "icons",
+    "tags": ["免费", "开源"]
+  },
+  {
+    "id": "undraw",
+    "name": "unDraw",
+    "url": "https://undraw.co",
+    "description": {
+      "zh": "免费可商用的矢量插画库，支持自定义主色调，适合网页和产品设计",
+      "en": "Free-to-use vector illustrations with customizable primary color for web and product design"
+    },
+    "category": "illustrations",
+    "tags": ["免费", "可商用"],
+    "featured": true
+  },
+  {
+    "id": "storyset",
+    "name": "Storyset",
+    "url": "https://storyset.com",
+    "description": {
+      "zh": "Freepik 旗下免费插画工具，提供多种风格的可编辑矢量插画",
+      "en": "Free illustrated tool by Freepik with editable vector illustrations in multiple styles"
+    },
+    "category": "illustrations",
+    "tags": ["免费"]
+  },
+  {
+    "id": "humaaans",
+    "name": "Humaaans",
+    "url": "https://www.humaaans.com",
+    "description": {
+      "zh": "可自由组合的人物插画库，支持自定义姿势、服装和发型",
+      "en": "Mix-and-match people illustration library with customizable poses, clothes, and hair"
+    },
+    "category": "illustrations",
+    "tags": ["免费", "开源"]
+  },
+  {
+    "id": "openpeeps",
+    "name": "Open Peeps",
+    "url": "https://openpeeps.com",
+    "description": {
+      "zh": "手绘风格的人物插画库，支持肤色、表情、配件等自定义组合",
+      "en": "Hand-drawn people illustration library with customizable skin tone, expression, and accessories"
+    },
+    "category": "illustrations",
+    "tags": ["免费", "开源"]
+  },
+  {
+    "id": "freepik",
+    "name": "Freepik",
+    "url": "https://www.freepik.com",
+    "description": {
+      "zh": "海量矢量素材、PSD 和图片资源，设计师必备的素材搜索引擎",
+      "en": "Massive collection of vector graphics, PSDs, and photos — essential search engine for designers"
+    },
+    "category": "vectors",
+    "tags": ["免费+付费"],
+    "featured": true
+  },
+  {
+    "id": "vecteezy",
+    "name": "Vecteezy",
+    "url": "https://www.vecteezy.com",
+    "description": {
+      "zh": "免费矢量素材社区，提供大量可编辑的 SVG、EPS 和 AI 格式文件",
+      "en": "Free vector art community with a large selection of editable SVG, EPS, and AI files"
+    },
+    "category": "vectors",
+    "tags": ["免费+付费"]
+  },
+  {
+    "id": "mixkit",
+    "name": "Mixkit",
+    "url": "https://mixkit.co",
+    "description": {
+      "zh": "免费高质量设计素材，包括矢量图形、视频、音乐和模板",
+      "en": "Free high-quality creative assets including vector graphics, videos, music, and templates"
+    },
+    "category": "vectors",
+    "tags": ["免费", "可商用"]
+  },
+  {
+    "id": "drawkit",
+    "name": "DrawKit",
+    "url": "https://www.drawkit.com",
+    "description": {
+      "zh": "精美的矢量插画和图标库，提供多种风格的主题包",
+      "en": "Beautiful vector illustrations and icon packs in various themed styles"
+    },
+    "category": "vectors",
+    "tags": ["免费+付费"]
+  },
+  {
+    "id": "lottiefiles",
+    "name": "LottieFiles",
+    "url": "https://lottiefiles.com",
+    "description": {
+      "zh": "全球最大的 Lottie 动画社区，提供海量免费动画资源和在线编辑工具",
+      "en": "World's largest Lottie animation community with free animations and online editing tools"
+    },
+    "category": "animations",
+    "tags": ["免费+付费"],
+    "featured": true
+  },
+  {
+    "id": "lordicon",
+    "name": "Lordicon",
+    "url": "https://lordicon.com",
+    "description": {
+      "zh": "精美的动态图标库，提供线性、填充、等多种风格的可交互 SVG 动画图标",
+      "en": "Beautiful animated icon library with interactive SVG animation icons in multiple styles"
+    },
+    "category": "animations",
+    "tags": ["免费+付费"]
+  },
+  {
+    "id": "svgator",
+    "name": "SVGator",
+    "url": "https://www.svgator.com",
+    "description": {
+      "zh": "在线 SVG 动画制作工具，无需代码即可创建复杂的 SVG 动画",
+      "en": "Online SVG animation creator — build complex SVG animations without writing code"
+    },
+    "category": "animations",
+    "tags": ["免费+付费"]
+  },
+  {
+    "id": "keyshape",
+    "name": "Keyshape",
+    "url": "https://www.keyshapeapp.com",
+    "description": {
+      "zh": "Mac 平台的 SVG 动画编辑器，支持时间轴动画和导出多种格式",
+      "en": "Mac SVG animation editor with timeline-based animation and multi-format export"
+    },
+    "category": "animations",
+    "tags": ["付费"]
+  }
+]
