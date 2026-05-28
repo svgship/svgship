@@ -28,8 +28,9 @@ export function middleware(request: NextRequest) {
   // Redirect to locale-prefixed path
   const locale = getLocale(request);
   request.nextUrl.pathname = `/${locale}${pathname}`;
-  const response = NextResponse.redirect(request.nextUrl);
+  const response = NextResponse.redirect(request.nextUrl, 308);
   response.cookies.set('locale', locale, { path: '/', maxAge: 60 * 60 * 24 * 365 });
+  response.headers.set('Vary', 'Accept-Language');
   return response;
 }
 
