@@ -1,19 +1,30 @@
 # SVGShip
 
-A modern, all-in-one SVG toolkit for designers and crafters. Optimize, convert, and transform SVG files with a beautiful, intuitive interface.
+Professional SVG Resource Directory — curated collection of the best SVG resources for designers and developers.
 
 English | [中文](./README.zh-CN.md)
 
+## About
+
+SVGShip is a one-stop navigation site for SVG resources. It collects and categorizes high-quality SVG icon libraries, illustration resources, tools, tutorials, and inspiration — helping designers and developers quickly find what they need.
+
+## Categories
+
+- **Icons** — High-quality SVG icon libraries in linear, filled, colorful, 3D and more styles
+- **Illustrations & Backgrounds** — Vector illustrations, background generators, and textures
+- **Tools** — SVG editors, animators, optimizers, and converters
+- **Tutorials** — SVG basics, animation, paths, filters, and hands-on guides
+- **Inspiration** — SVG interactions, animations, generative art, and creative collections
+
 ## Features
 
-- **SVG Optimization** — Compress SVG files using SVGO while preserving visual quality
-- **PNG to SVG** — Convert raster images to scalable vector graphics via Potrace
-- **SVG to PNG** — Export SVG files as high-quality PNG images
-- **Background Removal** — Remove backgrounds from SVG files automatically
-- **Template Gallery** — Browse and download ready-to-use SVG templates
-- **i18n Support** — Multi-language interface (English / Chinese)
-- **Dark Mode** — Full light/dark theme with system preference detection
-- **Responsive Design** — Desktop-first layout, optimized for all screen sizes
+- **Global License Filter** — Filter all resources by license type (Free Commercial, Attribution, Personal Free, Paid)
+- **Category Tags** — Fine-grained content tags within each category
+- **Search** — Full-text search across site names, descriptions, and tags
+- **i18n** — English and Chinese interface with locale-based routing
+- **Dark Mode** — Light/dark theme with system preference detection
+- **Responsive** — Optimized for all screen sizes
+- **SEO** — Dynamic metadata, Open Graph, sitemap, robots.txt, hreflang
 
 ## Tech Stack
 
@@ -21,8 +32,7 @@ English | [中文](./README.zh-CN.md)
 - **Language:** TypeScript
 - **Styling:** Tailwind CSS 4
 - **Icons:** Lucide React
-- **SVG Processing:** SVGO, Potrace, DOMPurify
-- **Testing:** Vitest + Testing Library
+- **Data:** Static JSON (`src/data/sites.json` + `src/data/categories.ts`)
 - **Code Quality:** ESLint, Prettier, Husky + lint-staged
 
 ## Getting Started
@@ -52,55 +62,63 @@ Open [http://localhost:3000](http://localhost:3000) in your browser.
 pnpm build
 ```
 
-### Testing
-
-```bash
-pnpm test:run
-```
-
 ## Project Structure
 
 ```
 src/
 ├── app/
-│   ├── [locale]/           # Locale-based routing
-│   │   ├── page.tsx        # Landing page with hero + tools + templates
-│   │   ├── tools/          # SVG processing tools
-│   │   │   ├── optimize/
-│   │   │   ├── png-to-svg/
-│   │   │   ├── svg-to-png/
-│   │   │   └── background-remove/
-│   │   └── templates/      # Template gallery & detail pages
-│   ├── layout.tsx          # Root layout
-│   └── globals.css         # Global styles & CSS variables
+│   ├── [locale]/           # Locale-based routing (en/zh)
+│   │   ├── layout.tsx      # Per-locale metadata (OG, hreflang, canonical)
+│   │   └── page.tsx        # Main page: hero + search + license filter + categories
+│   ├── layout.tsx          # Root layout with fonts and theme
+│   ├── robots.ts           # SEO robots config
+│   └── sitemap.ts          # Dynamic sitemap
 ├── components/
 │   ├── layout/             # Header, Footer, ThemeToggle
-│   └── ui/                 # FileDropzone, DownloadButton, ToolPageLayout
+│   ├── HeroSearch.tsx      # Hero section with search input
+│   ├── LicenseFilterBar.tsx # Global license/pricing filter
+│   ├── CategorySection.tsx # Category with content tag filtering
+│   └── SiteCard.tsx        # Individual site card with pricing badge
+├── data/
+│   ├── sites.json          # Site data (16+ curated SVG resources)
+│   └── categories.ts       # Category definitions with tags
 ├── lib/
-│   ├── i18n/               # Internationalization context & hooks
-│   ├── svg/                # SVG processing utilities
-│   └── templates/          # Template data & helpers
+│   └── i18n/               # Internationalization context & locale files
 ├── types/                  # Shared TypeScript types
-└── middleware.ts            # Locale detection & routing
+└── middleware.ts            # Locale detection & cookie routing
 ```
 
 ## Scripts
 
-| Command              | Description               |
-| -------------------- | ------------------------- |
-| `pnpm dev`           | Start development server  |
-| `pnpm build`         | Production build          |
-| `pnpm start`         | Start production server   |
-| `pnpm lint`          | Run ESLint                |
-| `pnpm format`        | Format code with Prettier |
-| `pnpm type-check`    | TypeScript type checking  |
-| `pnpm test`          | Run tests in watch mode   |
-| `pnpm test:run`      | Run tests once            |
-| `pnpm test:coverage` | Run tests with coverage   |
+| Command           | Description               |
+| ----------------- | ------------------------- |
+| `pnpm dev`        | Start development server  |
+| `pnpm build`      | Production build          |
+| `pnpm start`      | Start production server   |
+| `pnpm lint`       | Run ESLint                |
+| `pnpm format`     | Format code with Prettier |
+| `pnpm type-check` | TypeScript type checking  |
 
-## Design System
+## Adding Resources
 
-See [DESIGN.md](./DESIGN.md) for the full design specification, including color tokens, typography, component guidelines, and accessibility standards.
+To add a new SVG resource, edit `src/data/sites.json`:
+
+```json
+{
+  "id": "site-id",
+  "name": "Site Name",
+  "url": "https://example.com",
+  "description": {
+    "zh": "中文描述",
+    "en": "English description"
+  },
+  "category": "icons",
+  "tags": ["线性", "免费可商用"],
+  "featured": false
+}
+```
+
+Available categories: `icons`, `illustrations`, `tools`, `tutorials`, `inspiration`
 
 ## License
 

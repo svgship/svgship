@@ -1,4 +1,4 @@
-export type CategorySlug = 'icons' | 'illustrations' | 'vectors' | 'animations';
+export type CategorySlug = 'icons' | 'illustrations' | 'tools' | 'tutorials' | 'inspiration';
 
 export interface SvgSite {
   id: string;
@@ -10,7 +10,8 @@ export interface SvgSite {
   };
   logo?: string;
   category: CategorySlug;
-  tags?: string[];
+  tags: string[];
+  pricing?: 'free' | 'paid' | 'freemium';
   featured?: boolean;
 }
 
@@ -19,6 +20,9 @@ export interface Category {
   name: { zh: string; en: string };
   description: { zh: string; en: string };
   icon: string;
+  contentTags: { zh: string; en: string }[];
+  licenseTags?: { zh: string; en: string }[];
+  hasPricing?: boolean;
 }
 
 export type Locale = 'en' | 'zh';

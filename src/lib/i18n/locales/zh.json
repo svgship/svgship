@@ -9,16 +9,24 @@
     "allRightsReserved": "保留所有权利"
   },
   "nav": {
-    "icons": "图标库",
-    "illustrations": "插画",
-    "vectors": "矢量素材",
-    "animations": "SVG 动画",
+    "icons": "图标",
+    "illustrations": "插画与背景",
+    "tools": "工具",
+    "tutorials": "教程与文章",
+    "inspiration": "灵感",
+    "about": "关于",
+    "submit": "提交资源",
     "language": "语言"
   },
   "hero": {
     "title": "SVG 资源导航",
-    "subtitle": "精选优质 SVG 资源合集 — 图标、插画、矢量素材、动画",
+    "subtitle": "精选优质 SVG 资源合集 — 图标、插画、工具、教程与灵感",
     "searchPlaceholder": "搜索 SVG 资源..."
+  },
+  "pricing": {
+    "free": "免费",
+    "freemium": "免费增值",
+    "paid": "付费"
   },
   "footer": {
     "description": "为设计师、开发者和创作者精选的 SVG 资源导航站。",

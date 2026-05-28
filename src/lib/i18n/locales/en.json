@@ -11,14 +11,22 @@
   "nav": {
     "icons": "Icons",
     "illustrations": "Illustrations",
-    "vectors": "Vectors",
-    "animations": "Animations",
+    "tools": "Tools",
+    "tutorials": "Tutorials",
+    "inspiration": "Inspiration",
+    "about": "About",
+    "submit": "Submit",
     "language": "Language"
   },
   "hero": {
     "title": "SVG Resource Directory",
-    "subtitle": "Curated collection of the best SVG resources — icons, illustrations, vectors, and animations",
+    "subtitle": "Curated collection of the best SVG resources — icons, illustrations, tools, tutorials, and inspiration",
     "searchPlaceholder": "Search SVG resources..."
+  },
+  "pricing": {
+    "free": "Free",
+    "freemium": "Freemium",
+    "paid": "Paid"
   },
   "footer": {
     "description": "Curated SVG resource directory for designers, developers, and creators.",

@@ -1,31 +1,62 @@
 'use client';
 
+import { useState, useMemo } from 'react';
 import { useI18n } from '@/lib/i18n/context';
-import { Grid3X3, Paintbrush, Layers, Sparkles } from 'lucide-react';
+import { Grid3X3, Paintbrush, Wrench, BookOpen, Lightbulb } from 'lucide-react';
 import { SiteCard } from './SiteCard';
-import type { Category, SvgSite } from '@/types';
+import type { Category, SvgSite, Locale } from '@/types';
 
 const iconMap: Record<string, typeof Grid3X3> = {
   Grid3X3,
   Paintbrush,
-  Layers,
-  Sparkles,
+  Wrench,
+  BookOpen,
+  Lightbulb,
 };
 
 interface CategorySectionProps {
   category: Category;
   sites: SvgSite[];
+  locale: Locale;
+  globalLicenseTags?: string[];
 }
 
-export function CategorySection({ category, sites }: CategorySectionProps) {
-  const { locale } = useI18n();
+export function CategorySection({
+  category,
+  sites,
+  locale,
+  globalLicenseTags = [],
+}: CategorySectionProps) {
+  const { t } = useI18n();
   const Icon = iconMap[category.icon] ?? Grid3X3;
 
-  const sortedSites = [...sites].sort((a, b) => {
-    if (a.featured && !b.featured) return -1;
-    if (!a.featured && b.featured) return 1;
-    return 0;
-  });
+  const [activeContentTags, setActiveContentTags] = useState<string[]>([]);
+
+  const toggleContentTag = (tag: string) => {
+    setActiveContentTags((prev) =>
+      prev.includes(tag) ? prev.filter((t) => t !== tag) : [...prev, tag]
+    );
+  };
+
+  const filteredSites = useMemo(() => {
+    let result = [...sites];
+
+    if (globalLicenseTags.length > 0) {
+      result = result.filter((site) => globalLicenseTags.some((tag) => site.tags.includes(tag)));
+    }
+
+    if (activeContentTags.length > 0) {
+      result = result.filter((site) => activeContentTags.some((tag) => site.tags.includes(tag)));
+    }
+
+    result.sort((a, b) => {
+      if (a.featured && !b.featured) return -1;
+      if (!a.featured && b.featured) return 1;
+      return 0;
+    });
+
+    return result;
+  }, [sites, globalLicenseTags, activeContentTags]);
 
   return (
     <section
@@ -54,11 +85,45 @@ export function CategorySection({ category, sites }: CategorySectionProps) {
           </div>
         </div>
 
-        <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-          {sortedSites.map((site) => (
-            <SiteCard key={site.id} site={site} />
-          ))}
-        </div>
+        {/* Content tags */}
+        {category.contentTags.length > 0 && (
+          <div className="mb-6 flex flex-wrap gap-2">
+            {category.contentTags.map((tagObj) => {
+              const label = tagObj[locale];
+              const isActive = activeContentTags.includes(label);
+              return (
+                <button
+                  key={label}
+                  onClick={() => toggleContentTag(label)}
+                  className="rounded-full px-3 py-1 text-xs font-medium transition-all duration-200"
+                  style={{
+                    background: isActive
+                      ? 'var(--color-primary)'
+                      : 'var(--color-surface-container)',
+                    color: isActive ? 'var(--color-on-primary)' : 'var(--color-on-surface-variant)',
+                    border: `1px solid ${isActive ? 'var(--color-primary)' : 'var(--glass-border)'}`,
+                  }}
+                >
+                  {label}
+                </button>
+              );
+            })}
+          </div>
+        )}
+
+        {filteredSites.length > 0 ? (
+          <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+            {filteredSites.map((site) => (
+              <SiteCard key={site.id} site={site} locale={locale} />
+            ))}
+          </div>
+        ) : (
+          <div className="py-12 text-center">
+            <p className="text-sm" style={{ color: 'var(--color-on-surface-variant)' }}>
+              {t('common.noResults')}
+            </p>
+          </div>
+        )}
       </div>
     </section>
   );

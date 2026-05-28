@@ -2,15 +2,15 @@
 
 import { useI18n } from '@/lib/i18n/context';
 import { ExternalLink } from 'lucide-react';
-import type { SvgSite } from '@/types';
+import type { SvgSite, Locale } from '@/types';
 
 interface SiteCardProps {
   site: SvgSite;
+  locale: Locale;
 }
 
-export function SiteCard({ site }: SiteCardProps) {
-  const { locale } = useI18n();
-
+export function SiteCard({ site, locale }: SiteCardProps) {
+  const { t } = useI18n();
   const initial = site.name.charAt(0).toUpperCase();
 
   return (
@@ -55,6 +55,25 @@ export function SiteCard({ site }: SiteCardProps) {
             >
               {site.name}
             </h3>
+            {site.pricing && (
+              <span
+                className="flex-shrink-0 rounded-full px-2 py-0.5 text-[10px] font-medium"
+                style={{
+                  background:
+                    site.pricing === 'free'
+                      ? 'var(--color-primary-container)'
+                      : site.pricing === 'freemium'
+                        ? 'var(--color-surface-container-high)'
+                        : 'var(--color-surface-container)',
+                  color:
+                    site.pricing === 'free'
+                      ? 'var(--color-on-primary-container)'
+                      : 'var(--color-on-surface-variant)',
+                }}
+              >
+                {t(`pricing.${site.pricing}`)}
+              </span>
+            )}
             <ExternalLink
               className="h-3.5 w-3.5 flex-shrink-0 opacity-0 transition-opacity group-hover:opacity-100"
               style={{ color: 'var(--color-primary)' }}

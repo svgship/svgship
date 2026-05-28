@@ -3,14 +3,15 @@
 import Link from 'next/link';
 import { useI18n } from '@/lib/i18n/context';
 import { ThemeToggle } from './ThemeToggle';
-import { Grid3X3, Paintbrush, Layers, Sparkles } from 'lucide-react';
+import { Grid3X3, Paintbrush, Wrench, BookOpen, Lightbulb } from 'lucide-react';
 import type { CategorySlug } from '@/types';
 
 const navItems: { slug: CategorySlug; icon: typeof Grid3X3; labelKey: string }[] = [
   { slug: 'icons', icon: Grid3X3, labelKey: 'nav.icons' },
   { slug: 'illustrations', icon: Paintbrush, labelKey: 'nav.illustrations' },
-  { slug: 'vectors', icon: Layers, labelKey: 'nav.vectors' },
-  { slug: 'animations', icon: Sparkles, labelKey: 'nav.animations' },
+  { slug: 'tools', icon: Wrench, labelKey: 'nav.tools' },
+  { slug: 'tutorials', icon: BookOpen, labelKey: 'nav.tutorials' },
+  { slug: 'inspiration', icon: Lightbulb, labelKey: 'nav.inspiration' },
 ];
 
 export function Header() {
@@ -43,7 +44,7 @@ export function Header() {
         <span className="gradient-text">SVGShip</span>
       </Link>
 
-      <nav className="hidden items-center gap-1 md:flex">
+      <nav className="hidden items-center gap-1 lg:flex">
         {navItems.map((item) => {
           const Icon = item.icon;
           return (
@@ -69,6 +70,39 @@ export function Header() {
       </nav>
 
       <div className="flex items-center gap-2">
+        <Link
+          href={`/${locale}/about`}
+          className="rounded-xl px-3 py-2 text-sm font-medium transition-all duration-200"
+          style={{ color: 'var(--color-on-surface-variant)' }}
+          onMouseEnter={(e) => {
+            e.currentTarget.style.color = 'var(--color-primary)';
+            e.currentTarget.style.background = 'var(--color-primary-container)';
+          }}
+          onMouseLeave={(e) => {
+            e.currentTarget.style.color = 'var(--color-on-surface-variant)';
+            e.currentTarget.style.background = 'transparent';
+          }}
+        >
+          {t('nav.about')}
+        </Link>
+        <Link
+          href={`/${locale}/submit`}
+          className="rounded-xl px-4 py-2 text-sm font-semibold transition-all duration-200"
+          style={{
+            background: 'var(--color-primary)',
+            color: 'var(--color-on-primary)',
+          }}
+          onMouseEnter={(e) => {
+            e.currentTarget.style.opacity = '0.9';
+            e.currentTarget.style.transform = 'translateY(-1px)';
+          }}
+          onMouseLeave={(e) => {
+            e.currentTarget.style.opacity = '1';
+            e.currentTarget.style.transform = 'translateY(0)';
+          }}
+        >
+          {t('nav.submit')}
+        </Link>
         <ThemeToggle />
         <button
           aria-label={t('nav.language')}

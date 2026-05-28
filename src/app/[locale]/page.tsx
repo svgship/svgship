@@ -5,6 +5,7 @@ import { useI18n } from '@/lib/i18n/context';
 import { Header } from '@/components/layout/Header';
 import { Footer } from '@/components/layout/Footer';
 import { HeroSearch } from '@/components/HeroSearch';
+import { LicenseFilterBar } from '@/components/LicenseFilterBar';
 import { CategorySection } from '@/components/CategorySection';
 import { SiteCard } from '@/components/SiteCard';
 import { categories } from '@/data/categories';
@@ -16,6 +17,13 @@ const sites = sitesData as SvgSite[];
 export default function Home() {
   const { locale, t } = useI18n();
   const [searchQuery, setSearchQuery] = useState('');
+  const [activeLicenseTags, setActiveLicenseTags] = useState<string[]>([]);
+
+  const toggleLicenseTag = (tag: string) => {
+    setActiveLicenseTags((prev) =>
+      prev.includes(tag) ? prev.filter((t) => t !== tag) : [...prev, tag]
+    );
+  };
 
   const filteredSites = useMemo(() => {
     if (!searchQuery.trim()) return null;
@@ -33,6 +41,11 @@ export default function Home() {
       <Header />
       <main className="flex flex-1 flex-col">
         <HeroSearch searchQuery={searchQuery} onSearchChange={setSearchQuery} />
+        <LicenseFilterBar
+          activeTags={activeLicenseTags}
+          onToggle={toggleLicenseTag}
+          locale={locale}
+        />
 
         {filteredSites ? (
           <section className="px-4 py-16">
@@ -40,7 +53,7 @@ export default function Home() {
               {filteredSites.length > 0 ? (
                 <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
                   {filteredSites.map((site) => (
-                    <SiteCard key={site.id} site={site} />
+                    <SiteCard key={site.id} site={site} locale={locale} />
                   ))}
                 </div>
               ) : (
@@ -59,7 +72,13 @@ export default function Home() {
           categories.map((category) => {
             const categorySites = sites.filter((site) => site.category === category.slug);
             return (
-              <CategorySection key={category.slug} category={category} sites={categorySites} />
+              <CategorySection
+                key={category.slug}
+                category={category}
+                sites={categorySites}
+                locale={locale}
+                globalLicenseTags={activeLicenseTags}
+              />
             );
           })
         )}
