@@ -20,12 +20,20 @@ const jetbrainsMono = JetBrains_Mono({
 
 export const metadata: Metadata = {
   title: {
-    default: 'SVGShip — Free SVG Tools & Templates for Cricut',
+    default: 'SVGShip — Professional SVG Resource Directory',
     template: '%s | SVGShip',
   },
   description:
-    'Free browser-based SVG tools: optimize, convert PNG to SVG, SVG to PNG, remove backgrounds. Plus 50+ free SVG templates for Cricut cutting machines.',
-  keywords: ['SVG', 'Cricut', 'free SVG files', 'SVG converter', 'PNG to SVG', 'SVG optimizer'],
+    'Curated collection of the best SVG resources — free icon libraries, illustrations, vector materials, and SVG animations for designers and developers.',
+  keywords: [
+    'SVG',
+    'SVG icons',
+    'SVG illustrations',
+    'vector graphics',
+    'SVG animations',
+    'free icons',
+    'design resources',
+  ],
 };
 
 export default function RootLayout({
@@ -39,7 +47,6 @@ export default function RootLayout({
       suppressHydrationWarning
     >
       <body className="flex min-h-full flex-col" style={{ fontFamily: 'var(--font-body)' }}>
-        {/* Animated Background Orbs */}
         <div className="bg-orbs" aria-hidden="true">
           <div className="bg-orb bg-orb-1" />
           <div className="bg-orb bg-orb-2" />

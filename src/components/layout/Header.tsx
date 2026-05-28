@@ -3,17 +3,25 @@
 import Link from 'next/link';
 import { useI18n } from '@/lib/i18n/context';
 import { ThemeToggle } from './ThemeToggle';
-import { Zap, Image, ArrowRightLeft, Eraser, LayoutGrid } from 'lucide-react';
+import { Grid3X3, Paintbrush, Layers, Sparkles } from 'lucide-react';
+import type { CategorySlug } from '@/types';
 
-const tools = [
-  { href: '/tools/optimize', icon: Zap, labelKey: 'nav.optimize' },
-  // { href: '/tools/png-to-svg', icon: Image, labelKey: 'nav.pngToSvg' },
-  { href: '/tools/svg-to-png', icon: ArrowRightLeft, labelKey: 'nav.svgToPng' },
-  { href: '/tools/background-remove', icon: Eraser, labelKey: 'nav.backgroundRemove' },
+const navItems: { slug: CategorySlug; icon: typeof Grid3X3; labelKey: string }[] = [
+  { slug: 'icons', icon: Grid3X3, labelKey: 'nav.icons' },
+  { slug: 'illustrations', icon: Paintbrush, labelKey: 'nav.illustrations' },
+  { slug: 'vectors', icon: Layers, labelKey: 'nav.vectors' },
+  { slug: 'animations', icon: Sparkles, labelKey: 'nav.animations' },
 ];
 
 export function Header() {
   const { locale, setLocale, t } = useI18n();
+
+  const scrollToCategory = (slug: string) => {
+    const el = document.getElementById(`category-${slug}`);
+    if (el) {
+      el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+  };
 
   return (
     <header
@@ -36,12 +44,12 @@ export function Header() {
       </Link>
 
       <nav className="hidden items-center gap-1 md:flex">
-        {tools.map((tool) => {
-          const Icon = tool.icon;
+        {navItems.map((item) => {
+          const Icon = item.icon;
           return (
-            <Link
-              key={tool.href}
-              href={`/${locale}${tool.href}`}
+            <button
+              key={item.slug}
+              onClick={() => scrollToCategory(item.slug)}
               className="flex items-center gap-1.5 rounded-xl px-3 py-2 text-sm font-medium transition-all duration-200"
               style={{ color: 'var(--color-on-surface-variant)' }}
               onMouseEnter={(e) => {
@@ -54,27 +62,10 @@ export function Header() {
               }}
             >
               <Icon className="h-4 w-4" />
-              {t(tool.labelKey)}
-            </Link>
+              {t(item.labelKey)}
+            </button>
           );
         })}
-
-        <Link
-          href={`/${locale}/templates`}
-          className="flex items-center gap-1.5 rounded-xl px-3 py-2 text-sm font-medium transition-all duration-200"
-          style={{ color: 'var(--color-on-surface-variant)' }}
-          onMouseEnter={(e) => {
-            e.currentTarget.style.color = 'var(--color-primary)';
-            e.currentTarget.style.background = 'var(--color-primary-container)';
-          }}
-          onMouseLeave={(e) => {
-            e.currentTarget.style.color = 'var(--color-on-surface-variant)';
-            e.currentTarget.style.background = 'transparent';
-          }}
-        >
-          <LayoutGrid className="h-4 w-4" />
-          {t('nav.templates')}
-        </Link>
       </nav>
 
       <div className="flex items-center gap-2">
