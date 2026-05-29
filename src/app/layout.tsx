@@ -36,9 +36,9 @@ export const metadata: Metadata = {
     'design resources',
   ],
   icons: {
-    icon: '/favicon.svg',
-    shortcut: '/favicon.svg',
-    apple: '/favicon.svg',
+    icon: '/logo-favicon.svg',
+    shortcut: '/logo-favicon.svg',
+    apple: '/logo-favicon.svg',
   },
 };
 
