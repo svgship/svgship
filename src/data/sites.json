@@ -198,5 +198,212 @@
     "category": "tools",
     "tags": ["编辑器", "动画"],
     "pricing": "paid"
+  },
+  {
+    "id": "phosphor-icons",
+    "name": "Phosphor Icons",
+    "url": "https://phosphoricons.com",
+    "description": {
+      "zh": "灵活的图标家族，提供 7000+ 图标，6种粗细风格（Regular/Thin/Light/Bold/Fill/Duotone）",
+      "en": "Flexible icon family with 7000+ icons in 6 weights (Regular/Thin/Light/Bold/Fill/Duotone)"
+    },
+    "category": "icons",
+    "tags": ["线性", "面性", "免费可商用"],
+    "featured": true,
+    "logo": "phosphor-icons_favicon.ico"
+  },
+  {
+    "id": "tabler-icons",
+    "name": "Tabler Icons",
+    "url": "https://tabler-icons.io",
+    "description": {
+      "zh": "免费开源 SVG 图标集，4900+ 像素完美的线条图标，支持 React/Vue",
+      "en": "Free open-source SVG icon set with 4900+ pixel-perfect line icons for React/Vue"
+    },
+    "category": "icons",
+    "tags": ["线性", "免费可商用"],
+    "logo": "tabler-icons_favicon.svg"
+  },
+  {
+    "id": "bootstrap-icons",
+    "name": "Bootstrap Icons",
+    "url": "https://icons.getbootstrap.com",
+    "description": {
+      "zh": "Bootstrap 官方图标库，2000+ 图标，与 Bootstrap 生态完美集成",
+      "en": "Official Bootstrap icon library with 2000+ icons, perfectly integrated with Bootstrap ecosystem"
+    },
+    "category": "icons",
+    "tags": ["线性", "免费可商用"],
+    "logo": "bootstrap-icons_favicon.ico"
+  },
+  {
+    "id": "remix-icon",
+    "name": "Remix Icon",
+    "url": "https://remixicon.com",
+    "description": {
+      "zh": "开源中性风格图标系统，2800+ 图标，支持多框架",
+      "en": "Open-source neutral-style icon system with 2800+ icons for multiple frameworks"
+    },
+    "category": "icons",
+    "tags": ["线性", "面性", "免费可商用"],
+    "logo": "remix-icon_favicon.ico"
+  },
+  {
+    "id": "boxicons",
+    "name": "Boxicons",
+    "url": "https://boxicons.com",
+    "description": {
+      "zh": "精心设计的开源图标，1600+ 图标，提供 Regular/Solid/Logos 三种风格",
+      "en": "Carefully crafted open-source icons with 1600+ icons in Regular/Solid/Logos styles"
+    },
+    "category": "icons",
+    "tags": ["线性", "面性", "免费可商用"],
+    "logo": "boxicons_favicon.ico"
+  },
+  {
+    "id": "iconoir",
+    "name": "Iconoir",
+    "url": "https://iconoir.com",
+    "description": {
+      "zh": "开源图标库，1500+ 简洁线条图标，支持多框架",
+      "en": "Open-source icon library with 1500+ clean line icons for multiple frameworks"
+    },
+    "category": "icons",
+    "tags": ["线性", "免费可商用"],
+    "logo": "iconoir_favicon.ico"
+  },
+  {
+    "id": "feather-icons",
+    "name": "Feather Icons",
+    "url": "https://feathericons.com",
+    "description": {
+      "zh": "简洁美观的开源图标，280+ 图标，影响了众多后续图标库",
+      "en": "Beautiful open-source icons with 280+ icons that influenced many icon libraries"
+    },
+    "category": "icons",
+    "tags": ["线性", "免费可商用"],
+    "logo": "feather-icons_favicon.ico"
+  },
+  {
+    "id": "font-awesome",
+    "name": "Font Awesome",
+    "url": "https://fontawesome.com",
+    "description": {
+      "zh": "最流行的图标库之一，2000+ 免费图标（共 16,000+），生态完善",
+      "en": "One of the most popular icon libraries with 2000+ free icons (16,000+ total)"
+    },
+    "category": "icons",
+    "tags": ["线性", "面性", "免费可商用", "付费"],
+    "featured": true,
+    "logo": "font-awesome_favicon.ico"
+  },
+  {
+    "id": "iconfont",
+    "name": "iconfont",
+    "url": "https://www.iconfont.cn",
+    "description": {
+      "zh": "阿里巴巴矢量图标库，国内最大，10,000,000+ 图标，中文支持好",
+      "en": "Alibaba's vector icon library, China's largest with 10M+ icons and good Chinese support"
+    },
+    "category": "icons",
+    "tags": ["线性", "面性", "彩色", "免费可商用"],
+    "featured": true,
+    "logo": "iconfont_favicon.ico"
+  },
+  {
+    "id": "iconpark",
+    "name": "IconPark",
+    "url": "https://iconpark.oceanengine.com",
+    "description": {
+      "zh": "字节跳动出品的图标平台，2600+ 图标，多种主题风格，支持自定义",
+      "en": "ByteDance's icon platform with 2600+ icons in multiple themes with customization"
+    },
+    "category": "icons",
+    "tags": ["线性", "面性", "免费可商用"],
+    "logo": "iconpark_favicon.ico"
+  },
+  {
+    "id": "icons8",
+    "name": "Icons8",
+    "url": "https://icons8.com/icons",
+    "description": {
+      "zh": "多风格图标库，1,000,000+ 图标，风格多样，有免费额度",
+      "en": "Multi-style icon library with 1M+ icons in various styles, free tier available"
+    },
+    "category": "icons",
+    "tags": ["线性", "面性", "彩色", "免费可商用", "付费"],
+    "logo": "icons8_favicon.svg"
+  },
+  {
+    "id": "ant-design-icons",
+    "name": "Ant Design Icons",
+    "url": "https://ant.design/components/icon",
+    "description": {
+      "zh": "Ant Design 官方图标，400+ 图标，与 Ant Design 生态完美集成",
+      "en": "Official Ant Design icons with 400+ icons perfectly integrated with Ant Design ecosystem"
+    },
+    "category": "icons",
+    "tags": ["线性", "面性", "免费可商用"],
+    "logo": "ant-design-icons_favicon.svg"
+  },
+  {
+    "id": "blush",
+    "name": "Blush",
+    "url": "https://blush.design",
+    "description": {
+      "zh": "可定制插画工具，与 Figma 集成，多种艺术家风格可选",
+      "en": "Customizable illustration tool integrated with Figma, multiple artist styles available"
+    },
+    "category": "illustrations",
+    "tags": ["人物插画", "场景插画", "免费可商用", "付费"],
+    "logo": "blush_favicon.ico"
+  },
+  {
+    "id": "ira-design",
+    "name": "IRA Design",
+    "url": "https://iradesign.io",
+    "description": {
+      "zh": "渐变风格插画生成器，可自定义渐变色",
+      "en": "Gradient-style illustration generator with customizable gradient colors"
+    },
+    "category": "illustrations",
+    "tags": ["人物插画", "场景插画", "免费可商用"],
+    "logo": "ira-design_favicon.svg"
+  },
+  {
+    "id": "svgr",
+    "name": "SVGR",
+    "url": "https://react-svgr.com",
+    "description": {
+      "zh": "SVG 转 React 组件工具，在线转换，支持多种选项",
+      "en": "SVG to React component tool with online conversion and multiple options"
+    },
+    "category": "tools",
+    "tags": ["编辑器", "转换"],
+    "logo": "svgr_favicon.svg"
+  },
+  {
+    "id": "vectr",
+    "name": "Vectr",
+    "url": "https://vectr.com",
+    "description": {
+      "zh": "免费矢量图形编辑器，支持实时协作",
+      "en": "Free vector graphics editor with real-time collaboration"
+    },
+    "category": "tools",
+    "tags": ["编辑器"],
+    "logo": "vectr_favicon.ico"
+  },
+  {
+    "id": "boxy-svg",
+    "name": "Boxy SVG",
+    "url": "https://boxy-svg.com",
+    "description": {
+      "zh": "专业 SVG 编辑器，界面简洁，功能强大",
+      "en": "Professional SVG editor with clean interface and powerful features"
+    },
+    "category": "tools",
+    "tags": ["编辑器"],
+    "logo": "boxy-svg_favicon.svg"
   }
 ]

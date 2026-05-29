@@ -1,0 +1,10 @@
+{
+  "error": true,
+  "url": "https://icons8.com/favicon.svg",
+  "statusCode": 404,
+  "statusMessage": "Page not found: /favicon.svg",
+  "message": "Page not found: /favicon.svg",
+  "data": {
+    "path": "/favicon.svg"
+  }
+}

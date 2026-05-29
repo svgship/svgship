@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <base href="/" target="_blank"/>
+    <meta charset="UTF-8">
+
+    <!-- Security settings -->
+    <meta http-equiv="Content-Security-Policy" content="
+      default-src
+       'self';
+      script-src
+       'self'
+        blob:
+        https://www.google.com/recaptcha/enterprise.js
+        https://www.gstatic.com/recaptcha/
+        https://apis.google.com
+        https://*.paddle.com;
+      child-src
+       'self'
+        blob:
+        https://*.paddle.com;
+      frame-src
+       'self'
+        blob:
+        https://boxy-svg.com/__/auth/iframe
+        https://www.google.com/recaptcha/enterprise/anchor
+        https://*.paddle.com;
+      object-src
+        'none';
+      font-src
+       'self'
+        blob:
+        data:
+        https://fonts.gstatic.com;
+      style-src
+       'self'
+       'unsafe-inline'
+        https://*.paddle.com
+        https://fonts.googleapis.com;
+      img-src
+       'self'
+        data:
+        blob:
+        https://boxy-svg.com
+        https://storage.boxy-svg.com
+        https://www.google.com/images/cleardot.gif
+        https://*.paddle.com
+        https://images.pexels.com
+        https://cdn.pixabay.com
+        https://images.unsplash.com
+        https://upload.wikimedia.org;
+      media-src
+        'none';
+      connect-src
+       'self'
+        data:
+        blob:
+        http://0.0.0.0:2001
+        https://storage.boxy-svg.com
+        https://*.googleapis.com
+        https://*.cloudfunctions.net
+        https://fonts.gstatic.com
+        https://paddle.com
+        https://*.paddle.com
+        https://*.a1.typesense.net
+        https://www.google.com/recaptcha/enterprise/clr
+        https://api.pexels.com
+        https://images.pexels.com
+        https://pixabay.com
+        https://cdn.pixabay.com
+        https://images.unsplash.com
+        https://commons.wikimedia.org
+        https://upload.wikimedia.org;
+    ">
+
+    <title>Boxy SVG</title>
+    <meta name="description" content="Create and edit Scalable Vector Graphics (SVG) files online">
+
+    <!-- Indexing settings -->
+    <meta name="robots" content="all">
+    <link rel="canonical" href="https://boxy-svg.com/app">
+
+    <!-- Viewport settings -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+
+    <!-- Xel settings -->
+    <meta name="xel-theme">
+    <meta name="xel-icons" content="/icons/default.svg,/node_modules/@boxy-svg/boxy-svg/icons/default.svg">
+    <meta name="xel-locales" content="/locales/en.ftl,/node_modules/@boxy-svg/boxy-svg/locales/en.ftl">
+    <meta name="xel-accent-color">
+
+    <!-- Favicons -->
+    <link rel="icon" href="/icons/favicon.png" sizes="48x48">
+    <link rel="icon" href="/icons/favicon.svg" sizes="any" type="image/svg+xml">
+
+    <!-- PWA manifest -->
+    <link rel="manifest" href="/boxy-svg.webmanifest">
+
+    <!-- Styles -->
+    <style>
+      :root {
+        overflow: hidden;
+        cursor: default;
+        user-select: none;
+        -webkit-user-select: none;
+        font-size: 16px;
+      }
+    </style>
+
+    <!-- Scripts -->
+    <script src="https://cdn.paddle.com/paddle/paddle.js"></script>
+    <script src="/app-preload.js" type="module"></script>
+    <script src="/app.js" type="module"></script>
+  </head>
+
+  <body id="body" data-app="progressive" data-system="" hidden>
+    <bx-progressiveapp id="app" tabindex="0"></bx-progressiveapp>
+  </body>
+</html>
