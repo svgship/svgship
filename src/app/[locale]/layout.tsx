@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import { I18nProvider } from '@/lib/i18n/context';
+import { JsonLd } from '@/components/JsonLd';
 import type { Locale } from '@/types';
 
 const locales: Locale[] = ['en', 'zh'];
@@ -12,21 +13,30 @@ const metadataByLocale: Record<Locale, Metadata> = {
   en: {
     title: 'SVGShip — Professional SVG Resource Directory',
     description:
-      'Curated collection of the best SVG resources — free icon libraries, illustrations, vector materials, and SVG animations for designers and developers.',
+      'Discover the best free SVG resources: icon libraries, illustrations, vector graphics, and SVG animations. Curated collection for designers and developers.',
     openGraph: {
       title: 'SVGShip — Professional SVG Resource Directory',
       description:
-        'Curated collection of the best SVG resources — free icon libraries, illustrations, vector materials, and SVG animations.',
+        'Discover the best free SVG resources: icon libraries, illustrations, vector graphics, and SVG animations.',
       url: 'https://svgship.com/en',
       siteName: 'SVGShip',
       locale: 'en_US',
       type: 'website',
+      images: [
+        {
+          url: '/og-image',
+          width: 1200,
+          height: 630,
+          alt: 'SVGShip — Professional SVG Resource Directory',
+        },
+      ],
     },
     twitter: {
       card: 'summary_large_image',
       title: 'SVGShip — Professional SVG Resource Directory',
       description:
-        'Curated collection of the best SVG resources — icons, illustrations, vectors, and animations.',
+        'Discover the best free SVG resources: icons, illustrations, vectors, and animations.',
+      images: ['/og-image'],
     },
     alternates: {
       canonical: 'https://svgship.com/en',
@@ -39,19 +49,28 @@ const metadataByLocale: Record<Locale, Metadata> = {
   zh: {
     title: 'SVGShip — 专业 SVG 资源导航',
     description:
-      '精选优质 SVG 资源合集 — 图标库、插画、矢量素材、SVG 动画，为设计师和开发者提供一站式 SVG 资源导航。',
+      '精选优质 SVG 资源合集 — 免费图标库、插画素材、矢量图形、SVG 动画。为设计师和开发者提供一站式 SVG 资源搜索与导航。',
     openGraph: {
       title: 'SVGShip — 专业 SVG 资源导航',
-      description: '精选优质 SVG 资源合集 — 图标库、插画、矢量素材、SVG 动画。',
+      description: '精选优质 SVG 资源合集 — 免费图标库、插画素材、矢量图形、SVG 动画。',
       url: 'https://svgship.com/zh',
       siteName: 'SVGShip',
       locale: 'zh_CN',
       type: 'website',
+      images: [
+        {
+          url: '/og-image',
+          width: 1200,
+          height: 630,
+          alt: 'SVGShip — 专业 SVG 资源导航',
+        },
+      ],
     },
     twitter: {
       card: 'summary_large_image',
       title: 'SVGShip — 专业 SVG 资源导航',
-      description: '精选优质 SVG 资源合集 — 图标库、插画、矢量素材、SVG 动画。',
+      description: '精选优质 SVG 资源合集 — 免费图标库、插画素材、矢量图形、SVG 动画。',
+      images: ['/og-image'],
     },
     alternates: {
       canonical: 'https://svgship.com/zh',
@@ -80,5 +99,10 @@ export default async function LocaleLayout({
   params: Promise<{ locale: string }>;
 }) {
   const { locale } = await params;
-  return <I18nProvider defaultLocale={locale as Locale}>{children}</I18nProvider>;
+  return (
+    <I18nProvider defaultLocale={locale as Locale}>
+      <JsonLd locale={locale as Locale} />
+      {children}
+    </I18nProvider>
+  );
 }

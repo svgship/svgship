@@ -1,28 +1,55 @@
 import type { MetadataRoute } from 'next';
 
 export default function sitemap(): MetadataRoute.Sitemap {
+  const baseUrl = 'https://svgship.com';
+  const now = new Date();
+
   return [
     {
-      url: 'https://svgship.com/en',
-      lastModified: new Date(),
+      url: `${baseUrl}/en`,
+      lastModified: now,
       changeFrequency: 'weekly',
       priority: 1,
       alternates: {
         languages: {
-          en: 'https://svgship.com/en',
-          zh: 'https://svgship.com/zh',
+          en: `${baseUrl}/en`,
+          zh: `${baseUrl}/zh`,
         },
       },
     },
     {
-      url: 'https://svgship.com/zh',
-      lastModified: new Date(),
+      url: `${baseUrl}/zh`,
+      lastModified: now,
       changeFrequency: 'weekly',
       priority: 1,
       alternates: {
         languages: {
-          en: 'https://svgship.com/en',
-          zh: 'https://svgship.com/zh',
+          en: `${baseUrl}/en`,
+          zh: `${baseUrl}/zh`,
+        },
+      },
+    },
+    {
+      url: `${baseUrl}/en/about`,
+      lastModified: now,
+      changeFrequency: 'monthly',
+      priority: 0.6,
+      alternates: {
+        languages: {
+          en: `${baseUrl}/en/about`,
+          zh: `${baseUrl}/zh/about`,
+        },
+      },
+    },
+    {
+      url: `${baseUrl}/zh/about`,
+      lastModified: now,
+      changeFrequency: 'monthly',
+      priority: 0.6,
+      alternates: {
+        languages: {
+          en: `${baseUrl}/en/about`,
+          zh: `${baseUrl}/zh/about`,
         },
       },
     },

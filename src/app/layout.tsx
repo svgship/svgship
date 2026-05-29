@@ -20,12 +20,14 @@ const jetbrainsMono = JetBrains_Mono({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL('https://svgship.com'),
   title: {
-    default: 'SVGShip — Professional SVG Resource Directory',
+    default:
+      'SVGShip — Professional SVG Resource Directory | Free Icons, Illustrations & Animations',
     template: '%s | SVGShip',
   },
   description:
-    'Curated collection of the best SVG resources — free icon libraries, illustrations, vector materials, and SVG animations for designers and developers.',
+    'Discover the best free SVG resources: icon libraries, illustrations, vector graphics, and SVG animations. Curated collection for designers and developers — searchable, filterable, always up-to-date.',
   keywords: [
     'SVG',
     'SVG icons',
@@ -33,7 +35,18 @@ export const metadata: Metadata = {
     'vector graphics',
     'SVG animations',
     'free icons',
+    'free SVG',
+    'icon library',
     'design resources',
+    'web design',
+    'UI icons',
+    'open source icons',
+    'scalable vector graphics',
+    'SVG tools',
+    'icon packs',
+    'vector illustrations',
+    'Lottie animations',
+    'icon search',
   ],
   icons: {
     icon: '/logo-favicon.svg',
