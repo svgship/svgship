@@ -405,5 +405,309 @@
     "category": "tools",
     "tags": ["编辑器"],
     "logo": "boxy-svg_favicon.svg"
+  },
+  {
+    "id": "mdn-svg-tutorial",
+    "name": "MDN SVG Tutorial",
+    "url": "https://developer.mozilla.org/en-US/docs/Web/SVG/Tutorial",
+    "description": {
+      "zh": "Mozilla 官方 SVG 教程，从基础概念到高级特性全面覆盖",
+      "en": "Mozilla's official SVG tutorial covering basics to advanced features"
+    },
+    "category": "tutorials",
+    "tags": ["基础入门"],
+    "featured": true
+  },
+  {
+    "id": "css-tricks-svg-guide",
+    "name": "CSS-Tricks SVG Guide",
+    "url": "https://css-tricks.com/using-svg/",
+    "description": {
+      "zh": "CSS-Tricks 的 SVG 完整指南，涵盖内联、CSS 使用和动画",
+      "en": "Complete SVG guide covering inline usage, CSS integration, and animations"
+    },
+    "category": "tutorials",
+    "tags": ["基础入门", "动画进阶"],
+    "featured": true
+  },
+  {
+    "id": "svg-on-the-web",
+    "name": "SVG on the Web",
+    "url": "https://svgontheweb.com/",
+    "description": {
+      "zh": "SVG 在 Web 开发中的完整使用指南，实用性强",
+      "en": "Comprehensive guide to using SVG in web development"
+    },
+    "category": "tutorials",
+    "tags": ["基础入门", "实战案例"]
+  },
+  {
+    "id": "web-dev-svg",
+    "name": "web.dev SVG Guide",
+    "url": "https://web.dev/articles/svg",
+    "description": {
+      "zh": "Google 官方的 SVG 优化与最佳实践指南",
+      "en": "Google's official SVG optimization and best practices guide"
+    },
+    "category": "tutorials",
+    "tags": ["基础入门", "工具教程"]
+  },
+  {
+    "id": "w3schools-svg",
+    "name": "W3Schools SVG",
+    "url": "https://www.w3schools.com/graphics/svg_intro.asp",
+    "description": {
+      "zh": "W3Schools 的 SVG 入门教程，适合初学者",
+      "en": "W3Schools SVG tutorial for beginners with interactive examples"
+    },
+    "category": "tutorials",
+    "tags": ["基础入门"]
+  },
+  {
+    "id": "smil-animation-guide",
+    "name": "SMIL Animation Guide",
+    "url": "https://developer.mozilla.org/en-US/docs/Web/SVG/SVG_animation_with_SMIL",
+    "description": {
+      "zh": "MDN 的 SMIL SVG 动画教程，原生动画技术详解",
+      "en": "MDN's guide to SVG animation with SMIL, native animation techniques"
+    },
+    "category": "tutorials",
+    "tags": ["动画进阶"]
+  },
+  {
+    "id": "css-tricks-svg-animation",
+    "name": "CSS-Tricks SVG Animation",
+    "url": "https://css-tricks.com/guide-svg-animations/",
+    "description": {
+      "zh": "SVG 动画完整指南，使用 CSS 和 JavaScript 实现",
+      "en": "Complete guide to SVG animations using CSS and JavaScript"
+    },
+    "category": "tutorials",
+    "tags": ["动画进阶"],
+    "featured": true
+  },
+  {
+    "id": "greensock-svg",
+    "name": "GreenSock SVG Animation",
+    "url": "https://gsap.com/docs/v3/SVG/",
+    "description": {
+      "zh": "GSAP 官方 SVG 动画文档，专业级动画解决方案",
+      "en": "GSAP official SVG animation documentation, professional animation solutions"
+    },
+    "category": "tutorials",
+    "tags": ["动画进阶", "实战案例"]
+  },
+  {
+    "id": "svg-path-tutorial",
+    "name": "SVG Path Tutorial",
+    "url": "https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/d",
+    "description": {
+      "zh": "MDN 的 SVG Path 路径属性详解",
+      "en": "MDN's detailed guide to SVG path 'd' attribute"
+    },
+    "category": "tutorials",
+    "tags": ["路径与滤镜"]
+  },
+  {
+    "id": "svg-filter-effects",
+    "name": "SVG Filter Effects",
+    "url": "https://developer.mozilla.org/en-US/docs/Web/SVG/Element/filter",
+    "description": {
+      "zh": "SVG 滤镜效果详解，包含模糊、阴影等效果",
+      "en": "SVG filter effects including blur, shadow, and more"
+    },
+    "category": "tutorials",
+    "tags": ["路径与滤镜"]
+  },
+  {
+    "id": "yoksel-svg-tools",
+    "name": "Yoksel SVG Tools",
+    "url": "https://yoksel.github.io/svg-tools/",
+    "description": {
+      "zh": "SVG 可视化工具集合，帮助理解 SVG 语法",
+      "en": "Collection of SVG visualization tools to understand SVG syntax"
+    },
+    "category": "tutorials",
+    "tags": ["工具教程", "路径与滤镜"]
+  },
+  {
+    "id": "svgo-docs",
+    "name": "SVGO Documentation",
+    "url": "https://github.com/svg/svgo",
+    "description": {
+      "zh": "SVG 优化工具 SVGO 的官方文档和使用指南",
+      "en": "Official documentation for SVGO, the SVG optimization tool"
+    },
+    "category": "tutorials",
+    "tags": ["工具教程"]
+  },
+  {
+    "id": "codrops-svg",
+    "name": "Codrops SVG Tutorials",
+    "url": "https://tympanus.net/codrops/?s=svg",
+    "description": {
+      "zh": "Codrops 的 SVG 创意教程集合，包含大量实战案例",
+      "en": "Codrops SVG creative tutorials collection with practical examples"
+    },
+    "category": "tutorials",
+    "tags": ["实战案例", "动画进阶"],
+    "featured": true
+  },
+  {
+    "id": "svg-js-docs",
+    "name": "SVG.js Documentation",
+    "url": "https://svgjs.dev/docs/3.0/",
+    "description": {
+      "zh": "SVG.js 3.0 官方文档，轻量级 SVG 操作库",
+      "en": "SVG.js 3.0 official documentation, lightweight SVG manipulation library"
+    },
+    "category": "tutorials",
+    "tags": ["工具教程", "实战案例"]
+  },
+  {
+    "id": "snap-svg-docs",
+    "name": "Snap.svg Documentation",
+    "url": "http://snapsvg.io/docs/",
+    "description": {
+      "zh": "Snap.svg 官方文档，Adobe 出品的 SVG 库",
+      "en": "Snap.svg official documentation, SVG library by Adobe"
+    },
+    "category": "tutorials",
+    "tags": ["工具教程"]
+  },
+  {
+    "id": "codepen-svg",
+    "name": "CodePen SVG Topic",
+    "url": "https://codepen.io/topic/svg",
+    "description": {
+      "zh": "CodePen 上的 SVG 创意作品集合，社区精选",
+      "en": "Collection of SVG creative works on CodePen, community picks"
+    },
+    "category": "inspiration",
+    "tags": ["CodePen 集合", "动画作品"],
+    "featured": true
+  },
+  {
+    "id": "codepen-svg-animation",
+    "name": "CodePen SVG Animation",
+    "url": "https://codepen.io/search/pens?q=svg+animation",
+    "description": {
+      "zh": "CodePen 上的 SVG 动画作品搜索，海量创意灵感",
+      "en": "SVG animation works on CodePen, massive creative inspiration"
+    },
+    "category": "inspiration",
+    "tags": ["动画作品", "CodePen 集合"]
+  },
+  {
+    "id": "awwwards-svg",
+    "name": "Awwwards SVG Websites",
+    "url": "https://www.awwwards.com/websites/svg/",
+    "description": {
+      "zh": "Awwwards 上使用 SVG 的获奖网站，顶级设计参考",
+      "en": "Award-winning websites using SVG on Awwwards, top design reference"
+    },
+    "category": "inspiration",
+    "tags": ["网页交互"],
+    "featured": true
+  },
+  {
+    "id": "dribbble-svg",
+    "name": "Dribbble SVG",
+    "url": "https://dribbble.com/search/svg",
+    "description": {
+      "zh": "Dribbble 上的 SVG 设计作品，设计师灵感来源",
+      "en": "SVG design works on Dribbble, designer inspiration source"
+    },
+    "category": "inspiration",
+    "tags": ["动画作品", "生成艺术"]
+  },
+  {
+    "id": "behance-svg",
+    "name": "Behance SVG",
+    "url": "https://www.behance.net/search/projects?search=svg",
+    "description": {
+      "zh": "Behance 上的 SVG 项目展示，专业设计案例",
+      "en": "SVG projects on Behance, professional design cases"
+    },
+    "category": "inspiration",
+    "tags": ["动画作品", "网页交互"]
+  },
+  {
+    "id": "svg-art-gallery",
+    "name": "SVG Art Gallery",
+    "url": "https://svgartgallery.net/",
+    "description": {
+      "zh": "SVG 艺术作品画廊，展示 SVG 的创意可能性",
+      "en": "SVG art gallery showcasing creative possibilities of SVG"
+    },
+    "category": "inspiration",
+    "tags": ["生成艺术", "SVG 实验"]
+  },
+  {
+    "id": "generative-svg",
+    "name": "Generative Art with SVG",
+    "url": "https://generativeartwithsvg.com/",
+    "description": {
+      "zh": "使用 SVG 创作生成艺术的教程和案例",
+      "en": "Tutorials and examples for creating generative art with SVG"
+    },
+    "category": "inspiration",
+    "tags": ["生成艺术"]
+  },
+  {
+    "id": "svg-experiments",
+    "name": "SVG Experiments by Sara Soueidan",
+    "url": "https://www.sarasoueidan.com/blog/svg-art/",
+    "description": {
+      "zh": "Sara Soueidan 的 SVG 实验文章，SVG 技术探索",
+      "en": "Sara Soueidan's SVG experiments, exploring SVG techniques"
+    },
+    "category": "inspiration",
+    "tags": ["SVG 实验", "动画作品"]
+  },
+  {
+    "id": "codrops-svg-inspiration",
+    "name": "Codrops SVG Inspiration",
+    "url": "https://tympanus.net/codrops/?s=svg+inspiration",
+    "description": {
+      "zh": "Codrops 的 SVG 灵感文章集合，创意设计参考",
+      "en": "Codrops SVG inspiration articles, creative design reference"
+    },
+    "category": "inspiration",
+    "tags": ["网页交互", "动画作品"]
+  },
+  {
+    "id": "svg-party",
+    "name": "SVG Party",
+    "url": "https://svg-party.com/",
+    "description": {
+      "zh": "SVG 派对，展示各种 SVG 动画和交互效果",
+      "en": "SVG Party, showcasing various SVG animations and interactions"
+    },
+    "category": "inspiration",
+    "tags": ["动画作品", "SVG 实验"]
+  },
+  {
+    "id": "svg-backgrounds",
+    "name": "SVG Backgrounds",
+    "url": "https://www.svgbackgrounds.com/",
+    "description": {
+      "zh": "SVG 背景图案库，可自定义的矢量背景",
+      "en": "SVG background patterns library, customizable vector backgrounds"
+    },
+    "category": "inspiration",
+    "tags": ["生成艺术"]
+  },
+  {
+    "id": "haikei",
+    "name": "Haikei",
+    "url": "https://app.haikei.app/",
+    "description": {
+      "zh": "SVG 背景生成器，一键生成各种风格的矢量背景",
+      "en": "SVG background generator, one-click vector backgrounds in various styles"
+    },
+    "category": "inspiration",
+    "tags": ["生成艺术", "SVG 实验"],
+    "featured": true
   }
 ]
