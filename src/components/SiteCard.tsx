@@ -1,5 +1,7 @@
 'use client';
 
+import { useRef, useCallback } from 'react';
+import { gsap } from 'gsap';
 import { useI18n } from '@/lib/i18n/context';
 import { ExternalLink } from 'lucide-react';
 import type { SvgSite, Locale } from '@/types';
@@ -12,21 +14,58 @@ interface SiteCardProps {
 export function SiteCard({ site, locale }: SiteCardProps) {
   const { t } = useI18n();
   const initial = site.name.charAt(0).toUpperCase();
+  const cardRef = useRef<HTMLAnchorElement>(null);
+
+  // 3D magnetic hover effect
+  const onMouseMove = useCallback((e: React.MouseEvent<HTMLAnchorElement>) => {
+    const card = cardRef.current;
+    if (!card) return;
+
+    const rect = card.getBoundingClientRect();
+    const x = e.clientX - rect.left;
+    const y = e.clientY - rect.top;
+    const centerX = rect.width / 2;
+    const centerY = rect.height / 2;
+
+    const rotateX = ((y - centerY) / centerY) * -5;
+    const rotateY = ((x - centerX) / centerX) * 5;
+
+    gsap.to(card, {
+      rotationX: rotateX,
+      rotationY: rotateY,
+      transformPerspective: 800,
+      scale: 1.02,
+      boxShadow: 'var(--shadow-xl), var(--shadow-glow)',
+      duration: 0.3,
+      ease: 'power1.out',
+    });
+  }, []);
+
+  const onMouseLeave = useCallback(() => {
+    const card = cardRef.current;
+    if (!card) return;
+
+    gsap.to(card, {
+      rotationX: 0,
+      rotationY: 0,
+      scale: 1,
+      boxShadow: 'var(--glass-shadow)',
+      duration: 0.5,
+      ease: 'power2.out',
+    });
+  }, []);
 
   return (
     <a
+      ref={cardRef}
       href={site.url}
       target="_blank"
       rel="noopener noreferrer"
-      className="glass-card group flex flex-col p-5 transition-all duration-300"
-      onMouseEnter={(e) => {
-        e.currentTarget.style.transform = 'translateY(-4px)';
-        e.currentTarget.style.boxShadow = 'var(--shadow-xl), var(--shadow-glow)';
-      }}
-      onMouseLeave={(e) => {
-        e.currentTarget.style.transform = 'translateY(0)';
-        e.currentTarget.style.boxShadow = 'var(--glass-shadow)';
-      }}
+      className="glass-card group flex flex-col p-5"
+      data-card
+      onMouseMove={onMouseMove}
+      onMouseLeave={onMouseLeave}
+      style={{ transformStyle: 'preserve-3d', willChange: 'transform' }}
     >
       <div className="flex items-start gap-3">
         {site.logo ? (

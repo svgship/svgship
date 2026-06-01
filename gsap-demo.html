@@ -1,0 +1,804 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SVGShip × GSAP — Creative Demo</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;600;700&family=Inter:wght@400;500;600&display=swap');
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  :root {
+    --primary: #6366f1;
+    --primary-hover: #4f46e5;
+    --accent: #ec4899;
+    --secondary: #8b5cf6;
+    --bg: #0f0f23;
+    --surface: #1a1a2e;
+    --surface-2: #16162a;
+    --on-surface: #e8e6f0;
+    --on-surface-variant: #9ca3af;
+    --glass-bg: rgba(15, 15, 35, 0.7);
+    --glass-border: rgba(255, 255, 255, 0.08);
+  }
+
+  html { scroll-behavior: auto; /* GSAP handles smooth scroll */ }
+  body {
+    background: var(--bg);
+    color: var(--on-surface);
+    font-family: 'Inter', sans-serif;
+    overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* ===== Background SVG Grid ===== */
+  .bg-grid {
+    position: fixed; inset: 0; z-index: 0; pointer-events: none; opacity: 0.15;
+  }
+  .bg-grid svg { width: 100%; height: 100%; }
+  .bg-grid line { stroke: var(--primary); stroke-width: 0.5; }
+  .bg-grid circle { fill: var(--accent); }
+
+  /* ===== Floating Orbs ===== */
+  .bg-orbs { position: fixed; inset: 0; z-index: 0; pointer-events: none; }
+  .bg-orb {
+    position: absolute; border-radius: 50%; filter: blur(100px); opacity: 0.25;
+  }
+  .bg-orb-1 { width: 600px; height: 600px; background: linear-gradient(135deg, rgba(99,102,241,0.4), rgba(139,92,246,0.3)); top: -200px; right: -200px; }
+  .bg-orb-2 { width: 500px; height: 500px; background: linear-gradient(135deg, rgba(236,72,153,0.3), rgba(168,85,247,0.2)); bottom: -150px; left: -150px; }
+  .bg-orb-3 { width: 400px; height: 400px; background: linear-gradient(135deg, rgba(129,140,248,0.3), rgba(99,102,241,0.2)); top: 50%; left: 50%; transform: translate(-50%, -50%); }
+
+  /* ===== Morphing SVG Shapes ===== */
+  .morph-container {
+    position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);
+    width: 100%; height: 100%; pointer-events: none; z-index: 1;
+  }
+  .morph-shape {
+    position: absolute; opacity: 0.08;
+  }
+
+  /* ===== Hero ===== */
+  .hero {
+    position: relative; z-index: 2;
+    min-height: 100vh; display: flex; flex-direction: column;
+    align-items: center; justify-content: center; text-align: center;
+    padding: 2rem;
+  }
+  .hero-badge {
+    display: inline-flex; align-items: center; gap: 8px;
+    padding: 6px 16px; border-radius: 999px; font-size: 13px; font-weight: 500;
+    background: rgba(99,102,241,0.15); color: #a5b4fc;
+    border: 1px solid rgba(99,102,241,0.2);
+    margin-bottom: 1.5rem; opacity: 0;
+  }
+  .hero-badge .dot { width: 6px; height: 6px; border-radius: 50%; background: #34d399; }
+
+  .hero-title {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: clamp(2.5rem, 6vw, 5rem);
+    font-weight: 700; line-height: 1.1; letter-spacing: -0.02em;
+    max-width: 900px; margin-bottom: 1.5rem;
+    /* SplitText will wrap each char/word */
+  }
+  .hero-title .char {
+    display: inline-block;
+    background: linear-gradient(135deg, #e8e6f0 0%, #a5b4fc 50%, #f472b6 100%);
+    -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  .hero-title .word { display: inline-block; overflow: hidden; }
+  .hero-title .space { display: inline-block; width: 0.3em; }
+
+  .hero-subtitle {
+    font-size: 1.15rem; line-height: 1.7; color: rgba(255,255,255,0.6);
+    max-width: 560px; margin-bottom: 2.5rem; opacity: 0;
+  }
+
+  /* ===== Search Box ===== */
+  .search-wrap {
+    position: relative; width: 100%; max-width: 520px; opacity: 0;
+  }
+  .search-input {
+    width: 100%; padding: 16px 20px 16px 52px;
+    border-radius: 16px; border: 1px solid var(--glass-border);
+    background: var(--glass-bg); backdrop-filter: blur(20px);
+    color: var(--on-surface); font-size: 15px; font-family: 'Inter', sans-serif;
+    outline: none; transition: border-color 0.3s, box-shadow 0.3s;
+  }
+  .search-input::placeholder { color: rgba(255,255,255,0.35); }
+  .search-input:focus {
+    border-color: var(--primary); box-shadow: 0 0 0 3px rgba(99,102,241,0.15), 0 8px 32px rgba(0,0,0,0.3);
+  }
+  .search-icon {
+    position: absolute; left: 18px; top: 50%; transform: translateY(-50%);
+    color: rgba(255,255,255,0.4); width: 20px; height: 20px;
+  }
+
+  /* ===== Scroll Indicator ===== */
+  .scroll-hint {
+    position: absolute; bottom: 40px; left: 50%; transform: translateX(-50%);
+    display: flex; flex-direction: column; align-items: center; gap: 8px;
+    opacity: 0; z-index: 5;
+  }
+  .scroll-hint span { font-size: 12px; color: rgba(255,255,255,0.35); letter-spacing: 0.1em; text-transform: uppercase; }
+  .scroll-arrow {
+    width: 24px; height: 24px; color: rgba(255,255,255,0.35);
+    animation: bounce 2s ease-in-out infinite;
+  }
+  @keyframes bounce { 0%,100% { transform: translateY(0); } 50% { transform: translateY(8px); } }
+
+  /* ===== DrawSVG Divider ===== */
+  .svg-divider {
+    position: relative; z-index: 2; width: 100%; padding: 0 2rem;
+    display: flex; justify-content: center; margin: -2rem 0 0;
+  }
+  .svg-divider svg { width: 100%; max-width: 1000px; height: 80px; overflow: visible; }
+  .svg-divider path {
+    fill: none; stroke: url(#divGrad); stroke-width: 2; stroke-linecap: round;
+  }
+
+  /* ===== Category Section ===== */
+  .categories {
+    position: relative; z-index: 2;
+    max-width: 1200px; margin: 0 auto; padding: 4rem 2rem 8rem;
+  }
+  .cat-header {
+    display: flex; align-items: center; gap: 16px;
+    margin-bottom: 2rem; opacity: 0;
+  }
+  .cat-icon {
+    width: 48px; height: 48px; border-radius: 14px;
+    background: rgba(99,102,241,0.15); display: flex;
+    align-items: center; justify-content: center;
+  }
+  .cat-icon svg { width: 24px; height: 24px; color: var(--primary); }
+  .cat-name {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 1.5rem; font-weight: 700; color: var(--on-surface);
+  }
+  .cat-desc { font-size: 0.875rem; color: var(--on-surface-variant); margin-top: 2px; }
+
+  /* ===== Site Cards ===== */
+  .cards-grid {
+    display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    gap: 16px; perspective: 1000px;
+  }
+  .site-card {
+    background: var(--glass-bg); backdrop-filter: blur(16px);
+    border: 1px solid var(--glass-border); border-radius: 16px;
+    padding: 20px; cursor: pointer; opacity: 0;
+    transform-style: preserve-3d;
+    transition: box-shadow 0.3s;
+    will-change: transform;
+  }
+  .site-card:hover {
+    box-shadow: 0 20px 40px rgba(99,102,241,0.15), 0 0 20px rgba(99,102,241,0.1);
+    border-color: rgba(99,102,241,0.25);
+  }
+  .card-top { display: flex; align-items: center; gap: 12px; margin-bottom: 10px; }
+  .card-logo {
+    width: 40px; height: 40px; border-radius: 10px;
+    display: flex; align-items: center; justify-content: center;
+    font-weight: 700; font-size: 18px; color: #fff;
+    font-family: 'Space Grotesk', sans-serif;
+    flex-shrink: 0;
+  }
+  .card-name {
+    font-weight: 600; font-size: 14px; color: var(--on-surface);
+    font-family: 'Space Grotesk', sans-serif;
+  }
+  .card-tag {
+    display: inline-block; padding: 2px 8px; border-radius: 999px;
+    font-size: 10px; font-weight: 500; margin-left: auto;
+  }
+  .tag-free { background: rgba(16,185,129,0.15); color: #34d399; }
+  .tag-freemium { background: rgba(99,102,241,0.15); color: #a5b4fc; }
+  .card-desc { font-size: 13px; line-height: 1.6; color: var(--on-surface-variant); }
+  .card-tags { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 12px; }
+  .card-tags span {
+    display: inline-block; padding: 3px 10px; border-radius: 999px;
+    font-size: 11px; font-weight: 500;
+    background: rgba(99,102,241,0.1); color: #a5b4fc;
+  }
+
+  /* ===== Magnetic Glow (cursor follower) ===== */
+  .cursor-glow {
+    position: fixed; width: 300px; height: 300px; border-radius: 50%;
+    background: radial-gradient(circle, rgba(99,102,241,0.08) 0%, transparent 70%);
+    pointer-events: none; z-index: 1; transform: translate(-50%, -50%);
+    will-change: left, top;
+  }
+
+  /* ===== Footer ===== */
+  .demo-footer {
+    position: relative; z-index: 2;
+    text-align: center; padding: 4rem 2rem 3rem;
+    color: var(--on-surface-variant); font-size: 13px;
+    border-top: 1px solid var(--glass-border);
+    max-width: 1200px; margin: 0 auto;
+  }
+  .demo-footer .powered {
+    display: flex; align-items: center; justify-content: center; gap: 8px;
+    margin-bottom: 8px; font-weight: 600; color: var(--on-surface);
+    font-family: 'Space Grotesk', sans-serif;
+  }
+  .demo-footer .powered svg { width: 20px; height: 20px; }
+
+  /* ===== Loading Overlay ===== */
+  .loader {
+    position: fixed; inset: 0; z-index: 9999;
+    background: var(--bg); display: flex;
+    align-items: center; justify-content: center;
+    flex-direction: column; gap: 20px;
+  }
+  .loader-ring {
+    width: 48px; height: 48px; border-radius: 50%;
+    border: 3px solid rgba(99,102,241,0.2);
+    border-top-color: var(--primary);
+    animation: spin 0.8s linear infinite;
+  }
+  @keyframes spin { to { transform: rotate(360deg); } }
+  .loader-text { font-size: 14px; color: var(--on-surface-variant); font-family: 'Space Grotesk', sans-serif; }
+</style>
+</head>
+<body>
+
+<!-- Loading Overlay -->
+<div class="loader" id="loader">
+  <div class="loader-ring"></div>
+  <div class="loader-text">Loading GSAP Magic...</div>
+</div>
+
+<!-- Cursor Glow -->
+<div class="cursor-glow" id="cursorGlow"></div>
+
+<!-- Background SVG Grid -->
+<div class="bg-grid" id="bgGrid">
+  <svg xmlns="http://www.w3.org/2000/svg" id="gridSvg"></svg>
+</div>
+
+<!-- Floating Orbs -->
+<div class="bg-orbs">
+  <div class="bg-orb bg-orb-1" id="orb1"></div>
+  <div class="bg-orb bg-orb-2" id="orb2"></div>
+  <div class="bg-orb bg-orb-3" id="orb3"></div>
+</div>
+
+<!-- ===== HERO ===== -->
+<section class="hero" id="hero">
+  <!-- Morphing SVG shapes behind title -->
+  <div class="morph-container">
+    <svg class="morph-shape" id="morphShape1" width="200" height="200" viewBox="0 0 200 200" style="top: 10%; left: 10%;">
+      <path id="morphPath1" d="M100,20 C140,20 180,60 180,100 C180,140 140,180 100,180 C60,180 20,140 20,100 C20,60 60,20 100,20Z" fill="none" stroke="var(--primary)" stroke-width="2"/>
+    </svg>
+    <svg class="morph-shape" id="morphShape2" width="160" height="160" viewBox="0 0 200 200" style="top: 20%; right: 15%;">
+      <path id="morphPath2" d="M100,20 C140,20 180,60 180,100 C180,140 140,180 100,180 C60,180 20,140 20,100 C20,60 60,20 100,20Z" fill="none" stroke="var(--accent)" stroke-width="1.5"/>
+    </svg>
+    <svg class="morph-shape" id="morphShape3" width="120" height="120" viewBox="0 0 200 200" style="bottom: 20%; left: 20%;">
+      <path id="morphPath3" d="M100,20 C140,20 180,60 180,100 C180,140 140,180 100,180 C60,180 20,140 20,100 C20,60 60,20 100,20Z" fill="none" stroke="var(--secondary)" stroke-width="1.5"/>
+    </svg>
+  </div>
+
+  <div class="hero-badge" id="heroBadge">
+    <span class="dot"></span>
+    <span>100+ Free SVG Resources</span>
+  </div>
+
+  <h1 class="hero-title" id="heroTitle">SVGShip — Your SVG Universe</h1>
+
+  <p class="hero-subtitle" id="heroSub">
+    Discover the best free SVG icons, illustrations, tools & resources.<br>
+    Curated for designers and developers.
+  </p>
+
+  <div class="search-wrap" id="searchWrap">
+    <svg class="search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+      <circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/>
+    </svg>
+    <input class="search-input" type="text" placeholder="Search SVG icons, illustrations, tools..." id="searchInput">
+  </div>
+
+  <div class="scroll-hint" id="scrollHint">
+    <span>Scroll to explore</span>
+    <svg class="scroll-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+      <path d="M12 5v14M19 12l-7 7-7-7"/>
+    </svg>
+  </div>
+</section>
+
+<!-- DrawSVG Divider -->
+<div class="svg-divider">
+  <svg viewBox="0 0 1000 80" xmlns="http://www.w3.org/2000/svg">
+    <defs>
+      <linearGradient id="divGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+        <stop offset="0%" style="stop-color:#6366f1;stop-opacity:0"/>
+        <stop offset="30%" style="stop-color:#6366f1;stop-opacity:1"/>
+        <stop offset="50%" style="stop-color:#ec4899;stop-opacity:1"/>
+        <stop offset="70%" style="stop-color:#8b5cf6;stop-opacity:1"/>
+        <stop offset="100%" style="stop-color:#8b5cf6;stop-opacity:0"/>
+      </linearGradient>
+    </defs>
+    <path id="divLine1" d="M0,40 C150,40 200,10 350,10 C500,10 550,70 700,70 C850,70 900,40 1000,40"/>
+    <path id="divLine2" d="M0,50 C200,50 250,20 400,20 C550,20 600,60 750,60 C900,60 950,50 1000,50" opacity="0.4"/>
+  </svg>
+</div>
+
+<!-- ===== CATEGORIES ===== -->
+<section class="categories" id="categories">
+
+  <!-- Category 1: Icons -->
+  <div class="cat-header" data-cat>
+    <div class="cat-icon">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/>
+        <rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/>
+      </svg>
+    </div>
+    <div>
+      <div class="cat-name">Icon Libraries</div>
+      <div class="cat-desc">Open-source SVG icon sets for every project</div>
+    </div>
+  </div>
+
+  <div class="cards-grid" id="grid1">
+    <div class="site-card" data-card>
+      <div class="card-top">
+        <div class="card-logo" style="background: linear-gradient(135deg, #6366f1, #8b5cf6);">L</div>
+        <span class="card-name">Lucide</span>
+        <span class="card-tag tag-free">Free</span>
+      </div>
+      <p class="card-desc">Beautiful open-source icons. 1000+ icons, consistent 24x24 grid.</p>
+      <div class="card-tags"><span>icons</span><span>open-source</span><span>MIT</span></div>
+    </div>
+    <div class="site-card" data-card>
+      <div class="card-top">
+        <div class="card-logo" style="background: linear-gradient(135deg, #ec4899, #f43f5e);">P</div>
+        <span class="card-name">Phosphor Icons</span>
+        <span class="card-tag tag-free">Free</span>
+      </div>
+      <p class="card-desc">Flexible icon family with 6 weights. 6000+ icons total.</p>
+      <div class="card-tags"><span>icons</span><span>multi-weight</span><span>MIT</span></div>
+    </div>
+    <div class="site-card" data-card>
+      <div class="card-top">
+        <div class="card-logo" style="background: linear-gradient(135deg, #10b981, #059669);">H</div>
+        <span class="card-name">Heroicons</span>
+        <span class="card-tag tag-free">Free</span>
+      </div>
+      <p class="card-desc">By Tailwind team. Outline & Solid styles, optimized SVGs.</p>
+      <div class="card-tags"><span>icons</span><span>tailwind</span><span>MIT</span></div>
+    </div>
+    <div class="site-card" data-card>
+      <div class="card-top">
+        <div class="card-logo" style="background: linear-gradient(135deg, #f59e0b, #ef4444);">T</div>
+        <span class="card-name">Tabler Icons</span>
+        <span class="card-tag tag-free">Free</span>
+      </div>
+      <p class="card-desc">4800+ pixel-perfect icons. MIT licensed, no attribution.</p>
+      <div class="card-tags"><span>icons</span><span>pixel-perfect</span><span>MIT</span></div>
+    </div>
+  </div>
+
+  <!-- Category 2: Illustrations -->
+  <div class="cat-header" data-cat style="margin-top: 4rem;">
+    <div class="cat-icon">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/>
+      </svg>
+    </div>
+    <div>
+      <div class="cat-name">Illustrations</div>
+      <div class="cat-desc">Free SVG illustrations for landing pages and apps</div>
+    </div>
+  </div>
+
+  <div class="cards-grid" id="grid2">
+    <div class="site-card" data-card>
+      <div class="card-top">
+        <div class="card-logo" style="background: linear-gradient(135deg, #8b5cf6, #a78bfa);">U</div>
+        <span class="card-name">unDraw</span>
+        <span class="card-tag tag-free">Free</span>
+      </div>
+      < <span class="card-tag tag-free">Free</span>
+      </div>
+      <p class="card-desc">Open-source illustrations. Customize primary color, download SVG.</p>
+      <div class="card-tags"><span>illustrations</span><span>customizable</span></div>
+    </div>
+    <div class="site-card" data-card>
+      <div class="card-top">
+        <div class="card-logo" style="background: linear-gradient(135deg, #06b6d4, #0891b2);">S</div>
+        <span class="card-name">Storyset</span>
+        <span class="card-tag tag-freemium">Freemium</span>
+      </div>
+      <p class="card-desc">Animated & static illustrations. 5 different styles to choose from.</p>
+      <div class="card-tags"><span>illustrations</span><span>animated</span><span>styles</span></div>
+    </div>
+    <div class="site-card" data-card>
+      <div class="card-top">
+        <div class="card-logo" style="background: linear-gradient(135deg, #f472b6, #ec4899);">H</div>
+        <span class="card-name">Humaaans</span>
+        <span class="card-tag tag-free">Free</span>
+      </div>
+      <p class="card-desc">Mix-and-match library. Create custom human illustrations.</p>
+      <div class="card-tags"><span>people</span><span>modular</span><span>CC0</span></div>
+    </div>
+    <div class="site-card" data-card>
+      <div class="card-top">
+        <div class="card-logo" style="background: linear-gradient(135deg, #34d399, #10b981);">B</div>
+        <span class="card-name">Blush</span>
+        <span class="card-tag tag-freemium">Freemium</span>
+      </div>
+      <p class="card-desc">Create custom illustrations with plug-and-play components.</p>
+      <div class="card-tags"><span>illustrations</span><span>components</span></div>
+    </div>
+  </div>
+
+  <!-- Category 3: Tools -->
+  <div class="cat-header" data-cat style="margin-top: 4rem;">
+    <div class="cat-icon">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/>
+      </svg>
+    </div>
+    <div>
+      <div class="cat-name">Tools & Editors</div>
+      <div class="cat-desc">SVG editing, optimization and conversion tools</div>
+    </div>
+  </div>
+
+  <div class="cards-grid" id="grid3">
+    <div class="site-card" data-card>
+      <div class="card-top">
+        <div class="card-logo" style="background: linear-gradient(135deg, #f59e0b, #d97706);">S</div>
+        <span class="card-name">SVGOMG</span>
+        <span class="card-tag tag-free">Free</span>
+      </div>
+      <p class="card-desc">SVG optimizer by Jake Archibald. Paste SVG, get optimized output.</p>
+      <div class="card-tags"><span>optimizer</span><span>web-based</span></div>
+    </div>
+    <div class="site-card" data-card>
+      <div class="card-top">
+        <div class="card-logo" style="background: linear-gradient(135deg, #6366f1, #4f46e5);">V</div>
+        <span class="card-name">Vecta.io</span>
+        <span class="card-tag tag-freemium">Freemium</span>
+      </div>
+      <p class="card-desc">SVG editor & converter. Real-time collaboration built in.</p>
+      <div class="card-tags"><span>editor</span><span>converter</span><span>collab</span></div>
+    </div>
+    <div class="site-card" data-card>
+      <div class="card-top">
+        <div class="card-logo" style="background: linear-gradient(135deg, #10b981, #059669);">M</div>
+        <span class="card-name">Method Draw</span>
+        <span class="card-tag tag-free">Free</span>
+      </div>
+      <p class="card-desc">Simple open-source SVG editor in the browser. No signup needed.</p>
+      <div class="card-tags"><span>editor</span><span>open-source</span><span>browser</span></div>
+    </div>
+    <div class="site-card" data-card>
+      <div class="card-top">
+        <div class="card-logo" style="background: linear-gradient(135deg, #ec4899, #be185d);">Y</div>
+        <span class="card-name">Yq</span>
+        <span class="card-tag tag-free">Free</span>
+      </div>
+      <p class="card-desc">SVG minifier. Remove metadata, comments, unused defs automatically.</p>
+      <div class="card-tags"><span>minifier</span><span>CLI</span><span>node</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer class="demo-footer">
+  <div class="powered">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+      <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/>
+    </svg>
+    <span>Powered by GSAP — Interactive Demo</span>
+  </div>
+  <p>SVGShip × GreenSock Animation Platform</p>
+</footer>
+
+<!-- GSAP CDN -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollToPlugin.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/MotionPathPlugin.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/TextPlugin.min.js"></script>
+
+<script>
+// Register plugins
+gsap.registerPlugin(ScrollTrigger, ScrollToPlugin, MotionPathPlugin, TextPlugin);
+
+// ===== Generate Background SVG Grid =====
+(function() {
+  const svg = document.getElementById('gridSvg');
+  const w = window.innerWidth, h = window.innerHeight;
+  const gap = 60;
+  let html = '';
+  for (let x = 0; x < w; x += gap) {
+    html += `<line x1="${x}" y1="0" x2="${x}" y2="${h}"/>`;
+  }
+  for (let y = 0; y < h; y += gap) {
+    html += `<line x1="0" y1="${y}" x2="${w}" y2="${y}"/>`;
+  }
+  // Add some dots at intersections
+  for (let x = 0; x < w; x += gap * 3) {
+    for (let y = 0; y < h; y += gap * 3) {
+      html += `<circle cx="${x}" cy="${y}" r="2" opacity="0.5"/>`;
+    }
+  }
+  svg.innerHTML = html;
+})();
+
+// ===== Custom SplitText (no plugin needed for demo) =====
+function splitText(el) {
+  const text = el.textContent;
+  el.innerHTML = '';
+  const words = text.split(' ');
+  words.forEach((word, wi) => {
+    const wordSpan = document.createElement('span');
+    wordSpan.className = 'word';
+    word.split('').forEach((char) => {
+      const charSpan = document.createElement('span');
+      charSpan.className = 'char';
+      charSpan.textContent = char;
+      wordSpan.appendChild(charSpan);
+    });
+    el.appendChild(wordSpan);
+    if (wi < words.length - 1) {
+      const space = document.createElement('span');
+      space.className = 'space';
+      space.innerHTML = '&nbsp;';
+      el.appendChild(space);
+    }
+  });
+  return el.querySelectorAll('.char');
+}
+
+// ===== Main Timeline =====
+const masterTL = gsap.timeline({
+  onComplete: () => {
+    // Remove loader
+    gsap.to('#loader', { opacity: 0, duration: 0.5, onComplete: () => {
+      document.getElementById('loader').style.display = 'none';
+    }});
+  }
+});
+
+// Split the title
+const chars = splitText(document.getElementById('heroTitle'));
+
+// Set initial states
+gsap.set(chars, { opacity: 0, y: 60, rotateX: -90, scale: 0.5 });
+gsap.set('#heroBadge', { opacity: 0, y: -20 });
+gsap.set('#heroSub', { opacity: 0, y: 30 });
+gsap.set('#searchWrap', { opacity: 0, y: 30, scale: 0.95 });
+gsap.set('#scrollHint', { opacity: 0 });
+gsap.set('.morph-shape', { opacity: 0, scale: 0.5 });
+
+// Build hero entrance timeline
+masterTL
+  // Morph shapes fade in & scale
+  .to('.morph-shape', {
+    opacity: 0.08, scale: 1, duration: 1.2, stagger: 0.2,
+    ease: 'power2.out'
+  })
+  // Badge drops in
+  .to('#heroBadge', {
+    opacity: 1, y: 0, duration: 0.6, ease: 'back.out(1.7)'
+  }, '-=0.8')
+  // Title chars explode in with stagger
+  .to(chars, {
+    opacity: 1, y: 0, rotateX: 0, scale: 1,
+    duration: 0.8, ease: 'back.out(2)',
+    stagger: { amount: 0.8, from: 'center' }
+  }, '-=0.4')
+  // Subtitle fades in
+  .to('#heroSub', {
+    opacity: 1, y: 0, duration: 0.8, ease: 'power2.out'
+  }, '-=0.3')
+  // Search box scales in
+  .to('#searchWrap', {
+    opacity: 1, y: 0, scale: 1, duration: 0.6, ease: 'power2.out'
+  }, '-=0.4')
+  // Scroll hint
+  .to('#scrollHint', {
+    opacity: 1, duration: 0.5
+  }, '-=0.2');
+
+// ===== Morphing SVG Shapes =====
+// Circle → Star → Diamond → Heart → Circle (looping)
+const shapes = {
+  circle: "M100,20 C140,20 180,60 180,100 C180,140 140,180 100,180 C60,180 20,140 20,100 C20,60 60,20 100,20Z",
+  star: "M100,10 L120,75 L190,75 L132,115 L155,180 L100,142 L45,180 L68,115 L10,75 L80,75Z",
+  diamond: "M100,10 L190,100 L100,190 L10,100Z",
+  heart: "M100,180 C60,140 0,100 0,60 C0,25 25,0 60,0 C80,0 95,15 100,25 C105,15 120,0 140,0 C175,0 200,25 200,60 C200,100 140,140 100,180Z",
+  hexagon: "M100,10 L180,50 L180,130 L100,170 L20,130 L20,50Z"
+};
+
+const shapeNames = Object.keys(shapes);
+const pathIds = ['#morphPath1', '#morphPath2', '#morphPath3'];
+
+pathIds.forEach((pathId, i) => {
+  let idx = i; // offset each shape
+  function morphNext() {
+    idx = (idx + 1) % shapeNames.length;
+    gsap.to(pathId, {
+      duration: 3,
+      attr: { d: shapes[shapeNames[idx]] },
+      ease: 'power2.inOut',
+      onComplete: morphNext
+    });
+  }
+  // Start morphing after initial load
+  gsap.delayedCall(2 + i * 1, morphNext);
+});
+
+// Gentle floating for morph shapes
+gsap.to('#morphShape1', { y: 20, x: -15, rotation: 10, duration: 8, repeat: -1, yoyo: true, ease: 'sine.inOut' });
+gsap.to('#morphShape2', { y: -25, x: 20, rotation: -8, duration: 10, repeat: -1, yoyo: true, ease: 'sine.inOut' });
+gsap.to('#morphShape3', { y: 15, x: 10, rotation: 12, duration: 7, repeat: -1, yoyo: true, ease: 'sine.inOut' });
+
+// ===== Orb Parallax on Mouse =====
+document.addEventListener('mousemove', (e) => {
+  const cx = e.clientX / window.innerWidth - 0.5;
+  const cy = e.clientY / window.innerHeight - 0.5;
+
+  gsap.to('#orb1', { x: cx * 40, y: cy * 30, duration: 1.5, ease: 'power1.out' });
+  gsap.to('#orb2', { x: cx * -30, y: cy * -20, duration: 1.5, ease: 'power1.out' });
+  gsap.to('#orb3', { x: cx * 20, y: cy * 15, duration: 1.5, ease: 'power1.out' });
+
+  // Cursor glow follower
+  gsap.to('#cursorGlow', { left: e.clientX, top: e.clientY, duration: 0.5, ease: 'power1.out' });
+});
+
+// ===== DrawSVG Divider =====
+gsap.fromTo('#divLine1',
+  { strokeDasharray: '0, 2000', strokeDashoffset: 0 },
+  {
+    strokeDasharray: '2000, 0', duration: 2, ease: 'power2.inOut',
+    scrollTrigger: {
+      trigger: '.svg-divider',
+      start: 'top 80%',
+      toggleActions: 'play none none reverse'
+    }
+  }
+);
+gsap.fromTo('#divLine2',
+  { strokeDasharray: '0, 2000', strokeDashoffset: 0 },
+  {
+    strokeDasharray: '2000, 0', duration: 2.5, ease: 'power2.inOut', delay: 0.3,
+    scrollTrigger: {
+      trigger: '.svg-divider',
+      start: 'top 80%',
+      toggleActions: 'play none none reverse'
+    }
+  }
+);
+
+// ===== Category Headers Scroll Animation =====
+gsap.utils.toArray('[data-cat]').forEach((el) => {
+  gsap.from(el, {
+    opacity: 0, x: -40, duration: 0.8, ease: 'power2.out',
+    scrollTrigger: {
+      trigger: el,
+      start: 'top 85%',
+      toggleActions: 'play none none reverse'
+    }
+  });
+  // Animate the icon inside
+  const icon = el.querySelector('.cat-icon');
+  if (icon) {
+    gsap.from(icon, {
+      rotation: -180, scale: 0, duration: 0.8, ease: 'back.out(2)',
+      scrollTrigger: {
+        trigger: el,
+        start: 'top 85%',
+        toggleActions: 'play none none reverse'
+      }
+    });
+  }
+});
+
+// ===== Card Entrance with ScrollTrigger.batch =====
+ScrollTrigger.batch('[data-card]', {
+  onEnter: (batch) => {
+    gsap.to(batch, {
+      opacity: 1, y: 0, scale: 1, rotationX: 0,
+      duration: 0.7, ease: 'back.out(1.5)',
+      stagger: 0.08, overwrite: true
+    });
+  },
+  onLeaveBack: (batch) => {
+    gsap.set(batch, { opacity: 0, y: 60, scale: 0.9, rotationX: -15, overwrite: true });
+  },
+  start: 'top 90%',
+  once: false
+});
+
+// Set initial card states
+gsap.set('[data-card]', { opacity: 0, y: 60, scale: 0.9, rotationX: -15 });
+
+// ===== Magnetic Card Hover Effect =====
+document.querySelectorAll('[data-card]').forEach(card => {
+  card.addEventListener('mouseenter', () => {
+    gsap.to(card, { scale: 1.03, duration: 0.3, ease: 'power2.out' });
+  });
+  card.addEventListener('mouseleave', () => {
+    gsap.to(card, { scale: 1, x: 0, y: 0, rotationX: 0, rotationY: 0, duration: 0.5, ease: 'power2.out' });
+  });
+  card.addEventListener('mousemove', (e) => {
+    const rect = card.getBoundingClientRect();
+    const x = e.clientX - rect.left;
+    const y = e.clientY - rect.top;
+    const centerX = rect.width / 2;
+    const centerY = rect.height / 2;
+
+    const rotateX = ((y - centerY) / centerY) * -8;
+    const rotateY = ((x - centerX) / centerX) * 8;
+
+    gsap.to(card, {
+      rotationX: rotateX, rotationY: rotateY,
+      transformPerspective: 800,
+      duration: 0.3, ease: 'power1.out'
+    });
+  });
+});
+
+// ===== Orb Slow Floating =====
+gsap.to('#orb1', { y: '+=40', x: '-=30', duration: 15, repeat: -1, yoyo: true, ease: 'sine.inOut' });
+gsap.to('#orb2', { y: '-=35', x: '+=25', duration: 12, repeat: -1, yoyo: true, ease: 'sine.inOut' });
+gsap.to('#orb3', { y: '+=30', x: '-=20', duration: 18, repeat: -1, yoyo: true, ease: 'sine.inOut' });
+
+// ===== Hero Parallax on Scroll =====
+gsap.to('.hero', {
+  scrollTrigger: {
+    trigger: '.hero',
+    start: 'top top',
+    end: 'bottom top',
+    scrub: 1
+  },
+  y: -100, opacity: 0.3, ease: 'none'
+});
+
+// ===== Search Input Scramble Placeholder =====
+const placeholders = [
+  'Search SVG icons, illustrations, tools...',
+  'Try "arrow icons"...',
+  'Try "free illustrations"...',
+  'Try "SVG optimizer"...',
+  'Try "animated SVG"...'
+];
+let phIndex = 0;
+const searchInput = document.getElementById('searchInput');
+
+setInterval(() => {
+  phIndex = (phIndex + 1) % placeholders.length;
+  gsap.to(searchInput, {
+    duration: 0.6,
+    onUpdate: function() {
+      const progress = this.progress();
+      const current = placeholders[(phIndex - 1 + placeholders.length) % placeholders.length];
+      const next = placeholders[phIndex];
+      const visibleLen = Math.floor(current.length * (1 - progress));
+      const newLen = Math.floor(next.length * progress);
+      // Scramble effect: random chars during transition
+      if (progress > 0.1 && progress < 0.9) {
+        const scrambled = next.substring(0, newLen) +
+          Array.from({length: 5}, () => 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz'[Math.floor(Math.random() * 52)]).join('');
+        searchInput.setAttribute('placeholder', scrambled);
+      } else if (progress >= 0.9) {
+        searchInput.setAttribute('placeholder', next);
+      }
+    }
+  });
+}, 4000);
+
+// ===== Grid lines subtle pulse =====
+gsap.to('.bg-grid', {
+  opacity: 0.08, duration: 4, repeat: -1, yoyo: true, ease: 'sine.inOut'
+});
+
+</script>
+</body>
+</html>

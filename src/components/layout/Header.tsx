@@ -1,10 +1,14 @@
 'use client';
 
 import Link from 'next/link';
+import { gsap } from 'gsap';
+import { ScrollToPlugin } from 'gsap/ScrollToPlugin';
 import { useI18n } from '@/lib/i18n/context';
 import { ThemeToggle } from './ThemeToggle';
 import { Grid3X3, Paintbrush, Wrench, BookOpen, Lightbulb } from 'lucide-react';
 import type { CategorySlug } from '@/types';
+
+gsap.registerPlugin(ScrollToPlugin);
 
 const navItems: { slug: CategorySlug; icon: typeof Grid3X3; labelKey: string }[] = [
   { slug: 'icons', icon: Grid3X3, labelKey: 'nav.icons' },
@@ -18,10 +22,12 @@ export function Header() {
   const { locale, setLocale, t } = useI18n();
 
   const scrollToCategory = (slug: string) => {
-    const el = document.getElementById(`category-${slug}`);
-    if (el) {
-      el.scrollIntoView({ behavior: 'smooth', block: 'start' });
-    }
+    const target = `#category-${slug}`;
+    gsap.to(window, {
+      duration: 1,
+      scrollTo: { y: target, offsetY: 80 },
+      ease: 'power2.inOut',
+    });
   };
 
   return (

@@ -75,6 +75,7 @@ export default async function RootLayout({
           <div className="bg-orb bg-orb-2" />
           <div className="bg-orb bg-orb-3" />
         </div>
+        {/* Cursor glow is rendered via client component in page */}
         <div className="relative z-10 flex min-h-full flex-col">{children}</div>
       </body>
     </html>

@@ -516,6 +516,36 @@ body {
     opacity: 1;
     transform: none;
   }
+
+  /* GSAP: show all elements immediately */
+  [data-card],
+  [data-reveal] {
+    opacity: 1 !important;
+    transform: none !important;
+  }
+
+  .morph-shape {
+    display: none;
+  }
+}
+
+/* ===== GSAP 3D Card Styles ===== */
+[data-card] {
+  transform-style: preserve-3d;
+  will-change: transform;
+  backface-visibility: hidden;
+}
+
+/* ===== GSAP Char Split ===== */
+.gsap-char {
+  display: inline-block;
+  will-change: transform, opacity;
+}
+
+/* ===== Morph Shapes ===== */
+.morph-shape {
+  pointer-events: none;
+  will-change: transform;
 }
 
 /* ===== Selection Color ===== */
