@@ -55,7 +55,7 @@ export function Header() {
     >
       <Link
         href={`/${locale}`}
-        className="flex items-center gap-2.5 text-xl font-bold transition-all duration-200 hover:scale-[1.02]"
+        className="flex cursor-pointer items-center gap-2.5 text-xl font-bold transition-all duration-200 hover:scale-[1.02]"
         style={{ fontFamily: 'var(--font-heading)' }}
       >
         <img src="/logo.svg" alt="SVGShip Logo" className="h-7 w-7" />
@@ -69,7 +69,7 @@ export function Header() {
             <button
               key={item.slug}
               onClick={() => scrollToCategory(item.slug)}
-              className="flex items-center gap-1.5 rounded-xl px-3 py-2 text-sm font-medium transition-all duration-200"
+              className="flex cursor-pointer items-center gap-1.5 rounded-xl px-3 py-2 text-sm font-medium transition-all duration-200"
               style={{ color: 'var(--color-on-surface-variant)' }}
               onMouseEnter={(e) => {
                 e.currentTarget.style.color = 'var(--color-primary)';
