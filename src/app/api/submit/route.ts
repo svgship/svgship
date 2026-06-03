@@ -109,3 +109,21 @@ export async function POST(request: Request) {
     return NextResponse.json({ error: 'Internal server error' }, { status: 500 });
   }
 }
+
+/** Diagnostic endpoint: check if GITHUB_PAT is set */
+export async function GET() {
+  const hasToken = !!process.env.GITHUB_PAT;
+  const tokenPrefix = process.env.GITHUB_PAT
+    ? process.env.GITHUB_PAT.substring(0, 4) + '...'
+    : 'NOT SET';
+  const allEnvKeys = Object.keys(process.env).filter(
+    (k) => !k.startsWith('NEXT_') && k !== 'npm_package_description'
+  );
+
+  return NextResponse.json({
+    GITHUB_PAT_set: hasToken,
+    GITHUB_PAT_prefix: tokenPrefix,
+    all_env_keys: allEnvKeys,
+    node_env: process.env.NODE_ENV,
+  });
+}
