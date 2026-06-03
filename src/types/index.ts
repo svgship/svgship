@@ -28,5 +28,5 @@ export interface Category {
 export type Locale = 'en' | 'zh';
 
 export interface TranslationDictionary {
-  [key: string]: string | TranslationDictionary;
+  [key: string]: string | string[] | TranslationDictionary;
 }

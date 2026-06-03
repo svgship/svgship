@@ -2,11 +2,12 @@
 
 import { createContext, useContext, useState, useCallback, type ReactNode } from 'react';
 import { useRouter, usePathname } from 'next/navigation';
-import type { Locale, TranslationDictionary } from '@/types';
+import type { Locale } from '@/types';
 import en from './locales/en.json';
 import zh from './locales/zh.json';
 
-const locales: Record<Locale, TranslationDictionary> = { en, zh };
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+const locales: Record<Locale, any> = { en, zh };
 
 interface I18nContextValue {
   locale: Locale;
@@ -16,15 +17,17 @@ interface I18nContextValue {
 
 const I18nContext = createContext<I18nContextValue | null>(null);
 
-function getNestedValue(obj: TranslationDictionary, path: string): string | undefined {
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+function getNestedValue(obj: any, path: string): unknown {
   const keys = path.split('.');
-  let current: TranslationDictionary | string = obj;
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  let current: any = obj;
   for (const key of keys) {
     if (typeof current !== 'object' || current === null) return undefined;
-    current = (current as TranslationDictionary)[key];
+    current = current[key];
     if (current === undefined) return undefined;
   }
-  return typeof current === 'string' ? current : undefined;
+  return current;
 }
 
 export function I18nProvider({
@@ -51,7 +54,10 @@ export function I18nProvider({
 
   const t = useCallback(
     (key: string, params?: Record<string, string | number>): string => {
-      const value = getNestedValue(locales[locale], key) ?? getNestedValue(locales.en, key) ?? key;
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
+      const raw: any =
+        getNestedValue(locales[locale], key) ?? getNestedValue(locales.en, key) ?? key;
+      const value: string = Array.isArray(raw) ? raw.join('\n') : String(raw);
       if (!params) return value;
       return Object.entries(params).reduce(
         (str, [k, v]) => str.replace(new RegExp(`\\{${k}\\}`, 'g'), String(v)),

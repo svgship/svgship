@@ -51,5 +51,33 @@
     "offerTutorialsDesc": "SVG basics, animation guides, and creative inspiration from the community.",
     "contactTitle": "Get in Touch",
     "contactText": "Have a suggestion for a resource to add? Found a broken link? We'd love to hear from you."
+  },
+  "submit": {
+    "title": "Submit a Resource",
+    "subtitle": "Recommend a great SVG resource site and help more designers and developers discover it.",
+    "nameLabel": "Site Name",
+    "namePlaceholder": "e.g. SVGRepo",
+    "urlLabel": "Site URL",
+    "urlPlaceholder": "https://example.com",
+    "categoryLabel": "Category",
+    "descriptionLabel": "Description",
+    "descriptionPlaceholder": "Briefly describe what this site offers...",
+    "descriptionHint": "A short description highlighting core features",
+    "tagsLabel": "Tags (optional)",
+    "tagsHint": "Comma-separated, e.g. Linear, Free Commercial",
+    "emailLabel": "Your Email (optional)",
+    "emailPlaceholder": "your@email.com",
+    "emailHint": "For follow-up or clarification",
+    "submitButton": "Submit",
+    "submittingButton": "Submitting...",
+    "successMessage": "🎉 Submitted successfully! An issue has been created and will be reviewed shortly.",
+    "errorMessage": "Submission failed. Please try again or submit directly via GitHub Issue.",
+    "infoTitle": "Before You Submit",
+    "infoRules": [
+      "Site must be related to SVG resources, tools, or learning",
+      "Ensure the site content and links are valid",
+      "Approved sites will be added to SVGShip",
+      "Duplicate or unrelated submissions may be closed"
+    ]
   }
 }

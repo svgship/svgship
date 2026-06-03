@@ -51,5 +51,33 @@
     "offerTutorialsDesc": "SVG 基础入门、动画进阶指南和社区创意灵感。",
     "contactTitle": "联系我们",
     "contactText": "有资源推荐？发现链接失效？欢迎联系我们。"
+  },
+  "submit": {
+    "title": "提交资源",
+    "subtitle": "推荐优质的 SVG 资源网站，帮助更多设计师和开发者发现它。",
+    "nameLabel": "站点名称",
+    "namePlaceholder": "例如：SVGRepo",
+    "urlLabel": "站点地址",
+    "urlPlaceholder": "https://example.com",
+    "categoryLabel": "分类",
+    "descriptionLabel": "站点描述",
+    "descriptionPlaceholder": "简要介绍这个站点提供什么内容...",
+    "descriptionHint": "简短描述该站点的核心功能和特色",
+    "tagsLabel": "标签（可选）",
+    "tagsHint": "用逗号分隔，例如：线性, 免费可商用",
+    "emailLabel": "你的邮箱（可选）",
+    "emailPlaceholder": "your@email.com",
+    "emailHint": "用于后续确认或询问补充信息",
+    "submitButton": "提交",
+    "submittingButton": "提交中...",
+    "successMessage": "🎉 提交成功！已自动创建 Issue，我会尽快审核。",
+    "errorMessage": "提交失败，请重试或通过 GitHub Issue 直接提交。",
+    "infoTitle": "提交须知",
+    "infoRules": [
+      "站点应与 SVG 资源、工具或学习相关",
+      "请确保站点内容和链接有效",
+      "审核通过后会被收录到 SVGShip",
+      "重复提交或无关站点可能会被关闭"
+    ]
   }
 }
