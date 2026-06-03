@@ -1,6 +1,7 @@
 'use client';
 
 import Link from 'next/link';
+import { usePathname, useRouter } from 'next/navigation';
 import { gsap } from 'gsap';
 import { ScrollToPlugin } from 'gsap/ScrollToPlugin';
 import { useI18n } from '@/lib/i18n/context';
@@ -20,14 +21,25 @@ const navItems: { slug: CategorySlug; icon: typeof Grid3X3; labelKey: string }[]
 
 export function Header() {
   const { locale, setLocale, t } = useI18n();
+  const pathname = usePathname();
+  const router = useRouter();
 
   const scrollToCategory = (slug: string) => {
-    const target = `#category-${slug}`;
-    gsap.to(window, {
-      duration: 1,
-      scrollTo: { y: target, offsetY: 80 },
-      ease: 'power2.inOut',
-    });
+    const basePath = `/${locale}`;
+    const isHomePage = pathname === basePath || pathname === `${basePath}/`;
+
+    if (isHomePage) {
+      // On home page: smooth scroll to the section
+      const target = `#category-${slug}`;
+      gsap.to(window, {
+        duration: 1,
+        scrollTo: { y: target, offsetY: 80 },
+        ease: 'power2.inOut',
+      });
+    } else {
+      // On other pages: navigate to home page with hash
+      router.push(`${basePath}/#category-${slug}`);
+    }
   };
 
   return (

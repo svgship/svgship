@@ -65,6 +65,24 @@ export default function Home() {
     return () => clearTimeout(timer);
   }, [filteredSites]);
 
+  // Handle hash-based navigation (e.g., from header click on another page)
+  useGSAP(() => {
+    const hash = window.location.hash;
+    if (hash.startsWith('#category-')) {
+      // Small delay to let DOM render
+      const timer = setTimeout(() => {
+        gsap.to(window, {
+          duration: 1,
+          scrollTo: { y: hash, offsetY: 80 },
+          ease: 'power2.inOut',
+        });
+        // Clean up the hash so refresh doesn't re-trigger
+        history.replaceState(null, '', window.location.pathname);
+      }, 300);
+      return () => clearTimeout(timer);
+    }
+  }, []);
+
   return (
     <>
       <CursorGlow />
