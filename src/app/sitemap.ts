@@ -53,5 +53,29 @@ export default function sitemap(): MetadataRoute.Sitemap {
         },
       },
     },
+    {
+      url: `${baseUrl}/en/submit`,
+      lastModified: now,
+      changeFrequency: 'monthly',
+      priority: 0.4,
+      alternates: {
+        languages: {
+          en: `${baseUrl}/en/submit`,
+          zh: `${baseUrl}/zh/submit`,
+        },
+      },
+    },
+    {
+      url: `${baseUrl}/zh/submit`,
+      lastModified: now,
+      changeFrequency: 'monthly',
+      priority: 0.4,
+      alternates: {
+        languages: {
+          en: `${baseUrl}/en/submit`,
+          zh: `${baseUrl}/zh/submit`,
+        },
+      },
+    },
   ];
 }
