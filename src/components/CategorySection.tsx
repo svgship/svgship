@@ -40,17 +40,44 @@ export function CategorySection({
 
   const [activeContentTags, setActiveContentTags] = useState<string[]>([]);
 
-  const toggleContentTag = (tag: string) => {
+  const toggleContentTag = (tagKey: string) => {
     setActiveContentTags((prev) =>
-      prev.includes(tag) ? prev.filter((t) => t !== tag) : [...prev, tag]
+      prev.includes(tagKey) ? prev.filter((t) => t !== tagKey) : [...prev, tagKey]
     );
+  };
+
+  // Pricing filter keys that map to site.pricing field
+  const PRICING_FILTER_KEYS: Record<string, string> = {
+    免费: 'free',
+    免费增值: 'freemium',
+    付费: 'paid',
   };
 
   const filteredSites = useMemo(() => {
     let result = [...sites];
 
     if (globalLicenseTags.length > 0) {
-      result = result.filter((site) => globalLicenseTags.some((tag) => site.tags.includes(tag)));
+      const tagFilters = globalLicenseTags.filter((tag) => !(tag in PRICING_FILTER_KEYS));
+      const pricingFilters = globalLicenseTags.filter((tag) => tag in PRICING_FILTER_KEYS);
+
+      result = result.filter((site) => {
+        // License / content tag filter: site must have at least one matching tag
+        const passesTag =
+          tagFilters.length === 0 || tagFilters.some((tag) => site.tags.includes(tag));
+
+        // Pricing filter: site.pricing must match; '付费' also checks tags for backward compat
+        const passesPricing =
+          pricingFilters.length === 0 ||
+          pricingFilters.some((tag) => {
+            const pricingValue = PRICING_FILTER_KEYS[tag];
+            return (
+              site.pricing === pricingValue ||
+              (pricingValue === 'paid' && site.tags.includes('付费'))
+            );
+          });
+
+        return passesTag && passesPricing;
+      });
     }
 
     if (activeContentTags.length > 0) {
@@ -164,11 +191,11 @@ export function CategorySection({
           <div className="mb-6 flex flex-wrap gap-2">
             {category.contentTags.map((tagObj) => {
               const label = tagObj[locale];
-              const isActive = activeContentTags.includes(label);
+              const isActive = activeContentTags.includes(tagObj.zh);
               return (
                 <button
-                  key={label}
-                  onClick={() => toggleContentTag(label)}
+                  key={tagObj.zh}
+                  onClick={() => toggleContentTag(tagObj.zh)}
                   className="rounded-full px-3 py-1 text-xs font-medium transition-all duration-200"
                   style={{
                     background: isActive

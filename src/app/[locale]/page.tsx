@@ -14,6 +14,7 @@ import { SiteCard } from '@/components/SiteCard';
 import { DrawSvgDivider } from '@/components/gsap/DrawSvgDivider';
 import { CursorGlow } from '@/components/gsap/CursorGlow';
 import { categories } from '@/data/categories';
+import { resolveTag } from '@/lib/tags';
 import sitesData from '@/data/sites.json';
 import type { SvgSite } from '@/types';
 
@@ -39,7 +40,11 @@ export default function Home() {
       (site) =>
         site.name.toLowerCase().includes(query) ||
         site.description[locale].toLowerCase().includes(query) ||
-        site.tags?.some((tag) => tag.toLowerCase().includes(query))
+        site.tags?.some((tag) => {
+          if (tag.toLowerCase().includes(query)) return true;
+          const enTag = resolveTag(tag, 'en');
+          return enTag !== tag && enTag.toLowerCase().includes(query);
+        })
     );
   }, [searchQuery, locale]);
 

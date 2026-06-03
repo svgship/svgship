@@ -4,6 +4,7 @@ import { useRef, useCallback } from 'react';
 import { gsap } from 'gsap';
 import { useI18n } from '@/lib/i18n/context';
 import { ExternalLink } from 'lucide-react';
+import { resolveTag } from '@/lib/tags';
 import type { SvgSite, Locale } from '@/types';
 
 interface SiteCardProps {
@@ -138,7 +139,7 @@ export function SiteCard({ site, locale }: SiteCardProps) {
                 color: 'var(--color-on-primary-container)',
               }}
             >
-              {tag}
+              {resolveTag(tag, locale)}
             </span>
           ))}
         </div>
