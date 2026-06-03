@@ -43,6 +43,9 @@ yarn-error.log*
 *.tsbuildinfo
 next-env.d.ts
 
+# accidentally nested workspace directory
+/hermes-workspace/
+
 # design references (not source code)
 SVGShip.html
 exported_image_optimized.svg
