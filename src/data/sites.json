@@ -709,5 +709,187 @@
     "category": "inspiration",
     "tags": ["生成艺术", "SVG 实验"],
     "featured": true
+  },
+  {
+    "id": "flaticon",
+    "name": "Flaticon",
+    "url": "https://www.flaticon.com",
+    "description": {
+      "zh": "Freepik 旗下图标搜索引擎，超过 300 万个 SVG 图标，支持在线编辑和自定义颜色",
+      "en": "Freepik's icon search engine with 3M+ SVG icons, online editing and color customization"
+    },
+    "logo": "flaticon_favicon.ico",
+    "category": "icons",
+    "tags": ["线性", "面性", "彩色", "扁平", "免费可商用"],
+    "featured": true
+  },
+  {
+    "id": "nounproject",
+    "name": "Noun Project",
+    "url": "https://thenounproject.com",
+    "description": {
+      "zh": "全球最大的图标数据库之一，超过 1000 万个图标，覆盖几乎所有领域",
+      "en": "One of the world's largest icon databases with 10M+ icons covering virtually every subject"
+    },
+    "logo": "nounproject_favicon.ico",
+    "category": "icons",
+    "tags": ["线性", "面性", "彩色", "需署名"],
+    "featured": true
+  },
+  {
+    "id": "iconscout",
+    "name": "IconScout",
+    "url": "https://iconscout.com",
+    "description": {
+      "zh": "1400 万+ 设计资源平台，包含图标、插画、3D 和 Lottie 动画，支持 Figma 插件",
+      "en": "14M+ design assets platform with icons, illustrations, 3D and Lottie animations, Figma plugin"
+    },
+    "logo": "iconscout_favicon.svg",
+    "category": "icons",
+    "tags": ["线性", "面性", "彩色", "3D", "仅个人免费"]
+  },
+  {
+    "id": "svgicons",
+    "name": "SVG Icons",
+    "url": "https://svgicons.com",
+    "description": {
+      "zh": "31 万+ 开源 SVG 图标，整合 227 套图标集，免费商用",
+      "en": "312K+ open-source SVG icons across 227 icon sets, free for commercial use"
+    },
+    "logo": "svgicons_favicon.ico",
+    "category": "icons",
+    "tags": ["线性", "面性", "彩色", "免费可商用"]
+  },
+  {
+    "id": "iconarchive",
+    "name": "IconArchive",
+    "url": "https://www.iconarchive.com",
+    "description": {
+      "zh": "80 万+ 免费图标资源，可按分类、艺术家、热门程度浏览，支持 PNG/SVG/ICO",
+      "en": "800K+ free icons browsable by category, artist, and popularity, available in PNG/SVG/ICO"
+    },
+    "logo": "iconarchive_favicon.ico",
+    "category": "icons",
+    "tags": ["线性", "面性", "彩色", "扁平", "免费可商用"]
+  },
+  {
+    "id": "manypixels",
+    "name": "ManyPixels",
+    "url": "https://www.manypixels.co/gallery",
+    "description": {
+      "zh": "免费可商用的矢量插画库，提供多场景插画，支持 PNG 和 SVG 格式下载",
+      "en": "Free commercial-use vector illustration gallery with multi-scene illustrations in PNG and SVG"
+    },
+    "logo": "manypixels_favicon.svg",
+    "category": "illustrations",
+    "tags": ["人物插画", "场景插画", "免费可商用"]
+  },
+  {
+    "id": "pixeltrue",
+    "name": "PixelTrue",
+    "url": "https://www.pixeltrue.com/free-illustrations",
+    "description": {
+      "zh": "高质量免费矢量插画，风格现代统一，适合着陆页和产品界面",
+      "en": "High-quality free vector illustrations with modern consistent style for landing pages and UI"
+    },
+    "logo": "pixeltrue_favicon.svg",
+    "category": "illustrations",
+    "tags": ["场景插画", "人物插画", "免费可商用"]
+  },
+  {
+    "id": "freesvg",
+    "name": "FreeSVG",
+    "url": "https://freesvg.org",
+    "description": {
+      "zh": "免费 SVG 剪贴画和矢量图形库，公共领域授权，适合各类设计项目",
+      "en": "Free SVG clip art and vector graphics library with public domain license for any project"
+    },
+    "logo": "freesvg_favicon.svg",
+    "category": "illustrations",
+    "tags": ["抽象图案", "矢量纹理", "免费可商用"]
+  },
+  {
+    "id": "svg-optimizer",
+    "name": "SVG Optimizer",
+    "url": "https://svgoptimizer.com",
+    "description": {
+      "zh": "在线 SVG 优化压缩工具，无损压缩，显著减小文件体积",
+      "en": "Online SVG optimization tool for lossless compression to significantly reduce file size"
+    },
+    "logo": "svgoptimizer_favicon.svg",
+    "category": "tools",
+    "tags": ["优化压缩", "免费可商用"]
+  },
+  {
+    "id": "svg-ai",
+    "name": "SVG AI",
+    "url": "https://www.svgai.org",
+    "description": {
+      "zh": "AI 驱动的 SVG 工具集，支持图片转 SVG、SVG 编辑器和 SVG 动画制作",
+      "en": "AI-powered SVG toolkit with image-to-SVG conversion, SVG editor, and SVG animation"
+    },
+    "logo": "svgai_favicon.ico",
+    "category": "tools",
+    "tags": ["AI 生成", "格式转换", "编辑器"]
+  },
+  {
+    "id": "svgtrace",
+    "name": "SvgTrace",
+    "url": "https://svgtrace.com",
+    "description": {
+      "zh": "AI 图片转 SVG 工具，将低分辨率图片转换为高质量矢量图形",
+      "en": "AI image-to-SVG converter that transforms low-resolution images into high-quality vector graphics"
+    },
+    "logo": "svgtrace_favicon.svg",
+    "category": "tools",
+    "tags": ["AI 生成", "格式转换"]
+  },
+  {
+    "id": "recraft",
+    "name": "Recraft",
+    "url": "https://www.recraft.ai",
+    "description": {
+      "zh": "AI 矢量设计工具，支持文生矢量图、图片矢量化和品牌风格控制",
+      "en": "AI vector design tool with text-to-vector, image vectorization, and brand style control"
+    },
+    "logo": "recraft_favicon.svg",
+    "category": "tools",
+    "tags": ["AI 生成"]
+  },
+  {
+    "id": "freecodecamp-svg",
+    "name": "freeCodeCamp SVG Guide",
+    "url": "https://www.freecodecamp.org/news/tag/svg/",
+    "description": {
+      "zh": "免费编程教育平台提供的 SVG 入门教程，从基础到进阶，配有详细代码示例",
+      "en": "freeCodeCamp's SVG beginner-to-advanced guide with detailed code examples"
+    },
+    "logo": "freecodecamp_favicon.ico",
+    "category": "tutorials",
+    "tags": ["基础入门", "实战案例"]
+  },
+  {
+    "id": "sarasoueidan",
+    "name": "Sara Soueidan Blog",
+    "url": "https://www.sarasoueidan.com/blog/",
+    "description": {
+      "zh": "SVG 领域权威专家的技术博客，深入讲解 SVG 模式、动画和可访问性",
+      "en": "Technical blog by a leading SVG expert covering SVG patterns, animations, and accessibility"
+    },
+    "logo": "sarasoueidan_favicon.ico",
+    "category": "tutorials",
+    "tags": ["路径与滤镜", "实战案例"]
+  },
+  {
+    "id": "smashing-magazine-svg",
+    "name": "Smashing Magazine SVG",
+    "url": "https://www.smashingmagazine.com/category/svg/",
+    "description": {
+      "zh": "知名前端设计媒体，提供深入的高质量 SVG 实战文章和教程",
+      "en": "Renowned front-end design publication with in-depth SVG articles and practical tutorials"
+    },
+    "logo": "smashingmagazine_favicon.ico",
+    "category": "tutorials",
+    "tags": ["实战案例", "基础入门"]
   }
 ]
