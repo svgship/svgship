@@ -13,12 +13,18 @@ function getLocale(request: NextRequest): string {
 export function middleware(request: NextRequest) {
   const { pathname } = request.nextUrl;
 
-  // Check if pathname already has a locale
+  // Extract locale from path prefix if present
   const pathnameHasLocale = locales.some(
     (locale) => pathname.startsWith(`/${locale}/`) || pathname === `/${locale}`
   );
 
-  if (pathnameHasLocale) return;
+  const locale = pathnameHasLocale ? pathname.split('/')[1] : getLocale(request);
+
+  if (pathnameHasLocale) {
+    const response = NextResponse.next();
+    response.cookies.set('locale', locale, { path: '/', maxAge: 60 * 60 * 24 * 365 });
+    return response;
+  }
 
   // Skip internal paths
   if (pathname.startsWith('/_next') || pathname.startsWith('/api') || pathname.includes('.')) {
@@ -26,7 +32,6 @@ export function middleware(request: NextRequest) {
   }
 
   // Redirect to locale-prefixed path
-  const locale = getLocale(request);
   request.nextUrl.pathname = `/${locale}${pathname}`;
   const response = NextResponse.redirect(request.nextUrl, 308);
   response.cookies.set('locale', locale, { path: '/', maxAge: 60 * 60 * 24 * 365 });
