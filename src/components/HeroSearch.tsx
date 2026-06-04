@@ -153,6 +153,7 @@ export function HeroSearch({ searchQuery, onSearchChange }: HeroSearchProps) {
   return (
     <section
       ref={sectionRef}
+      data-hero-section
       className="relative flex flex-col items-center px-4 py-20 text-center"
       style={{ background: 'var(--gradient-hero)' }}
     >

@@ -91,7 +91,7 @@ export default function Home() {
   return (
     <>
       <CursorGlow />
-      <Header />
+      <Header searchQuery={searchQuery} onSearchChange={setSearchQuery} />
       <main className="flex flex-1 flex-col">
         <HeroSearch searchQuery={searchQuery} onSearchChange={setSearchQuery} />
         <DrawSvgDivider />
