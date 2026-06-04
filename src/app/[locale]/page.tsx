@@ -48,28 +48,6 @@ export default function Home() {
     );
   }, [searchQuery, locale]);
 
-  // Animate search results when they appear
-  useGSAP(() => {
-    if (filteredSites === null) return;
-
-    // Small delay to let DOM update
-    const timer = setTimeout(() => {
-      const cards = document.querySelectorAll('[data-card]');
-      if (cards.length > 0) {
-        gsap.from(cards, {
-          opacity: 0,
-          y: 30,
-          scale: 0.95,
-          duration: 0.5,
-          ease: 'power2.out',
-          stagger: 0.04,
-        });
-      }
-    }, 50);
-
-    return () => clearTimeout(timer);
-  }, [filteredSites]);
-
   // Handle hash-based navigation (e.g., from header click on another page)
   useGSAP(() => {
     const hash = window.location.hash;
