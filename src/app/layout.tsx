@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import { cookies } from 'next/headers';
 import { Space_Grotesk, Inter, JetBrains_Mono } from 'next/font/google';
+import Script from 'next/script';
 import './globals.css';
 
 const spaceGrotesk = Space_Grotesk({
@@ -69,6 +70,14 @@ export default async function RootLayout({
       className={`${spaceGrotesk.variable} ${inter.variable} ${jetbrainsMono.variable} h-full antialiased`}
       suppressHydrationWarning
     >
+      <head>
+        <Script
+          defer
+          src="https://umami.scorp.fun/script.js"
+          data-website-id="f5b6d0ba-8ebf-4705-ad75-62337f6b0d38"
+          strategy="afterInteractive"
+        />
+      </head>
       <body className="flex min-h-full flex-col" style={{ fontFamily: 'var(--font-body)' }}>
         <div className="bg-orbs" aria-hidden="true">
           <div className="bg-orb bg-orb-1" />
