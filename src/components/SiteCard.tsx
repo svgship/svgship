@@ -1,6 +1,7 @@
 'use client';
 
 import { useRef, useCallback } from 'react';
+import Link from 'next/link';
 import { gsap } from 'gsap';
 import { useI18n } from '@/lib/i18n/context';
 import { ExternalLink } from 'lucide-react';
@@ -57,11 +58,9 @@ export function SiteCard({ site, locale }: SiteCardProps) {
   }, []);
 
   return (
-    <a
+    <Link
       ref={cardRef}
-      href={site.url}
-      target="_blank"
-      rel="noopener noreferrer"
+      href={`/${locale}/${site.category}/${site.id}`}
       className="glass-card group flex flex-col p-5"
       data-card
       onMouseMove={onMouseMove}
@@ -144,6 +143,6 @@ export function SiteCard({ site, locale }: SiteCardProps) {
           ))}
         </div>
       )}
-    </a>
+    </Link>
   );
 }

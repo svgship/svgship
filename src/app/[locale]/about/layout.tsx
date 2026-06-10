@@ -39,6 +39,7 @@ const metadataByLocale: Record<Locale, Metadata> = {
     alternates: {
       canonical: 'https://svgship.com/en/about',
       languages: {
+        'x-default': 'https://svgship.com',
         en: 'https://svgship.com/en/about',
         zh: 'https://svgship.com/zh/about',
       },
@@ -73,6 +74,7 @@ const metadataByLocale: Record<Locale, Metadata> = {
     alternates: {
       canonical: 'https://svgship.com/zh/about',
       languages: {
+        'x-default': 'https://svgship.com',
         en: 'https://svgship.com/en/about',
         zh: 'https://svgship.com/zh/about',
       },

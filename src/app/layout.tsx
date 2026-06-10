@@ -1,5 +1,4 @@
 import type { Metadata } from 'next';
-import { cookies } from 'next/headers';
 import { Space_Grotesk, Inter, JetBrains_Mono } from 'next/font/google';
 import Script from 'next/script';
 import './globals.css';
@@ -29,26 +28,7 @@ export const metadata: Metadata = {
   },
   description:
     'Discover the best free SVG resources: icon libraries, illustrations, vector graphics, and SVG animations. Curated collection for designers and developers — searchable, filterable, always up-to-date.',
-  keywords: [
-    'SVG',
-    'SVG icons',
-    'SVG illustrations',
-    'vector graphics',
-    'SVG animations',
-    'free icons',
-    'free SVG',
-    'icon library',
-    'design resources',
-    'web design',
-    'UI icons',
-    'open source icons',
-    'scalable vector graphics',
-    'SVG tools',
-    'icon packs',
-    'vector illustrations',
-    'Lottie animations',
-    'icon search',
-  ],
+
   icons: {
     icon: '/logo-favicon.svg',
     shortcut: '/logo-favicon.svg',
@@ -61,12 +41,9 @@ export default async function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  const cookieStore = await cookies();
-  const locale = cookieStore.get('locale')?.value || 'en';
-
   return (
     <html
-      lang={locale}
+      lang="en"
       className={`${spaceGrotesk.variable} ${inter.variable} ${jetbrainsMono.variable} h-full antialiased`}
       suppressHydrationWarning
     >
