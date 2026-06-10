@@ -18,7 +18,7 @@ const metadataByLocale: Record<Locale, Metadata> = {
       title: 'SVGShip — Professional SVG Resource Directory',
       description:
         'Discover the best free SVG resources: icon libraries, illustrations, vector graphics, and SVG animations.',
-      url: 'https://svgship.com/en',
+      url: 'https://www.svgship.com/en',
       siteName: 'SVGShip',
       locale: 'en_US',
       type: 'website',
@@ -39,11 +39,11 @@ const metadataByLocale: Record<Locale, Metadata> = {
       images: ['/og-image'],
     },
     alternates: {
-      canonical: 'https://svgship.com/en',
+      canonical: 'https://www.svgship.com/en',
       languages: {
         'x-default': 'https://svgship.com',
-        en: 'https://svgship.com/en',
-        zh: 'https://svgship.com/zh',
+        en: 'https://www.svgship.com/en',
+        zh: 'https://www.svgship.com/zh',
       },
     },
   },
@@ -54,7 +54,7 @@ const metadataByLocale: Record<Locale, Metadata> = {
     openGraph: {
       title: 'SVGShip — 专业 SVG 资源导航',
       description: '精选优质 SVG 资源合集 — 免费图标库、插画素材、矢量图形、SVG 动画。',
-      url: 'https://svgship.com/zh',
+      url: 'https://www.svgship.com/zh',
       siteName: 'SVGShip',
       locale: 'zh_CN',
       type: 'website',
@@ -74,11 +74,11 @@ const metadataByLocale: Record<Locale, Metadata> = {
       images: ['/og-image'],
     },
     alternates: {
-      canonical: 'https://svgship.com/zh',
+      canonical: 'https://www.svgship.com/zh',
       languages: {
         'x-default': 'https://svgship.com',
-        en: 'https://svgship.com/en',
-        zh: 'https://svgship.com/zh',
+        en: 'https://www.svgship.com/en',
+        zh: 'https://www.svgship.com/zh',
       },
     },
   },

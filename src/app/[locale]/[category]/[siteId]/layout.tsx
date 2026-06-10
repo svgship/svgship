@@ -57,7 +57,7 @@ export async function generateMetadata({
     openGraph: {
       title: `${site.name} — Free SVG Resource by SVGShip`,
       description: description.slice(0, 160),
-      url: `https://svgship.com/${locale}/${site.category}/${site.id}`,
+      url: `https://www.svgship.com/${locale}/${site.category}/${site.id}`,
       siteName: 'SVGShip',
       locale: locale === 'zh' ? 'zh_CN' : 'en_US',
       type: 'website',
@@ -70,10 +70,10 @@ export async function generateMetadata({
       images: ['/og-image'],
     },
     alternates: {
-      canonical: `https://svgship.com/${locale}/${site.category}/${site.id}`,
+      canonical: `https://www.svgship.com/${locale}/${site.category}/${site.id}`,
       languages: {
-        en: `https://svgship.com/en/${site.category}/${site.id}`,
-        zh: `https://svgship.com/zh/${site.category}/${site.id}`,
+        en: `https://www.svgship.com/en/${site.category}/${site.id}`,
+        zh: `https://www.svgship.com/zh/${site.category}/${site.id}`,
       },
     },
   };

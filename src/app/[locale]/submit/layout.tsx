@@ -16,7 +16,7 @@ const metadataByLocale: Record<Locale, Metadata> = {
       title: 'Submit a Resource — SVGShip',
       description:
         'Recommend a great SVG resource site to SVGShip and help the community discover it.',
-      url: 'https://svgship.com/en/submit',
+      url: 'https://www.svgship.com/en/submit',
       siteName: 'SVGShip',
       locale: 'en_US',
       type: 'website',
@@ -36,11 +36,11 @@ const metadataByLocale: Record<Locale, Metadata> = {
       images: ['/og-image'],
     },
     alternates: {
-      canonical: 'https://svgship.com/en/submit',
+      canonical: 'https://www.svgship.com/en/submit',
       languages: {
         'x-default': 'https://svgship.com',
-        en: 'https://svgship.com/en/submit',
-        zh: 'https://svgship.com/zh/submit',
+        en: 'https://www.svgship.com/en/submit',
+        zh: 'https://www.svgship.com/zh/submit',
       },
     },
   },
@@ -51,7 +51,7 @@ const metadataByLocale: Record<Locale, Metadata> = {
     openGraph: {
       title: '提交资源 — SVGShip',
       description: '向 SVGShip 推荐优质的 SVG 资源网站，帮助更多人发现优秀工具。',
-      url: 'https://svgship.com/zh/submit',
+      url: 'https://www.svgship.com/zh/submit',
       siteName: 'SVGShip',
       locale: 'zh_CN',
       type: 'website',
@@ -71,11 +71,11 @@ const metadataByLocale: Record<Locale, Metadata> = {
       images: ['/og-image'],
     },
     alternates: {
-      canonical: 'https://svgship.com/zh/submit',
+      canonical: 'https://www.svgship.com/zh/submit',
       languages: {
         'x-default': 'https://svgship.com',
-        en: 'https://svgship.com/en/submit',
-        zh: 'https://svgship.com/zh/submit',
+        en: 'https://www.svgship.com/en/submit',
+        zh: 'https://www.svgship.com/zh/submit',
       },
     },
   },

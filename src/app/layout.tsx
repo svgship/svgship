@@ -20,7 +20,7 @@ const jetbrainsMono = JetBrains_Mono({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL('https://svgship.com'),
+  metadataBase: new URL('https://www.svgship.com'),
   title: {
     default:
       'SVGShip — Professional SVG Resource Directory | Free Icons, Illustrations & Animations',

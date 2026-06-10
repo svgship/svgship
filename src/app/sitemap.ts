@@ -6,7 +6,7 @@ const locales = ['en', 'zh'] as const;
 const validCategories = ['icons', 'illustrations', 'tools', 'tutorials', 'inspiration'];
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = 'https://svgship.com';
+  const baseUrl = 'https://www.svgship.com';
   const now = new Date();
 
   const entries: MetadataRoute.Sitemap = [];

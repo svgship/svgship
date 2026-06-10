@@ -66,7 +66,7 @@ export function JsonLd({ locale }: JsonLdProps) {
     '@context': 'https://schema.org',
     '@type': 'WebSite',
     name: 'SVGShip',
-    url: 'https://svgship.com',
+    url: 'https://www.svgship.com',
     description:
       locale === 'zh'
         ? '精选优质 SVG 资源合集 — 免费图标库、插画素材、矢量图形、SVG 动画。'
@@ -86,7 +86,7 @@ export function JsonLd({ locale }: JsonLdProps) {
     '@context': 'https://schema.org',
     '@type': 'Organization',
     name: 'SVGShip',
-    url: 'https://svgship.com',
+    url: 'https://www.svgship.com',
     logo: 'https://svgship.com/logo-favicon.svg',
     sameAs: ['https://github.com/svgship/svgship'],
   };
@@ -105,7 +105,7 @@ export function JsonLd({ locale }: JsonLdProps) {
     url: `https://svgship.com/${locale}`,
     isPartOf: {
       '@type': 'WebSite',
-      url: 'https://svgship.com',
+      url: 'https://www.svgship.com',
     },
     inLanguage: locale,
   };

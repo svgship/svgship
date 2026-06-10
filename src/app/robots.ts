@@ -6,6 +6,6 @@ export default function robots(): MetadataRoute.Robots {
       userAgent: '*',
       allow: '/',
     },
-    sitemap: 'https://svgship.com/sitemap.xml',
+    sitemap: 'https://www.svgship.com/sitemap.xml',
   };
 }
