@@ -19,6 +19,13 @@ const iconMap: Record<string, typeof Grid3X3> = {
   Lightbulb,
 };
 
+// Pricing filter keys that map to site.pricing field
+const PRICING_FILTER_KEYS: Record<string, string> = {
+  免费: 'free',
+  免费增值: 'freemium',
+  付费: 'paid',
+};
+
 interface CategorySectionProps {
   category: Category;
   sites: SvgSite[];
@@ -44,13 +51,6 @@ export function CategorySection({
     setActiveContentTags((prev) =>
       prev.includes(tagKey) ? prev.filter((t) => t !== tagKey) : [...prev, tagKey]
     );
-  };
-
-  // Pricing filter keys that map to site.pricing field
-  const PRICING_FILTER_KEYS: Record<string, string> = {
-    免费: 'free',
-    免费增值: 'freemium',
-    付费: 'paid',
   };
 
   const filteredSites = useMemo(() => {

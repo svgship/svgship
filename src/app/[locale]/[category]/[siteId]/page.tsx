@@ -61,7 +61,7 @@ const pricingText: Record<string, string> = {
 };
 
 export default function SiteDetailPage() {
-  const { t, locale } = useI18n();
+  const { locale } = useI18n();
   const params = useParams();
   const siteId = params.siteId as string;
   const categorySlug = params.category as string;

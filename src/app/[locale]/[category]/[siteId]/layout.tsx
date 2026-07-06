@@ -2,7 +2,6 @@ import type { Metadata } from 'next';
 import type { Locale } from '@/types';
 import sitesData from '@/data/sites.json';
 import extendedDescriptions from '@/data/extended-descriptions.json';
-import { resolveTag } from '@/lib/tags';
 
 const locales: Locale[] = ['en', 'zh'];
 const sites = sitesData as Array<{
@@ -72,6 +71,7 @@ export async function generateMetadata({
     alternates: {
       canonical: `https://www.svgship.com/${locale}/${site.category}/${site.id}`,
       languages: {
+        'x-default': `https://www.svgship.com/en/${site.category}/${site.id}`,
         en: `https://www.svgship.com/en/${site.category}/${site.id}`,
         zh: `https://www.svgship.com/zh/${site.category}/${site.id}`,
       },
