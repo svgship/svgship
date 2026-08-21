@@ -576,6 +576,17 @@
     "tags": ["工具教程"]
   },
   {
+    "id": "svg-animation",
+    "name": "SVG Animation",
+    "url": "https://www.svg-animation.com/",
+    "description": {
+      "zh": "面向开发者和设计师的 SVG 动画教程，涵盖实例、实现说明、无障碍和性能权衡",
+      "en": "Production-ready SVG animation tutorials with examples, implementation notes, accessibility guidance, and performance tradeoffs"
+    },
+    "category": "tutorials",
+    "tags": ["基础入门", "动画进阶", "实战案例", "工具教程"]
+  },
+  {
     "id": "codepen-svg",
     "name": "CodePen SVG Topic",
     "url": "https://codepen.io/topic/svg",

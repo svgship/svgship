@@ -163,6 +163,10 @@
     "en": "GreenSock SVG Animation is a learning platform featuring in-depth tutorials and educational content about SVG. gSAP official SVG animation documentation, professional animation solutions. Provides real-world case studies and practical project examples.",
     "zh": "GreenSock SVG Animation 是一个学习平台，提供深入的 SVG 教程和教育内容。gSAP 官方 SVG 动画文档，专业级动画解决方案。提供真实案例研究和实际项目示例。"
   },
+  "svg-animation": {
+    "en": "SVG Animation is an independent educational website for developers and designers. It provides production-ready SVG animation tutorials, examples, implementation notes, accessibility guidance, and performance tradeoffs. The content covers fundamentals, practical case studies, and tool-focused workflows.",
+    "zh": "SVG Animation 是一个面向开发者和设计师的独立教育网站，提供可用于实际项目的 SVG 动画教程、示例和实现说明，并讲解无障碍设计与性能权衡。内容涵盖基础知识、实战案例和工具工作流。"
+  },
   "svg-path-tutorial": {
     "en": "SVG Path Tutorial is a learning platform featuring in-depth tutorials and educational content about SVG. mDN's detailed guide to SVG path 'd' attribute. Explores advanced SVG paths, filters, and visual effects techniques.",
     "zh": "SVG Path Tutorial 是一个学习平台，提供深入的 SVG 教程和教育内容。mDN 的 SVG Path 路径属性详解。探索高级 SVG 路径、滤镜和视觉效果技术。"
