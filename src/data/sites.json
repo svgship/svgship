@@ -868,6 +868,18 @@
     "tags": ["AI 生成"]
   },
   {
+    "id": "iconvectors",
+    "name": "IconVectors",
+    "url": "https://iconvectors.io/",
+    "description": {
+      "zh": "专业桌面端 SVG 图标编辑器，支持创建、编辑、清理、批量处理与导出 SVG 图标，面向开发工作流",
+      "en": "Professional desktop SVG icon editor for creating, editing, cleaning up, batch-processing and exporting SVG icons for development workflows"
+    },
+    "logo": "iconvectors_favicon.svg",
+    "category": "tools",
+    "tags": ["编辑器", "开发者工具", "批量处理", "React", "Vue", "MCP"]
+  },
+  {
     "id": "freecodecamp-svg",
     "name": "freeCodeCamp SVG Guide",
     "url": "https://www.freecodecamp.org/news/tag/svg/",

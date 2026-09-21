@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Created with: Axialis IconVectors - www.axialis.com -->
+<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" id="Layer_1" x="0px" y="0px" viewBox="0 0 360 360" xml:space="preserve">
+<defs>
+  <linearGradient id="SVGID_1_" x1="124.746" y1="-26.2107" x2="233.991" y2="381.4971" gradientUnits="userSpaceOnUse">
+    <stop offset="9.660597e-07" stop-color="#7C71B4"/>
+    <stop offset="0.1644" stop-color="#8C6EAC"/>
+    <stop offset="0.4925" stop-color="#B1639B"/>
+    <stop offset="0.9499" stop-color="#E64781"/>
+    <stop offset="1" stop-color="#EE427E"/>
+  </linearGradient>
+  </defs>
+  <path fill="url(#SVGID_1_)" d="M40,0L320,0C346.41,0,360,13.59,360,40L360,321C360,347.41,346.41,360,320,360L40,360C13.59,360,0,346.41,0,320L0,40C0,13.59,13.59,0,40,0z"/>
+  <path fill="#FFFFFF" d="M98.23,59.17L295.52,196.3C299.74,199.23,298.31,205.79,293.26,206.7L192.82,224.76L142.67,305.09C139.88,309.55,133.05,308.24,132.12,303.06L89.28,64.92C88.37,59.87,94.02,56.24,98.23,59.17z"/>
+</svg>

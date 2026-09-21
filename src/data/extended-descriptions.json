@@ -291,6 +291,10 @@
     "en": "Recraft is a SVG and vector graphics tool designed for designers and developers. aI vector design tool with text-to-vector, image vectorization, and brand style control. Leverages AI to generate unique SVG graphics automatically.",
     "zh": "Recraft 是一个SVG 和矢量图形工具，专为设计师和开发者打造。aI 矢量设计工具，支持文生矢量图、图片矢量化和品牌风格控制。利用 AI 技术自动生成独特的 SVG 图形。"
   },
+  "iconvectors": {
+    "en": "IconVectors is a SVG and vector graphics tool designed for designers and developers. professional desktop SVG icon editor for creating, editing, cleaning up, batch-processing and exporting SVG icons for development workflows. Provides comprehensive editing capabilities for SVG and vector files. Includes batch processing to handle multiple files efficiently. Exports icon sets for frameworks such as React and Vue.",
+    "zh": "IconVectors 是一个SVG 和矢量图形工具，专为设计师和开发者打造。专业桌面端 SVG 图标编辑器，支持创建、编辑、清理、批量处理与导出 SVG 图标，面向开发工作流。提供全面的 SVG 和矢量文件编辑能力。 支持批量处理，高效处理多个文件。 可导出适配 React、Vue 等框架的图标集。"
+  },
   "freecodecamp-svg": {
     "en": "freeCodeCamp SVG Guide is a learning platform featuring in-depth tutorials and educational content about SVG. freeCodeCamp's SVG beginner-to-advanced guide with detailed code examples. Covers SVG fundamentals making it accessible for beginners. Provides real-world case studies and practical project examples.",
     "zh": "freeCodeCamp SVG Guide 是一个学习平台，提供深入的 SVG 教程和教育内容。免费编程教育平台提供的 SVG 入门教程，从基础到进阶，配有详细代码示例。覆盖 SVG 基础知识，适合初学者入门学习。 提供真实案例研究和实际项目示例。"

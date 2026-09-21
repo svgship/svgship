@@ -33,6 +33,11 @@ const tagTranslations: Record<string, { zh: string; en: string }> = {
   // Ad-hoc tags used in sites (not in predefined contentTags)
   动画: { zh: '动画', en: 'Animation' },
   转换: { zh: '转换', en: 'Convert' },
+  开发者工具: { zh: '开发者工具', en: 'Developer Tools' },
+  批量处理: { zh: '批量处理', en: 'Batch Processing' },
+  React: { zh: 'React', en: 'React' },
+  Vue: { zh: 'Vue', en: 'Vue' },
+  MCP: { zh: 'MCP', en: 'MCP' },
 
   // ── Learn ──
   基础入门: { zh: '基础入门', en: 'Basics' },
