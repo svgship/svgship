@@ -1,7 +1,7 @@
 import type { Metadata } from 'next';
 import type { Locale } from '@/types';
 import sitesData from '@/data/sites.json';
-import extendedDescriptions from '@/data/extended-descriptions.json';
+import { buildSiteTitle, buildSiteDescription, trimDescription } from '@/lib/seo';
 
 const locales: Locale[] = ['en', 'zh'];
 const sites = sitesData as Array<{
@@ -10,9 +10,9 @@ const sites = sitesData as Array<{
   category: string;
   description: { en: string; zh: string };
   tags?: string[];
+  pricing?: 'free' | 'paid' | 'freemium';
   url: string;
 }>;
-const descriptions = extendedDescriptions as Record<string, { en: string; zh: string }>;
 
 const validCategories = ['icons', 'illustrations', 'tools', 'tutorials', 'inspiration'];
 
@@ -42,20 +42,16 @@ export async function generateMetadata({
     return { title: 'Resource Not Found' };
   }
 
-  const extDesc = descriptions[siteId];
-  const description = extDesc?.[locale as Locale] ?? site.description[locale as Locale];
-
-  const title =
-    locale === 'zh'
-      ? `${site.name} — SVG 资源详情 | SVGShip`
-      : `${site.name} — Free SVG Resource | SVGShip`;
+  const title = buildSiteTitle(site, locale as Locale);
+  const rawDescription = buildSiteDescription(site, locale as Locale);
+  const description = trimDescription(rawDescription, 160);
 
   return {
     title,
-    description: description.slice(0, 160),
+    description,
     openGraph: {
-      title: `${site.name} — Free SVG Resource by SVGShip`,
-      description: description.slice(0, 160),
+      title,
+      description,
       url: `https://www.svgship.com/${locale}/${site.category}/${site.id}`,
       siteName: 'SVGShip',
       locale: locale === 'zh' ? 'zh_CN' : 'en_US',
@@ -64,8 +60,8 @@ export async function generateMetadata({
     },
     twitter: {
       card: 'summary_large_image',
-      title: `${site.name} — Free SVG Resource`,
-      description: description.slice(0, 160),
+      title,
+      description,
       images: ['/og-image'],
     },
     alternates: {
