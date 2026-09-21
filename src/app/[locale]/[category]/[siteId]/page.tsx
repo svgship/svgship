@@ -19,6 +19,7 @@ import { useI18n } from '@/lib/i18n/context';
 import { Header } from '@/components/layout/Header';
 import { Footer } from '@/components/layout/Footer';
 import { resolveTag } from '@/lib/tags';
+import { getLogoSrc } from '@/lib/logo';
 import sitesData from '@/data/sites.json';
 import extendedDescriptions from '@/data/extended-descriptions.json';
 import type { SvgSite, Locale } from '@/types';
@@ -128,7 +129,7 @@ export default function SiteDetailPage() {
             >
               {site.logo ? (
                 <img
-                  src={`/logos/${site.logo}`}
+                  src={getLogoSrc(site.logo)}
                   alt={site.name}
                   className="h-11 w-11 rounded-lg object-contain"
                 />
@@ -437,7 +438,7 @@ export default function SiteDetailPage() {
                     <div className="flex items-start gap-3">
                       {s.logo ? (
                         <img
-                          src={`/logos/${s.logo}`}
+                          src={getLogoSrc(s.logo)}
                           alt={s.name}
                           className="h-10 w-10 flex-shrink-0 rounded-lg object-contain"
                         />

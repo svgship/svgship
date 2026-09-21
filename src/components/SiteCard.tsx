@@ -6,6 +6,7 @@ import { gsap } from 'gsap';
 import { useI18n } from '@/lib/i18n/context';
 import { ExternalLink } from 'lucide-react';
 import { resolveTag } from '@/lib/tags';
+import { getLogoSrc } from '@/lib/logo';
 import type { SvgSite, Locale } from '@/types';
 
 interface SiteCardProps {
@@ -70,7 +71,7 @@ export function SiteCard({ site, locale }: SiteCardProps) {
       <div className="flex items-start gap-3">
         {site.logo ? (
           <img
-            src={`/logos/${site.logo}`}
+            src={getLogoSrc(site.logo)}
             alt={site.name}
             className="h-10 w-10 flex-shrink-0 rounded-lg object-contain"
           />
