@@ -1,39 +1,219 @@
 {
   "svgrepo": {
-    "en": "SVGRepo is a icon library offering a diverse collection of scalable vector icons. 500K+ free SVG icons and illustrations with online editing and bulk download. Features clean line-style icons that work well for modern UI designs. Includes solid-filled icons with strong visual presence for interfaces. Offers colorful and vibrant designs that add visual interest.",
-    "zh": "SVGRepo 是一个图标库，提供丰富多样的可缩放矢量图标。超过 50 万个免费 SVG 图标和插画，支持在线编辑和批量下载。提供简洁的线框风格图标，适合现代 UI 设计。 包含实心填充图标，视觉冲击力强，适合界面设计。 提供色彩丰富的设计元素，增加视觉趣味性。"
+    "intro": {
+      "en": "SVGRepo hosts one of the largest free SVG collections on the web — over 500,000 icons and illustrations searchable in a single place. Everything is free for commercial use, no account required, and most assets can be edited in the browser before downloading.",
+      "zh": "SVGRepo 收录了全网规模最大的免费 SVG 资源之一，超过 50 万个图标与插画可在同一处检索。所有资源均可免费商用，无需注册，且大部分素材支持在浏览器内直接编辑后再下载。"
+    },
+    "highlights": {
+      "en": [
+        "500K+ icons and illustrations across line, filled, and colored styles",
+        "Built-in online editor for color, size, and basic shape tweaks",
+        "Bulk download by collection — handy for whole design system imports",
+        "Free for commercial use with no attribution required"
+      ],
+      "zh": [
+        "超过 50 万图标与插画，涵盖线性、面性、彩色等多种风格",
+        "内置在线编辑器，可调整颜色、尺寸与基础形状",
+        "支持按集合批量下载，便于整套图标导入设计系统",
+        "免费商用且无需署名"
+      ]
+    },
+    "verdict": {
+      "en": "Best as a one-stop search layer when you need any icon fast and don't want to commit to a specific icon set.",
+      "zh": "适合需要快速找任意图标、又不想绑定单一图标集的场景，是最实用的「一站式搜索层」。"
+    }
   },
   "lucide": {
-    "en": "Lucide is a icon library offering a diverse collection of scalable vector icons. beautiful open-source icon library with 1500+ SVG icons for popular frameworks. Features clean line-style icons that work well for modern UI designs. Available for commercial use at no cost, perfect for professional projects.",
-    "zh": "Lucide 是一个图标库，提供丰富多样的可缩放矢量图标。简洁美观的开源图标库，提供 1500+ SVG 图标，支持主流框架。提供简洁的线框风格图标，适合现代 UI 设计。 免费可商用，适合专业项目使用。"
+    "intro": {
+      "en": "Lucide is a community-driven fork of Feather Icons, actively maintained and expanded to 1500+ clean line-style icons. It's the default choice for many modern React, Vue, and Svelte projects because of its consistent 24×24 grid and tree-shakeable packages.",
+      "zh": "Lucide 是 Feather Icons 的社区驱动分支，目前活跃维护并已扩展至 1500+ 个简洁线性图标。凭借统一的 24×24 网格与可 tree-shake 的打包产物，它已成为许多 React、Vue、Svelte 项目的默认选择。"
+    },
+    "highlights": {
+      "en": [
+        "1500+ open-source icons on a strict 24×24 grid",
+        "First-class packages for React, Vue, Svelte, Solid, and vanilla JS",
+        "Tree-shakeable ESM — bundle only the icons you use",
+        "Consistent 2px stroke, easily themed via CSS currentColor"
+      ],
+      "zh": [
+        "1500+ 开源图标，严格遵循 24×24 网格",
+        "为 React、Vue、Svelte、Solid 与原生 JS 提供一等公民级组件包",
+        "支持 ESM tree-shaking，只打包用到的图标",
+        "统一 2px 描边，可通过 CSS currentColor 轻松定制颜色"
+      ]
+    },
+    "verdict": {
+      "en": "The safest default for JS framework apps when you want a clean, well-maintained line icon set with zero design risk.",
+      "zh": "在 JS 框架项目中想要一套干净、维护良好、零设计风险的线性图标集时，Lucide 是最稳妥的默认答案。"
+    }
   },
   "iconify": {
-    "en": "Iconify is a icon library offering a diverse collection of scalable vector icons. unified icon framework combining 150+ icon sets with 200K+ icons. Features clean line-style icons that work well for modern UI designs. Includes solid-filled icons with strong visual presence for interfaces. Offers colorful and vibrant designs that add visual interest.",
-    "zh": "Iconify 是一个图标库，提供丰富多样的可缩放矢量图标。统一的图标框架，整合 150+ 图标集，超过 20 万个图标。提供简洁的线框风格图标，适合现代 UI 设计。 包含实心填充图标，视觉冲击力强，适合界面设计。 提供色彩丰富的设计元素，增加视觉趣味性。"
+    "intro": {
+      "en": "Iconify isn't an icon set itself — it's a unified framework that aggregates 150+ open-source icon sets (Material, Font Awesome, Tabler, Lucide, and many more) behind a single consistent API. Pick icons from any set without changing how you render them.",
+      "zh": "Iconify 本身不是一套图标，而是一个统一框架——它聚合了 150+ 个开源图标集（Material、Font Awesome、Tabler、Lucide 等），对外暴露同一套 API。你可以从不同图标集中挑图标，而无需改变渲染方式。"
+    },
+    "highlights": {
+      "en": [
+        "200K+ icons across 150+ sets, one syntax",
+        "On-demand loading — icons fetched only when used",
+        "Components for React, Vue, Svelte, Solid, Astro, and more",
+        "Icon data also available as a standalone npm package for offline use"
+      ],
+      "zh": [
+        "超过 20 万图标，横跨 150+ 图标集，统一语法",
+        "按需加载——只在用到时才拉取图标数据",
+        "为 React、Vue、Svelte、Solid、Astro 等提供组件",
+        "图标数据也可作为独立 npm 包离线使用"
+      ]
+    },
+    "verdict": {
+      "en": "Ideal when you want freedom to mix icon sets or need to prototype quickly without committing to one visual language.",
+      "zh": "适合需要混搭多个图标集、或在快速原型阶段不想过早绑定单一视觉语言的项目。"
+    }
   },
   "heroicons": {
-    "en": "Heroicons is a icon library offering a diverse collection of scalable vector icons. beautiful SVG icons by the Tailwind CSS team in Outline, Solid, and Mini styles. Features clean line-style icons that work well for modern UI designs. Includes solid-filled icons with strong visual presence for interfaces. Available for commercial use at no cost, perfect for professional projects.",
-    "zh": "Heroicons 是一个图标库，提供丰富多样的可缩放矢量图标。tailwind CSS 团队出品的精美 SVG 图标，提供 Outline、Solid、Mini 三种风格。提供简洁的线框风格图标，适合现代 UI 设计。 包含实心填充图标，视觉冲击力强，适合界面设计。 免费可商用，适合专业项目使用。"
+    "intro": {
+      "en": "Heroicons is designed and maintained by the Tailwind CSS team, so it pairs naturally with Tailwind projects. It ships in three coordinated styles — Outline, Solid, and the newer 16px Mini — making it easy to switch between dense UI and spacious marketing pages without leaving the icon set.",
+      "zh": "Heroicons 由 Tailwind CSS 团队亲自设计与维护，与 Tailwind 项目天然契合。它提供三套协调的风格——Outline、Solid 以及更新的 16px Mini，方便在密集 UI 与宽松营销页之间切换而无需更换图标集。"
+    },
+    "highlights": {
+      "en": [
+        "Three styles (Outline / Solid / Mini) designed as one system",
+        "Designed by the Tailwind team — class-based workflow friendly",
+        "Official React and Vue components, MIT licensed",
+        "Around 300 icons, intentionally curated rather than huge"
+      ],
+      "zh": [
+        "Outline / Solid / Mini 三种风格作为同一系统设计",
+        "Tailwind 团队出品，对基于 class 的工作流非常友好",
+        "官方提供 React 与 Vue 组件，MIT 协议",
+        "图标数约 300，刻意精简而非追求数量"
+      ]
+    },
+    "verdict": {
+      "en": "Pick Heroicons if your stack already includes Tailwind — the design language matches out of the box and saves you from style alignment work.",
+      "zh": "如果你的技术栈已经包含 Tailwind，Heroicons 是最省心的选择——设计语言开箱即匹配，省去风格对齐的额外工作。"
+    }
   },
   "undraw": {
-    "en": "unDraw is a illustration resource providing ready-to-use vector artwork and visual assets. free-to-use vector illustrations with customizable primary color for web and product design. Offers scene-based illustrations depicting real-world contexts. Available for commercial use at no cost, perfect for professional projects.",
-    "zh": "unDraw 是一个插画资源，提供即用型矢量艺术作品和视觉素材。免费可商用的矢量插画库，支持自定义主色调，适合网页和产品设计。提供基于场景的插画，描绘真实环境和情景。 免费可商用，适合专业项目使用。"
+    "intro": {
+      "en": "unDraw is Katerina Limpitsouni's long-running collection of flat, MIT-licensed SVG illustrations. Its signature feature is a built-in color customizer — pick your brand's primary color once and every illustration re-themes instantly, making it trivial to keep a whole marketing site visually consistent.",
+      "zh": "unDraw 是 Katerina Limpitsouni 长期维护的扁平风 SVG 插画库，采用 MIT 协议。其标志性功能是内置颜色定制器——只需选定品牌主色一次，所有插画即刻重新着色，让整个营销站点的视觉一致性维护成本几乎为零。"
+    },
+    "highlights": {
+      "en": [
+        "MIT license — free for commercial use, no attribution required",
+        "One-click brand color re-theming across the whole library",
+        "Consistent flat illustration style, designed to mix-and-match",
+        "Search by concept (work, education, technology, error pages, etc.)"
+      ],
+      "zh": [
+        "MIT 协议——免费商用，无需署名",
+        "一键品牌色换肤，整套插画同步生效",
+        "统一的扁平插画风格，可自由组合混搭",
+        "支持按概念检索（工作、教育、科技、错误页等）"
+      ]
+    },
+    "verdict": {
+      "en": "The safest starting point for landing pages, empty states, and 404s — especially when you need a handful of visuals that must look like they belong together.",
+      "zh": "是着陆页、空状态、404 页的最稳起点——尤其适合你需要一组风格必须统一的插画的场景。"
+    }
   },
   "storyset": {
-    "en": "Storyset is a illustration resource providing ready-to-use vector artwork and visual assets. free illustrated tool by Freepik with editable vector illustrations in multiple styles. Specializes in character illustrations featuring people and figures. Offers scene-based illustrations depicting real-world contexts. Available for commercial use at no cost, perfect for professional projects.",
-    "zh": "Storyset 是一个插画资源，提供即用型矢量艺术作品和视觉素材。freepik 旗下免费插画工具，提供多种风格的可编辑矢量插画。专注于人物角色插画，包含各种人物形象。 提供基于场景的插画，描绘真实环境和情景。 免费可商用，适合专业项目使用。"
+    "intro": {
+      "en": "Storyset is Freepik's free illustration product. Each illustration comes in five coordinated styles (Rafiki, Bro, Amico, Cuate, Pana) and can be customized — change colors, swap backgrounds, even animate simple motions — directly in the browser before downloading.",
+      "zh": "Storyset 是 Freepik 旗下的免费插画产品。每张插画都提供 Rafiki、Bro、Amico、Cuate、Pana 五种协调风格，并可在浏览器中直接定制——改颜色、换背景，甚至加上简单动效——再下载。"
+    },
+    "highlights": {
+      "en": [
+        "Five distinct illustration styles for different brand tones",
+        "Online editor for colors, elements, and basic animations",
+        "HTML embed code available for animated versions",
+        "Free for commercial use with attribution; Premium removes the requirement"
+      ],
+      "zh": [
+        "五种截然不同的插画风格，适配不同品牌调性",
+        "在线编辑器支持颜色、元素与基础动效调整",
+        "动画版可直接复制 HTML 嵌入代码",
+        "免费商用需署名；Premium 版本可免除署名要求"
+      ]
+    },
+    "verdict": {
+      "en": "Best when you want illustrations that feel alive — subtle animations and richer scene composition than typical flat libraries.",
+      "zh": "适合想要「有生气」的插画的场景——比典型扁平插画库拥有更细腻的动效与更丰富的场景构图。"
+    }
   },
   "humaaans": {
-    "en": "Humaaans is a illustration resource providing ready-to-use vector artwork and visual assets. mix-and-match people illustration library with customizable poses, clothes, and hair. Specializes in character illustrations featuring people and figures. Available for commercial use at no cost, perfect for professional projects.",
-    "zh": "Humaaans 是一个插画资源，提供即用型矢量艺术作品和视觉素材。可自由组合的人物插画库，支持自定义姿势、服装和发型。专注于人物角色插画，包含各种人物形象。 免费可商用，适合专业项目使用。"
+    "intro": {
+      "en": "Humaaans by Pablo Stanley is a modular illustration library for people. Every character is built from interchangeable parts — heads, bodies, poses, clothing, accessories — so you can compose a custom person in minutes without illustration skills.",
+      "zh": "Humaaans 由 Pablo Stanley 设计，是一个模块化的人物插画库。每个角色都由可互换的部件组成——头部、身体、姿势、服装、配饰——因此无需任何插画功底，也能在几分钟内拼出一个自定义人物。"
+    },
+    "highlights": {
+      "en": [
+        "Modular system: heads + bodies + poses + clothing combine freely",
+        "Available as Figma, Sketch, XD, and InVision Studio libraries",
+        "CC0 license — completely free for personal and commercial use",
+        "Diverse skin tones, body types, and accessibility aids included"
+      ],
+      "zh": [
+        "模块化系统：头、身、姿势、服装可自由组合",
+        "提供 Figma、Sketch、XD、InVision Studio 库",
+        "CC0 协议——个人与商业用途完全免费",
+        "包含多样肤色、体型与无障碍辅助元素"
+      ]
+    },
+    "verdict": {
+      "en": "Perfect when you need a specific kind of person (a nurse with a clipboard, a developer at a laptop) that flat libraries don't have pre-drawn.",
+      "zh": "适合需要特定人物（拿剪贴板的护士、对着笔记本的开发者）而扁平插画库里没有现成造型的场景。"
+    }
   },
   "openpeeps": {
-    "en": "Open Peeps is a illustration resource providing ready-to-use vector artwork and visual assets. hand-drawn people illustration library with customizable skin tone, expression, and accessories. Specializes in character illustrations featuring people and figures. Available for commercial use at no cost, perfect for professional projects.",
-    "zh": "Open Peeps 是一个插画资源，提供即用型矢量艺术作品和视觉素材。手绘风格的人物插画库，支持肤色、表情、配件等自定义组合。专注于人物角色插画，包含各种人物形象。 免费可商用，适合专业项目使用。"
+    "intro": {
+      "en": "Open Peeps is Pablo Stanley's hand-drawn character library with a sketchy, imperfect feel. Like Humaaans it's modular — mix heads, bodies, expressions, and accessories — but the line quality is deliberately rough, giving it a warmer, more editorial personality than typical flat vector art.",
+      "zh": "Open Peeps 是 Pablo Stanley 的手绘风格人物插画库，线条带着一种随性、不完美的质感。与 Humaaans 一样采用模块化设计——可自由组合头部、身体、表情、配饰——但线条刻意保留粗糙感，比典型的扁平矢量插画更具温度与编辑感。"
+    },
+    "highlights": {
+      "en": [
+        "Hand-drawn aesthetic — warm, editorial, less corporate",
+        "Modular parts: mix-and-match faces, bodies, and props",
+        "Available for Figma, Sketch, XD, and as raw SVG/PNG",
+        "CC0 license — free for any use, including commercial"
+      ],
+      "zh": [
+        "手绘审美——温暖、具编辑感、不那么企业化",
+        "模块化部件：脸、身体、道具可自由组合",
+        "支持 Figma、Sketch、XD，并提供原始 SVG/PNG",
+        "CC0 协议——任何用途（含商业）均免费"
+      ]
+    },
+    "verdict": {
+      "en": "Choose Open Peeps over Humaaans when your brand voice is more personal, editorial, or anti-corporate.",
+      "zh": "当品牌调性更个人化、编辑感或「反企业化」时，Open Peeps 比 Humaaans 更合适。"
+    }
   },
   "freepik": {
-    "en": "Freepik is a illustration resource providing ready-to-use vector artwork and visual assets. massive collection of vector graphics, PSDs, and photos — essential search engine for designers. Offers scene-based illustrations depicting real-world contexts. Provides abstract patterns for backgrounds and decorative purposes. Features vector textures that add depth and tactile quality to designs.",
-    "zh": "Freepik 是一个插画资源，提供即用型矢量艺术作品和视觉素材。海量矢量素材、PSD 和图片资源，设计师必备的素材搜索引擎。提供基于场景的插画，描绘真实环境和情景。 提供抽象图案和装饰元素，适合背景设计。 提供矢量纹理素材，为设计增加质感和层次。"
+    "intro": {
+      "en": "Freepik is the largest general-purpose design asset search engine — vectors, photos, PSDs, icons, and now AI-generated content, all in one place. The SVG vector collection alone dwarfs most specialized libraries, making it the go-to when you can't find an asset anywhere else.",
+      "zh": "Freepik 是最大的通用设计素材搜索引擎——矢量图、照片、PSD、图标，以及新增的 AI 生成内容，全部集中一处。仅 SVG 矢量部分的体量就已超过大多数垂直库，是当你在其他地方都找不到素材时的最终去处。"
+    },
+    "highlights": {
+      "en": [
+        "Millions of vectors, photos, PSDs, and AI-generated assets",
+        "Advanced filtering by color, style, license, and orientation",
+        "Free tier with attribution; Premium for commercial use without credit",
+        "Integrated AI image generator (Pikaso) for custom visuals"
+      ],
+      "zh": [
+        "数百万矢量图、照片、PSD 与 AI 生成素材",
+        "支持按颜色、风格、授权、方向等维度高级筛选",
+        "免费版需署名；Premium 可商用且免署名",
+        "内置 AI 生图工具 Pikaso，可生成自定义视觉"
+      ]
+    },
+    "verdict": {
+      "en": "Use Freepik as your fallback — it's rarely the most curated option, but it's almost always the one that has what you're looking for.",
+      "zh": "把 Freepik 当作兜底——它通常不是最精选的选项，但几乎总能找到你想要的东西。"
+    }
   },
   "vecteezy": {
     "en": "Vecteezy is a illustration resource providing ready-to-use vector artwork and visual assets. free vector art community with a large selection of editable SVG, EPS, and AI files. Offers scene-based illustrations depicting real-world contexts. Provides abstract patterns for backgrounds and decorative purposes. Features vector textures that add depth and tactile quality to designs.",
@@ -48,28 +228,128 @@
     "zh": "DrawKit 是一个插画资源，提供即用型矢量艺术作品和视觉素材。精美的矢量插画和图标库，提供多种风格的主题包。专注于人物角色插画，包含各种人物形象。 提供基于场景的插画，描绘真实环境和情景。 免费可商用，适合专业项目使用。"
   },
   "lottiefiles": {
-    "en": "LottieFiles is a SVG and vector graphics tool designed for designers and developers. world's largest Lottie animation community with free animations and online editing tools. Provides comprehensive editing capabilities for SVG and vector files. Includes animation capabilities for creating motion in SVG graphics. It offers both free and premium tiers to suit different needs and budgets.",
-    "zh": "LottieFiles 是一个SVG 和矢量图形工具，专为设计师和开发者打造。全球最大的 Lottie 动画社区，提供海量免费动画资源和在线编辑工具。提供全面的 SVG 和矢量文件编辑能力。 包含动画制作能力，实现 SVG 图形的动态效果。它提供免费和付费两种方案，满足不同需求和预算。"
+    "intro": {
+      "en": "LottieFiles is the largest community and toolkit around the Lottie animation format. It hosts hundreds of thousands of free Lottie animations (vector-based, JSON-encoded) and ships an editor, player libraries for every platform, and integrations for Figma, After Effects, and most frontend frameworks.",
+      "zh": "LottieFiles 是围绕 Lottie 动画格式的最大社区与工具集。它托管了数十万份免费的 Lottie 动画（矢量、JSON 编码），并提供编辑器、覆盖全平台的播放器库，以及与 Figma、After Effects 和主流前端框架的集成。"
+    },
+    "highlights": {
+      "en": [
+        "Largest Lottie animation library — most assets free to use",
+        "Online editor for colors, layers, speed, and playback",
+        "Official players for iOS, Android, Web, React Native, Flutter",
+        "Figma and After Effects plugins for design-to-code workflows"
+      ],
+      "zh": [
+        "最大的 Lottie 动画库——大部分资源免费可用",
+        "在线编辑器支持颜色、图层、速度与播放控制",
+        "官方播放器覆盖 iOS、Android、Web、React Native、Flutter",
+        "提供 Figma 与 After Effects 插件，支持设计到代码的工作流"
+      ]
+    },
+    "verdict": {
+      "en": "The only real option when you want vector animations that ship as tiny JSON files instead of heavy videos or GIFs.",
+      "zh": "当你想要以小巧 JSON 文件（而非笨重的视频或 GIF）交付矢量动画时，LottieFiles 几乎是唯一现实的选择。"
+    }
   },
   "svgator": {
-    "en": "SVGator is a SVG and vector graphics tool designed for designers and developers. online SVG animation creator — build complex SVG animations without writing code. Provides comprehensive editing capabilities for SVG and vector files. Includes animation capabilities for creating motion in SVG graphics. It offers both free and premium tiers to suit different needs and budgets.",
-    "zh": "SVGator 是一个SVG 和矢量图形工具，专为设计师和开发者打造。在线 SVG 动画制作工具，无需代码即可创建复杂的 SVG 动画。提供全面的 SVG 和矢量文件编辑能力。 包含动画制作能力，实现 SVG 图形的动态效果。它提供免费和付费两种方案，满足不同需求和预算。"
+    "intro": {
+      "en": "SVGator lets you build complex SVG animations in a visual timeline editor — no code required. The output is a single self-contained SVG file with embedded CSS or JavaScript animations, which makes it uniquely portable: drop it into any webpage and it just plays.",
+      "zh": "SVGator 让你在可视化时间轴编辑器里构建复杂 SVG 动画，无需任何代码。输出是单个自包含 SVG 文件，内嵌 CSS 或 JavaScript 动画，因此具备独特的可移植性——丢进任何网页即可播放。"
+    },
+    "highlights": {
+      "en": [
+        "Visual timeline editor with easing curves and keyframes",
+        "Exports self-contained SVG with embedded animations",
+        "No player library needed — animations run natively in browsers",
+        "Supports morph, filter, path, and transform animations"
+      ],
+      "zh": [
+        "可视化时间轴编辑器，支持缓动曲线与关键帧",
+        "导出自包含 SVG，动画内嵌",
+        "无需播放器库——动画在浏览器中原生运行",
+        "支持形变、滤镜、路径与变换动画"
+      ]
+    },
+    "verdict": {
+      "en": "Best for designers who want to ship animated SVGs without learning a JavaScript animation library.",
+      "zh": "适合希望交付 SVG 动画、又不想学 JavaScript 动画库的设计师。"
+    }
   },
   "lordicon": {
-    "en": "Lordicon is a SVG and vector graphics tool designed for designers and developers. beautiful animated icon library with interactive SVG animation icons in multiple styles. Manages icon fonts and SVG sprite systems for consistent usage. Includes animation capabilities for creating motion in SVG graphics. It offers both free and premium tiers to suit different needs and budgets.",
-    "zh": "Lordicon 是一个SVG 和矢量图形工具，专为设计师和开发者打造。精美的动态图标库，提供线性、填充等多种风格的可交互 SVG 动画图标。管理图标字体和 SVG sprite 系统，确保图标使用一致性。 包含动画制作能力，实现 SVG 图形的动态效果。它提供免费和付费两种方案，满足不同需求和预算。"
+    "intro": {
+      "en": "Lordicon specializes in animated icons — tiny Lottie-style SVG animations that trigger on hover, click, or scroll. Each icon ships in multiple visual styles, and the library is curated rather than huge, which keeps quality consistently high.",
+      "zh": "Lordicon 专注于动态图标——可在悬停、点击或滚动时触发的类 Lottie 风格 SVG 小动画。每个图标提供多种视觉风格，库整体走精选路线而非追求数量，因此质量始终很高。"
+    },
+    "highlights": {
+      "en": [
+        "Animated icons triggered by hover, click, or scroll",
+        "Multiple style variants per icon (line, solid, wired)",
+        "Web component, Lottie JSON, GIF, and static SVG exports",
+        "Free tier covers 60+ icons; PRO unlocks the full library"
+      ],
+      "zh": [
+        "动态图标支持悬停、点击、滚动触发",
+        "每个图标提供多种风格变体（线性、实心、wired）",
+        "可导出为 Web Component、Lottie JSON、GIF 与静态 SVG",
+        "免费版含 60+ 图标；PRO 解锁完整库"
+      ]
+    },
+    "verdict": {
+      "en": "Pick Lordicon when you want micro-interactions that make a UI feel crafted without writing animation code yourself.",
+      "zh": "当你想给 UI 加微交互、让界面显得精雕细琢，又不想自己写动画代码时，选 Lordicon。"
+    }
   },
   "keyshape": {
     "en": "Keyshape is a SVG and vector graphics tool designed for designers and developers. mac SVG animation editor with timeline-based animation and multi-format export. Provides comprehensive editing capabilities for SVG and vector files. Includes animation capabilities for creating motion in SVG graphics. It is a premium resource with paid licensing for commercial use.",
     "zh": "Keyshape 是一个SVG 和矢量图形工具，专为设计师和开发者打造。mac 平台的 SVG 动画编辑器，支持时间轴动画和导出多种格式。提供全面的 SVG 和矢量文件编辑能力。 包含动画制作能力，实现 SVG 图形的动态效果。这是一个付费资源，需购买授权用于商业项目。"
   },
   "phosphor-icons": {
-    "en": "Phosphor Icons is a icon library offering a diverse collection of scalable vector icons. flexible icon family with 7000+ icons in 6 weights (Regular/Thin/Light/Bold/Fill/Duotone). Features clean line-style icons that work well for modern UI designs. Includes solid-filled icons with strong visual presence for interfaces. Available for commercial use at no cost, perfect for professional projects.",
-    "zh": "Phosphor Icons 是一个图标库，提供丰富多样的可缩放矢量图标。灵活的图标家族，提供 7000+ 图标，6种粗细风格（Regular/Thin/Light/Bold/Fill/Duotone）。提供简洁的线框风格图标，适合现代 UI 设计。 包含实心填充图标，视觉冲击力强，适合界面设计。 免费可商用，适合专业项目使用。"
+    "intro": {
+      "en": "Phosphor is a family of 1500+ icons that all ship in six weights — Thin, Light, Regular, Bold, Fill, and Duotone. The six-weight system makes it unusually flexible: the same icon can sit quietly in a footer or carry a dashboard header without switching libraries.",
+      "zh": "Phosphor 是一套 1500+ 图标的家族，每个图标都提供六种字重——Thin、Light、Regular、Bold、Fill、Duotone。六字重体系让它格外灵活：同一个图标既可以安静地待在页脚，也可以撑起仪表盘标题，全程无需切换图标库。"
+    },
+    "highlights": {
+      "en": [
+        "Six weights per icon — weight becomes a design token",
+        "1500+ icons, MIT licensed, free for commercial use",
+        "Duotone style enables subtle two-color treatments out of the box",
+        "Official React, Vue, Svelte, and web component packages"
+      ],
+      "zh": [
+        "每个图标六种字重——字重可直接作为设计 token",
+        "1500+ 图标，MIT 协议，免费商用",
+        "Duotone 风格开箱即可实现双色细腻效果",
+        "官方提供 React、Vue、Svelte 及 Web Component 包"
+      ]
+    },
+    "verdict": {
+      "en": "The best pick when you want a single icon library that can adapt to many visual hierarchies — especially dashboards and content-heavy products.",
+      "zh": "当你希望一套图标库能适应多种视觉层级（尤其是仪表盘和内容密集型产品）时，Phosphor 是最佳选择。"
+    }
   },
   "tabler-icons": {
-    "en": "Tabler Icons is a icon library offering a diverse collection of scalable vector icons. free open-source SVG icon set with 4900+ pixel-perfect line icons for React/Vue. Features clean line-style icons that work well for modern UI designs. Available for commercial use at no cost, perfect for professional projects.",
-    "zh": "Tabler Icons 是一个图标库，提供丰富多样的可缩放矢量图标。免费开源 SVG 图标集，4900+ 像素完美的线条图标，支持 React/Vue。提供简洁的线框风格图标，适合现代 UI 设计。 免费可商用，适合专业项目使用。"
+    "intro": {
+      "en": "Tabler Icons is a stroke-only set of 5000+ icons designed for admin dashboards and data-dense UIs. The aesthetic is intentionally neutral — thin 1.5px strokes, geometric shapes, no fills — so it disappears into complex interfaces without competing for attention.",
+      "zh": "Tabler Icons 是一套 5000+ 纯描边图标，专为后台仪表盘与数据密集型 UI 设计。其审美刻意保持中性——1.5px 细描边、几何造型、无填充——以便在复杂界面中不喧宾夺主。"
+    },
+    "highlights": {
+      "en": [
+        "5000+ stroke icons, one of the largest free stroke sets",
+        "Tuned for admin / dashboard / SaaS interfaces",
+        "SVG, PNG, PDF, EPS, and web font formats available",
+        "Official React, Vue, Svelte, Angular, and Solid packages"
+      ],
+      "zh": [
+        "5000+ 描边图标，是最大的免费描边图标集之一",
+        "专为后台、仪表盘、SaaS 界面调优",
+        "提供 SVG、PNG、PDF、EPS 及 Web Font 多种格式",
+        "官方支持 React、Vue、Svelte、Angular、Solid"
+      ]
+    },
+    "verdict": {
+      "en": "Use Tabler when you need breadth — most niche admin concepts already have an icon here, saving you from custom SVG work.",
+      "zh": "当你需要覆盖广度时选 Tabler——大多数冷门的后台概念在这里都已有现成图标，省去自定义 SVG 的工作量。"
+    }
   },
   "bootstrap-icons": {
     "en": "Bootstrap Icons is a icon library offering a diverse collection of scalable vector icons. official Bootstrap icon library with 2000+ icons, perfectly integrated with Bootstrap ecosystem. Features clean line-style icons that work well for modern UI designs. Available for commercial use at no cost, perfect for professional projects.",
@@ -92,8 +372,28 @@
     "zh": "Feather Icons 是一个图标库，提供丰富多样的可缩放矢量图标。简洁美观的开源图标，280+ 图标，影响了众多后续图标库。提供简洁的线框风格图标，适合现代 UI 设计。 免费可商用，适合专业项目使用。"
   },
   "font-awesome": {
-    "en": "Font Awesome is a icon library offering a diverse collection of scalable vector icons. one of the most popular icon libraries with 2000+ free icons (16,000+ total). Features clean line-style icons that work well for modern UI designs. Includes solid-filled icons with strong visual presence for interfaces. Available for commercial use at no cost, perfect for professional projects.",
-    "zh": "Font Awesome 是一个图标库，提供丰富多样的可缩放矢量图标。最流行的图标库之一，2000+ 免费图标（共 16,000+），生态完善。提供简洁的线框风格图标，适合现代 UI 设计。 包含实心填充图标，视觉冲击力强，适合界面设计。 免费可商用，适合专业项目使用。"
+    "intro": {
+      "en": "Font Awesome is the oldest and most widely deployed icon library on the web. Version 6 ships 2000+ free icons plus 30K+ Pro icons, with both SVG and web font delivery. Its longevity means it's battle-tested across every browser, framework, and legacy stack you might encounter.",
+      "zh": "Font Awesome 是历史最悠久、部署最广泛的图标库。第 6 版提供 2000+ 免费图标与 3 万+ Pro 图标，同时支持 SVG 与 Web Font 两种交付方式。悠久的历史意味着它已在几乎所有浏览器、框架与遗留技术栈中久经考验。"
+    },
+    "highlights": {
+      "en": [
+        "2000+ free icons; 30K+ with Pro subscription",
+        "Web font, SVG sprites, and SVG-with-JS delivery options",
+        "Official kits for React, Vue, Angular, and WordPress",
+        "Duotone and Sharp style families in Pro tier"
+      ],
+      "zh": [
+        "2000+ 免费图标；Pro 订阅提供 3 万+",
+        "支持 Web Font、SVG Sprite 与 SVG-with-JS 三种交付",
+        "为 React、Vue、Angular、WordPress 提供官方套件",
+        "Pro 版本含 Duotone 与 Sharp 风格家族"
+      ]
+    },
+    "verdict": {
+      "en": "The default when you're maintaining a legacy project or working with non-technical stakeholders who already know Font Awesome.",
+      "zh": "维护遗留项目、或与非技术干系人协作时（他们往往已经熟悉 Font Awesome），它仍是最稳妥的默认答案。"
+    }
   },
   "iconfont": {
     "en": "iconfont is a icon library offering a diverse collection of scalable vector icons. alibaba's vector icon library, China's largest with 10M+ icons and good Chinese support. Features clean line-style icons that work well for modern UI designs. Includes solid-filled icons with strong visual presence for interfaces. Offers colorful and vibrant designs that add visual interest.",
@@ -132,12 +432,52 @@
     "zh": "Boxy SVG 是一个SVG 和矢量图形工具，专为设计师和开发者打造。专业 SVG 编辑器，界面简洁，功能强大。提供全面的 SVG 和矢量文件编辑能力。"
   },
   "mdn-svg-tutorial": {
-    "en": "MDN SVG Tutorial is a learning platform featuring in-depth tutorials and educational content about SVG. mozilla's official SVG tutorial covering basics to advanced features. Covers SVG fundamentals making it accessible for beginners.",
-    "zh": "MDN SVG Tutorial 是一个学习平台，提供深入的 SVG 教程和教育内容。mozilla 官方 SVG 教程，从基础概念到高级特性全面覆盖。覆盖 SVG 基础知识，适合初学者入门学习。"
+    "intro": {
+      "en": "MDN's SVG tutorial is the most authoritative free reference for SVG on the web. Written and maintained by Mozilla, it covers everything from basic shapes to advanced filters, with live examples you can edit inline. It's the resource the SVG spec authors themselves link to.",
+      "zh": "MDN 的 SVG 教程是全网最权威的免费 SVG 参考。由 Mozilla 编写并维护，覆盖从基础形状到高级滤镜的全部内容，并附可在线编辑的实时示例。SVG 规范作者自己也会引用它。"
+    },
+    "highlights": {
+      "en": [
+        "Complete path from basic shapes to advanced filters and animations",
+        "Live editable examples on every page",
+        "Comprehensive element and attribute reference",
+        "Free, no login, continuously maintained"
+      ],
+      "zh": [
+        "从基础形状到高级滤镜与动画的完整路径",
+        "每页都有可在线编辑的实时示例",
+        "详尽的元素与属性参考",
+        "免费、无需登录、持续维护"
+      ]
+    },
+    "verdict": {
+      "en": "Start here if you actually want to understand SVG rather than just paste snippets — it's the closest thing to an official manual.",
+      "zh": "如果你真的想理解 SVG 而不只是复制粘贴代码片段，从这里开始——这是最接近官方手册的资源。"
+    }
   },
   "css-tricks-svg-guide": {
-    "en": "CSS-Tricks SVG Guide is a learning platform featuring in-depth tutorials and educational content about SVG. complete SVG guide covering inline usage, CSS integration, and animations. Covers SVG fundamentals making it accessible for beginners.",
-    "zh": "CSS-Tricks SVG Guide 是一个学习平台，提供深入的 SVG 教程和教育内容。cSS-Tricks 的 SVG 完整指南，涵盖内联、CSS 使用和动画。覆盖 SVG 基础知识，适合初学者入门学习。"
+    "intro": {
+      "en": "CSS-Tricks' SVG guide is a curated collection of practical articles rather than a linear tutorial. It excels at the 'how do I do X in the real world' questions — responsive SVGs, SVG + CSS integration, accessibility gotchas — that the formal spec doesn't cover.",
+      "zh": "CSS-Tricks 的 SVG 指南是一个精选的实用文章合集，而非线性教程。它擅长回答「在真实项目中如何做 X」类问题——响应式 SVG、SVG 与 CSS 集成、可访问性陷阱——这些是正式规范不会教你的。"
+    },
+    "highlights": {
+      "en": [
+        "Practical, problem-driven articles from working developers",
+        "Strong coverage of SVG + CSS integration techniques",
+        "Real-world gotchas: viewport, viewBox, accessibility, fallbacks",
+        "Linked demos on CodePen for most examples"
+      ],
+      "zh": [
+        "由一线开发者撰写的、以问题为导向的实用文章",
+        "对 SVG 与 CSS 集成技巧覆盖尤其深入",
+        "覆盖 viewport、viewBox、可访问性、降级等实战陷阱",
+        "大多数示例附 CodePen 演示链接"
+      ]
+    },
+    "verdict": {
+      "en": "Reach for this after MDN — when you know the syntax but hit practical layout or styling issues in production.",
+      "zh": "在 MDN 之后查阅——当你已掌握语法、但在生产中遇到实际布局或样式问题时。"
+    }
   },
   "svg-on-the-web": {
     "en": "SVG on the Web is a learning platform featuring in-depth tutorials and educational content about SVG. comprehensive guide to using SVG in web development. Covers SVG fundamentals making it accessible for beginners. Provides real-world case studies and practical project examples.",
@@ -180,8 +520,28 @@
     "zh": "Yoksel SVG Tools 是一个学习平台，提供深入的 SVG 教程和教育内容。sVG 可视化工具集合，帮助理解 SVG 语法。提供针对特定 SVG 工具和软件的教程。 探索高级 SVG 路径、滤镜和视觉效果技术。"
   },
   "svgo-docs": {
-    "en": "SVGO Documentation is a learning platform featuring in-depth tutorials and educational content about SVG. official documentation for SVGO, the SVG optimization tool. Offers tutorials focused on specific SVG tools and software.",
-    "zh": "SVGO Documentation 是一个学习平台，提供深入的 SVG 教程和教育内容。sVG 优化工具 SVGO 的官方文档和使用指南。提供针对特定 SVG 工具和软件的教程。"
+    "intro": {
+      "en": "The SVGO documentation on GitHub is the authoritative reference for the de-facto standard SVG optimizer. SVGO strips editor metadata, minifies path data, collapses groups, and applies dozens of other transformations — typically shrinking files 30-70% with no visual change. These docs cover every plugin, preset, and config option.",
+      "zh": "GitHub 上的 SVGO 文档是这款事实标准 SVG 优化器的权威参考。SVGO 通过剥离编辑器元数据、压缩路径数据、合并分组等数十种变换缩小 SVG 文件——通常可减少 30-70% 体积且视觉效果无损。该文档覆盖了所有插件、预设与配置项。"
+    },
+    "highlights": {
+      "en": [
+        "Removes editor metadata, comments, and hidden elements",
+        "Minifies path data with precision-aware rounding",
+        "Plugin-based architecture — enable only what you need",
+        "Powers SVGO-based tools like SVGOMG, ImageOptim, and many bundler plugins"
+      ],
+      "zh": [
+        "剥离编辑器元数据、注释与隐藏元素",
+        "精度可控的路径数据压缩",
+        "插件化架构——按需启用",
+        "是 SVGOMG、ImageOptim 及众多打包插件的底层引擎"
+      ]
+    },
+    "verdict": {
+      "en": "Required reading before tuning SVGO for production — the defaults are good, but the per-plugin options here are how you squeeze the last bytes out.",
+      "zh": "在生产环境调优 SVGO 前的必读——默认值已经不错，但要榨干最后一字节，就得靠这里的插件级配置项。"
+    }
   },
   "codrops-svg": {
     "en": "Codrops SVG Tutorials is a learning platform featuring in-depth tutorials and educational content about SVG. codrops SVG creative tutorials collection with practical examples. Provides real-world case studies and practical project examples.",
@@ -196,8 +556,28 @@
     "zh": "Snap.svg Documentation 是一个学习平台，提供深入的 SVG 教程和教育内容。snap.svg 官方文档，Adobe 出品的 SVG 库。提供针对特定 SVG 工具和软件的教程。"
   },
   "codepen-svg": {
-    "en": "CodePen SVG Topic is a creative showcase featuring inspiring SVG-based designs, animations, and experiments. collection of SVG creative works on CodePen, community picks. Curates collections of SVG experiments from the CodePen community. Showcases animations and motion design projects using SVG.",
-    "zh": "CodePen SVG Topic 是一个创意展示平台，展示令人惊艳的 SVG 设计、动画和实验作品。codePen 上的 SVG 创意作品集合，社区精选。精选来自 CodePen 社区的 SVG 实验集合。 展示使用 SVG 的动画和动态设计作品。"
+    "intro": {
+      "en": "CodePen's SVG topic is the de-facto showcase for experimental SVG work on the web. Thousands of pens demonstrate techniques — filters, masks, SMIL, GSAP integrations — often pushing further than any tutorial. Reading top pens is the fastest way to learn what's actually possible.",
+      "zh": "CodePen 的 SVG 话题页是全网 SVG 实验作品的事实集中地。成千上万个 Pen 展示了各类技巧——滤镜、遮罩、SMIL、GSAP 集成——常常超越任何教程的边界。阅读顶级 Pen 是了解「SVG 究竟能做什么」的最快方式。"
+    },
+    "highlights": {
+      "en": [
+        "Thousands of forkable SVG demos — learn by reading source",
+        "Filter by topic: animation, filters, masks, typography",
+        "Many pens by SVG experts like Sarah Drasner and Chris Gannon",
+        "One-click fork to experiment in your own sandbox"
+      ],
+      "zh": [
+        "数千个可 fork 的 SVG 演示——通过阅读源码学习",
+        "支持按主题筛选：动画、滤镜、遮罩、字体",
+        "许多 Pen 出自 Sarah Drasner、Chris Gannon 等 SVG 专家",
+        "一键 fork 到自己的沙盒中实验"
+      ]
+    },
+    "verdict": {
+      "en": "The best place to level up after you know SVG basics — read other people's code and steal their techniques.",
+      "zh": "掌握 SVG 基础后进阶的最佳去处——读别人的代码，把他们的技巧偷为己用。"
+    }
   },
   "codepen-svg-animation": {
     "en": "CodePen SVG Animation is a creative showcase featuring inspiring SVG-based designs, animations, and experiments. sVG animation works on CodePen, massive creative inspiration. Showcases animations and motion design projects using SVG. Curates collections of SVG experiments from the CodePen community.",
@@ -292,8 +672,28 @@
     "zh": "Recraft 是一个SVG 和矢量图形工具，专为设计师和开发者打造。aI 矢量设计工具，支持文生矢量图、图片矢量化和品牌风格控制。利用 AI 技术自动生成独特的 SVG 图形。"
   },
   "iconvectors": {
-    "en": "IconVectors is a SVG and vector graphics tool designed for designers and developers. professional desktop SVG icon editor for creating, editing, cleaning up, batch-processing and exporting SVG icons for development workflows. Provides comprehensive editing capabilities for SVG and vector files. Includes batch processing to handle multiple files efficiently. Exports icon sets for frameworks such as React and Vue.",
-    "zh": "IconVectors 是一个SVG 和矢量图形工具，专为设计师和开发者打造。专业桌面端 SVG 图标编辑器，支持创建、编辑、清理、批量处理与导出 SVG 图标，面向开发工作流。提供全面的 SVG 和矢量文件编辑能力。 支持批量处理，高效处理多个文件。 可导出适配 React、Vue 等框架的图标集。"
+    "intro": {
+      "en": "IconVectors is a desktop SVG editor built specifically for icon work. Unlike general-purpose vector editors, it focuses on the icon-design workflow — pixel-grid preview, batch cleanup, multi-size export, and direct code output for React and Vue.",
+      "zh": "IconVectors 是一款专为图标工作打造的桌面 SVG 编辑器。与通用矢量编辑器不同，它聚焦于图标设计工作流——像素网格预览、批量清理、多尺寸导出，并可直接输出 React 与 Vue 代码。"
+    },
+    "highlights": {
+      "en": [
+        "Desktop app (Windows & macOS) tuned for icon editing",
+        "Batch processing for cleanup, optimization, and renaming",
+        "One-click export to React, Vue, and SVG sprite formats",
+        "Pixel-grid preview at common icon sizes (16/24/32/48)"
+      ],
+      "zh": [
+        "桌面应用（Windows 与 macOS），专为图标编辑调优",
+        "支持清理、优化与重命名的批量处理",
+        "一键导出为 React、Vue 与 SVG Sprite 格式",
+        "常用图标尺寸（16/24/32/48）像素网格预览"
+      ]
+    },
+    "verdict": {
+      "en": "Worth a look if you maintain an icon library at scale and are tired of repetitive cleanup work in Figma or Illustrator.",
+      "zh": "如果你在维护一个规模化的图标库，并且厌烦了 Figma 或 Illustrator 中重复的清理工作，可以试试。"
+    }
   },
   "freecodecamp-svg": {
     "en": "freeCodeCamp SVG Guide is a learning platform featuring in-depth tutorials and educational content about SVG. freeCodeCamp's SVG beginner-to-advanced guide with detailed code examples. Covers SVG fundamentals making it accessible for beginners. Provides real-world case studies and practical project examples.",

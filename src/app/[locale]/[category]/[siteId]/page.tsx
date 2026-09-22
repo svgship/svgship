@@ -25,7 +25,23 @@ import extendedDescriptions from '@/data/extended-descriptions.json';
 import type { SvgSite, Locale } from '@/types';
 
 const sites = sitesData as SvgSite[];
-const descriptions = extendedDescriptions as Record<string, { en: string; zh: string }>;
+
+/**
+ * Extended description shape — supports both:
+ *   - Structured (new): { intro, highlights, verdict } each { en, zh }
+ *   - Legacy (old):     { en: string, zh: string }
+ */
+interface StructuredDesc {
+  intro: { en: string; zh: string };
+  highlights: { en: string[]; zh: string[] };
+  verdict: { en: string; zh: string };
+}
+type DescriptionEntry = StructuredDesc | { en: string; zh: string };
+const descriptions = extendedDescriptions as Record<string, DescriptionEntry>;
+
+function isStructuredDesc(d: DescriptionEntry | undefined): d is StructuredDesc {
+  return !!d && 'intro' in d && 'highlights' in d && 'verdict' in d;
+}
 
 const categoryIcons: Record<string, React.ComponentType<{ className?: string }>> = {
   icons: Grid3X3,
@@ -95,7 +111,14 @@ export default function SiteDetailPage() {
   }
 
   const extDesc = descriptions[siteId];
-  const description = extDesc?.[locale as Locale] ?? site.description[locale as Locale];
+  const isStructured = isStructuredDesc(extDesc);
+  // Legacy shape (non-structured) — used only when !isStructured
+  const legacyDesc = !isStructured
+    ? (extDesc as { en: string; zh: string } | undefined)
+    : undefined;
+  const description = isStructured
+    ? extDesc.intro[locale as Locale]
+    : (legacyDesc?.[locale as Locale] ?? site.description[locale as Locale]);
   const CategoryIcon = categoryIcons[site.category];
   const catLabel = categoryLabels[site.category]?.[locale as 'en' | 'zh'] ?? site.category;
 
@@ -340,6 +363,50 @@ export default function SiteDetailPage() {
               >
                 {description}
               </p>
+
+              {/* Structured highlights (only when extended description is structured) */}
+              {isStructured && (
+                <>
+                  <h3
+                    className="mt-8 text-sm font-semibold tracking-wide uppercase"
+                    style={{ color: 'var(--color-outline)', fontFamily: 'var(--font-heading)' }}
+                  >
+                    {locale === 'zh' ? '核心亮点' : 'Key Highlights'}
+                  </h3>
+                  <ul className="mt-4 space-y-2.5">
+                    {extDesc.highlights[locale as Locale].map((h, i) => (
+                      <li
+                        key={i}
+                        className="flex items-start gap-2.5 text-base leading-[1.7]"
+                        style={{ color: 'var(--color-on-surface-variant)' }}
+                      >
+                        <span
+                          className="mt-2 inline-block h-1.5 w-1.5 flex-shrink-0 rounded-full"
+                          style={{ background: 'var(--color-primary)' }}
+                          aria-hidden="true"
+                        />
+                        <span>{h}</span>
+                      </li>
+                    ))}
+                  </ul>
+
+                  <h3
+                    className="mt-8 text-sm font-semibold tracking-wide uppercase"
+                    style={{ color: 'var(--color-outline)', fontFamily: 'var(--font-heading)' }}
+                  >
+                    {locale === 'zh' ? '我们的评价' : 'Our Take'}
+                  </h3>
+                  <p
+                    className="mt-4 border-l-2 pl-4 text-base leading-[1.8] italic"
+                    style={{
+                      color: 'var(--color-on-surface-variant)',
+                      borderColor: 'var(--color-primary)',
+                    }}
+                  >
+                    {extDesc.verdict[locale as Locale]}
+                  </p>
+                </>
+              )}
             </div>
 
             {/* Right: Metadata sidebar */}
