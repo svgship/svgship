@@ -55,7 +55,7 @@ export default async function RootLayout({
           strategy="afterInteractive"
         />
       </head>
-      <body className="flex min-h-full flex-col" style={{ fontFamily: 'var(--font-body)' }}>
+      <body className="flex min-h-full flex-col">
         <div className="bg-orbs" aria-hidden="true">
           <div className="bg-orb bg-orb-1" />
           <div className="bg-orb bg-orb-2" />
