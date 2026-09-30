@@ -15,7 +15,7 @@ const sites = sitesData as Array<{ id: string; name: string; category: string }>
  * 之所以用开关而不是直接写死：该层级一旦回退成 404，写进 BreadcrumbList 会让
  * Google 判定整条面包屑无效（item URL 无效 → 整条被丢弃）。
  */
-const CATEGORY_PAGES_ENABLED = false;
+const CATEGORY_PAGES_ENABLED = true;
 
 const HOME_META: Record<Locale, { name: string; description: string }> = {
   zh: {

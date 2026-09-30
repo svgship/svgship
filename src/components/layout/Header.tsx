@@ -2,15 +2,10 @@
 
 import { useEffect, useState, useRef } from 'react';
 import Link from 'next/link';
-import { usePathname, useRouter } from 'next/navigation';
-import { gsap } from 'gsap';
-import { ScrollToPlugin } from 'gsap/ScrollToPlugin';
 import { useI18n } from '@/lib/i18n/context';
 import { ThemeToggle } from './ThemeToggle';
-import { Search, Grid3X3, Paintbrush, Wrench, BookOpen, Lightbulb, X } from 'lucide-react';
+import { Search, Grid3X3, Paintbrush, Wrench, BookOpen, Lightbulb, X, Menu } from 'lucide-react';
 import type { CategorySlug } from '@/types';
-
-gsap.registerPlugin(ScrollToPlugin);
 
 const navItems: { slug: CategorySlug; icon: typeof Grid3X3; labelKey: string }[] = [
   { slug: 'icons', icon: Grid3X3, labelKey: 'nav.icons' },
@@ -27,30 +22,28 @@ interface HeaderProps {
 
 export function Header({ searchQuery = '', onSearchChange }: HeaderProps) {
   const { locale, setLocale, t } = useI18n();
-  const pathname = usePathname();
-  const router = useRouter();
 
-  const scrollToCategory = (slug: string) => {
-    const basePath = `/${locale}`;
-    const isHomePage = pathname === basePath || pathname === `${basePath}/`;
+  // 分类导航指向真实的分类枢纽页（/[locale]/[category]），而不是首页锚点：
+  // 之前用 <button onClick={scrollToCategory}>，全站只导出 /about 与 /submit
+  // 两个可抓取导航链接，分类页拿不到内部链接权重。
+  const navLinkStyle: React.CSSProperties = {
+    color: 'var(--color-on-surface-variant)',
+  };
 
-    if (isHomePage) {
-      // On home page: smooth scroll to the section
-      const target = `#category-${slug}`;
-      gsap.to(window, {
-        duration: 1,
-        scrollTo: { y: target, offsetY: 80 },
-        ease: 'power2.inOut',
-      });
-    } else {
-      // On other pages: navigate to home page with hash
-      router.push(`${basePath}/#category-${slug}`);
-    }
+  const onNavEnter = (e: React.MouseEvent<HTMLAnchorElement>) => {
+    e.currentTarget.style.color = 'var(--color-primary)';
+    e.currentTarget.style.background = 'var(--color-primary-container)';
+  };
+
+  const onNavLeave = (e: React.MouseEvent<HTMLAnchorElement>) => {
+    e.currentTarget.style.color = 'var(--color-on-surface-variant)';
+    e.currentTarget.style.background = 'transparent';
   };
 
   // Detect when hero section is scrolled past — show header search
   const [showSearch, setShowSearch] = useState(false);
   const [mobileSearchOpen, setMobileSearchOpen] = useState(false);
+  const [mobileNavOpen, setMobileNavOpen] = useState(false);
   const searchInputRef = useRef<HTMLInputElement>(null);
 
   useEffect(() => {
@@ -101,23 +94,17 @@ export function Header({ searchQuery = '', onSearchChange }: HeaderProps) {
           {navItems.map((item) => {
             const Icon = item.icon;
             return (
-              <button
+              <Link
                 key={item.slug}
-                onClick={() => scrollToCategory(item.slug)}
+                href={`/${locale}/${item.slug}`}
                 className="flex cursor-pointer items-center gap-1.5 rounded-xl px-3 py-2 text-sm font-medium transition-all duration-200"
-                style={{ color: 'var(--color-on-surface-variant)' }}
-                onMouseEnter={(e) => {
-                  e.currentTarget.style.color = 'var(--color-primary)';
-                  e.currentTarget.style.background = 'var(--color-primary-container)';
-                }}
-                onMouseLeave={(e) => {
-                  e.currentTarget.style.color = 'var(--color-on-surface-variant)';
-                  e.currentTarget.style.background = 'transparent';
-                }}
+                style={navLinkStyle}
+                onMouseEnter={onNavEnter}
+                onMouseLeave={onNavLeave}
               >
                 <Icon className="h-4 w-4" />
                 {t(item.labelKey)}
-              </button>
+              </Link>
             );
           })}
         </nav>
@@ -196,6 +183,25 @@ export function Header({ searchQuery = '', onSearchChange }: HeaderProps) {
             {t('nav.submit')}
           </Link>
           <ThemeToggle />
+          {/* Mobile category nav toggle — 之前移动端完全没有分类导航 */}
+          <button
+            aria-label={locale === 'zh' ? '分类导航' : 'Category navigation'}
+            aria-expanded={mobileNavOpen}
+            aria-controls="mobile-category-nav"
+            className="flex cursor-pointer items-center justify-center rounded-xl p-2 transition-all duration-200 lg:hidden"
+            style={{ color: 'var(--color-on-surface-variant)' }}
+            onClick={() => setMobileNavOpen(!mobileNavOpen)}
+            onMouseEnter={(e) => {
+              e.currentTarget.style.color = 'var(--color-primary)';
+              e.currentTarget.style.background = 'var(--color-primary-container)';
+            }}
+            onMouseLeave={(e) => {
+              e.currentTarget.style.color = 'var(--color-on-surface-variant)';
+              e.currentTarget.style.background = 'transparent';
+            }}
+          >
+            {mobileNavOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
+          </button>
           {/* Mobile search toggle */}
           <button
             aria-label="Search"
@@ -237,6 +243,43 @@ export function Header({ searchQuery = '', onSearchChange }: HeaderProps) {
           </button>
         </div>
       </header>
+
+      {/* Mobile category nav — 真链接，可抓取且移动端可用 */}
+      <div
+        id="mobile-category-nav"
+        className={`overflow-hidden transition-all duration-300 ease-in-out lg:hidden ${
+          mobileNavOpen ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0'
+        }`}
+        style={{
+          background: 'var(--glass-bg)',
+          backdropFilter: 'blur(20px) saturate(180%)',
+          WebkitBackdropFilter: 'blur(20px) saturate(180%)',
+        }}
+      >
+        <nav
+          className="border-t px-6 py-2"
+          style={{ borderColor: 'var(--glass-border)' }}
+          aria-label={locale === 'zh' ? '分类导航' : 'Category navigation'}
+        >
+          <div className="mx-auto flex max-w-lg flex-col">
+            {navItems.map((item) => {
+              const Icon = item.icon;
+              return (
+                <Link
+                  key={item.slug}
+                  href={`/${locale}/${item.slug}`}
+                  onClick={() => setMobileNavOpen(false)}
+                  className="flex items-center gap-2.5 rounded-xl px-3 py-3 text-sm font-medium transition-all duration-200"
+                  style={{ color: 'var(--color-on-surface)' }}
+                >
+                  <Icon className="h-4 w-4" style={{ color: 'var(--color-primary)' }} />
+                  {t(item.labelKey)}
+                </Link>
+              );
+            })}
+          </div>
+        </nav>
+      </div>
 
       {/* Mobile search overlay */}
       <div
