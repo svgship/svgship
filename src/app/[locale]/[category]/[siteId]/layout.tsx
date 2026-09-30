@@ -1,7 +1,9 @@
 import type { Metadata } from 'next';
+import { notFound } from 'next/navigation';
 import type { Locale } from '@/types';
 import sitesData from '@/data/sites.json';
 import { buildSiteTitle, buildSiteDescription, trimDescription } from '@/lib/seo';
+import { CATEGORY_SLUGS } from '@/lib/site';
 
 const locales: Locale[] = ['en', 'zh'];
 const sites = sitesData as Array<{
@@ -14,13 +16,11 @@ const sites = sitesData as Array<{
   url: string;
 }>;
 
-const validCategories = ['icons', 'illustrations', 'tools', 'tutorials', 'inspiration'];
-
 export function generateStaticParams() {
   const params: { locale: string; category: string; siteId: string }[] = [];
   for (const locale of locales) {
     for (const site of sites) {
-      if (!validCategories.includes(site.category)) continue;
+      if (!(CATEGORY_SLUGS as readonly string[]).includes(site.category)) continue;
       params.push({
         locale,
         category: site.category,
@@ -31,6 +31,16 @@ export function generateStaticParams() {
   return params;
 }
 
+/**
+ * 只服务 generateStaticParams 里列出的 locale × category × siteId。
+ *
+ * 不加这一行时，/{locale}/{任意}/{任意} 都会按需渲染：generateMetadata 只是返回
+ * `{ title: 'Resource Not Found' }` 而不调 notFound()，page 里也只渲染一段
+ * "Resource not found" UI —— 于是 /zh/foo/bar、/en/icons/does-not-exist 这类
+ * 无界 URL 全部返回 200，且 URL 形态与真实内容页完全一致，很容易被收录。
+ */
+export const dynamicParams = false;
+
 export async function generateMetadata({
   params,
 }: {
@@ -38,9 +48,8 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const { locale, siteId } = await params;
   const site = sites.find((s) => s.id === siteId);
-  if (!site) {
-    return { title: 'Resource Not Found' };
-  }
+  // 兜底：不再返回 "Resource Not Found" 这种 200 状态的假页面
+  if (!site) notFound();
 
   const title = buildSiteTitle(site, locale as Locale);
   const rawDescription = buildSiteDescription(site, locale as Locale);

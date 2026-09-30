@@ -9,6 +9,17 @@ export function generateStaticParams() {
   return locales.map((locale) => ({ locale }));
 }
 
+/**
+ * 只服务 en / zh。
+ *
+ * 不加这一行时，任意单段路径都会被当成 locale 按需渲染，而 metadataByLocale 的
+ * `?? metadataByLocale.en` 会把非法 locale 静默降级成英文 —— 于是
+ * /logo.png、/apple-touch-icon.png 这类被中间件 matcher（`.*\..*`）排除在外的
+ * 带点号路径，会返回 200 + 一整份英文首页（canonical 指向 /en），
+ * 形成无界的软 404 / 重复内容集群。关掉后这类路径正常返回 404。
+ */
+export const dynamicParams = false;
+
 const metadataByLocale: Record<Locale, Metadata> = {
   en: {
     title: 'SVGShip — Professional SVG Resource Directory',
