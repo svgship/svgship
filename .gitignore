@@ -49,5 +49,7 @@ next-env.d.ts
 # design references (not source code)
 SVGShip.html
 exported_image_optimized.svg
-logo.png
+# 必须以 / 锚定根目录：写成 `logo.png` 会连带忽略 public/logo.png，
+# 导致站点品牌 logo（Organization.logo 用的那张 256×256 位图）从未被提交和部署。
+/logo.png
 .gstack/
