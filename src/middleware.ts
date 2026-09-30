@@ -40,5 +40,8 @@ export function middleware(request: NextRequest) {
 }
 
 export const config = {
-  matcher: ['/((?!_next|api|favicon.ico|.*\\..*).*)'],
+  // og-image 是无 locale 前缀的根级路由（src/app/og-image/route.tsx），必须排除。
+  // 否则中间件会把它改写成 /{locale}/og-image → 404，导致全站 og:image / twitter:image 失效。
+  // 它没有点号，兜不住 `.*\\..*`，只能在这里显式排除。
+  matcher: ['/((?!_next|api|og-image|favicon.ico|.*\\..*).*)'],
 };

@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import type { Locale } from '@/types';
+import { absoluteUrl } from '@/lib/site';
 
 const locales: Locale[] = ['en', 'zh'];
 
@@ -39,7 +40,9 @@ const metadataByLocale: Record<Locale, Metadata> = {
     alternates: {
       canonical: 'https://www.svgship.com/en/about',
       languages: {
-        'x-default': 'https://svgship.com',
+        // x-default 必须指向默认语言（en）的**本页**，且不能是裸域 ——
+        // 裸域 svgship.com 没有任何 DNS 记录，会让整组 hreflang 降级。
+        'x-default': absoluteUrl('/en/about'),
         en: 'https://www.svgship.com/en/about',
         zh: 'https://www.svgship.com/zh/about',
       },
@@ -74,7 +77,9 @@ const metadataByLocale: Record<Locale, Metadata> = {
     alternates: {
       canonical: 'https://www.svgship.com/zh/about',
       languages: {
-        'x-default': 'https://svgship.com',
+        // x-default 必须指向默认语言（en）的**本页**，且不能是裸域 ——
+        // 裸域 svgship.com 没有任何 DNS 记录，会让整组 hreflang 降级。
+        'x-default': absoluteUrl('/en/about'),
         en: 'https://www.svgship.com/en/about',
         zh: 'https://www.svgship.com/zh/about',
       },
