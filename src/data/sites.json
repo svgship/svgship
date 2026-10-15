@@ -222,7 +222,7 @@
     },
     "category": "icons",
     "tags": ["线性", "免费可商用"],
-    "logo": "tabler-icons_favicon.svg"
+    "logo": "tabler-icons_favicon.ico"
   },
   {
     "id": "bootstrap-icons",
@@ -308,7 +308,7 @@
     "category": "icons",
     "tags": ["线性", "面性", "彩色", "免费可商用"],
     "featured": true,
-    "logo": "iconfont_favicon.ico"
+    "logo": "iconfont_favicon.svg"
   },
   {
     "id": "iconpark",
@@ -320,7 +320,7 @@
     },
     "category": "icons",
     "tags": ["线性", "面性", "免费可商用"],
-    "logo": "iconpark_favicon.ico"
+    "logo": "iconpark_favicon.svg"
   },
   {
     "id": "icons8",
@@ -332,7 +332,7 @@
     },
     "category": "icons",
     "tags": ["线性", "面性", "彩色", "免费可商用", "付费"],
-    "logo": "icons8_favicon.svg"
+    "logo": "icons8_favicon.ico"
   },
   {
     "id": "ant-design-icons",
@@ -344,7 +344,7 @@
     },
     "category": "icons",
     "tags": ["线性", "面性", "免费可商用"],
-    "logo": "ant-design-icons_favicon.svg"
+    "logo": "ant-design-icons_favicon.png"
   },
   {
     "id": "blush",
@@ -380,7 +380,7 @@
     },
     "category": "tools",
     "tags": ["编辑器", "转换"],
-    "logo": "svgr_favicon.svg"
+    "logo": "svgr_favicon.png"
   },
   {
     "id": "vectr",
