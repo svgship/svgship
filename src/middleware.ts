@@ -4,23 +4,22 @@ import type { NextRequest } from 'next/server';
 const locales = ['en', 'zh'];
 const defaultLocale = 'en';
 
-function getLocale(request: NextRequest): string {
-  const acceptLanguage = request.headers.get('accept-language') ?? '';
-  if (acceptLanguage.includes('zh')) return 'zh';
-  return defaultLocale;
-}
-
 export function middleware(request: NextRequest) {
   const { pathname } = request.nextUrl;
+
+  // 根路径是语言选择页（hreflang x-default 落地页），直接放行返回 200。
+  // 不做任何语言协商：Googlebot 请求不带 Accept-Language 头。
+  if (pathname === '/') {
+    return NextResponse.next();
+  }
 
   // Extract locale from path prefix if present
   const pathnameHasLocale = locales.some(
     (locale) => pathname.startsWith(`/${locale}/`) || pathname === `/${locale}`
   );
 
-  const locale = pathnameHasLocale ? pathname.split('/')[1] : getLocale(request);
-
   if (pathnameHasLocale) {
+    const locale = pathname.split('/')[1];
     const response = NextResponse.next();
     response.cookies.set('locale', locale, { path: '/', maxAge: 60 * 60 * 24 * 365 });
     return response;
@@ -31,11 +30,12 @@ export function middleware(request: NextRequest) {
     return;
   }
 
-  // Redirect to locale-prefixed path
-  request.nextUrl.pathname = `/${locale}${pathname}`;
+  // 无 locale 前缀的路径固定 308 到默认语言版本。
+  // 刻意不按 Accept-Language 协商：Google 官方明确不建议按语言自动重定向，
+  // 协商会让重定向目的地对用户与爬虫不一致。
+  request.nextUrl.pathname = `/${defaultLocale}${pathname}`;
   const response = NextResponse.redirect(request.nextUrl, 308);
-  response.cookies.set('locale', locale, { path: '/', maxAge: 60 * 60 * 24 * 365 });
-  response.headers.set('Vary', 'Accept-Language');
+  response.cookies.set('locale', defaultLocale, { path: '/', maxAge: 60 * 60 * 24 * 365 });
   return response;
 }
 

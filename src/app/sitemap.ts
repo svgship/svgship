@@ -1,6 +1,6 @@
 import type { MetadataRoute } from 'next';
 import sitesData from '@/data/sites.json';
-import { SITE_URL, LOCALES, CATEGORY_SLUGS } from '@/lib/site';
+import { SITE_URL, DEFAULT_LOCALE, LOCALES, CATEGORY_SLUGS } from '@/lib/site';
 
 interface SiteEntry {
   id: string;
@@ -32,8 +32,27 @@ const STATIC_PAGES = [
 export default function sitemap(): MetadataRoute.Sitemap {
   const entries: MetadataRoute.Sitemap = [];
 
-  const altLanguages = (suffix: string): Record<string, string> =>
-    Object.fromEntries(LOCALES.map((l) => [l, `${SITE_URL}/${l}${suffix}`]));
+  // 与 HTML 声明对齐：x-default 与各页 <head> 里的 hreflang 保持一致。
+  // 首页集群的 x-default 指向根路径语言选择页；内页指向默认语言（en）的本页。
+  const altLanguages = (suffix: string): Record<string, string> => ({
+    ...Object.fromEntries(LOCALES.map((l) => [l, `${SITE_URL}/${l}${suffix}`])),
+    'x-default': suffix ? `${SITE_URL}/${DEFAULT_LOCALE}${suffix}` : SITE_URL,
+  });
+
+  // 语言选择页（x-default 落地页），可索引的根 URL
+  entries.push({
+    url: SITE_URL,
+    lastModified: CONTENT_FALLBACK_DATE,
+    changeFrequency: 'weekly',
+    priority: 1,
+    alternates: {
+      languages: {
+        'x-default': SITE_URL,
+        en: `${SITE_URL}/en`,
+        zh: `${SITE_URL}/zh`,
+      },
+    },
+  });
 
   for (const locale of LOCALES) {
     for (const page of STATIC_PAGES) {
