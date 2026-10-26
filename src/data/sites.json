@@ -2,6 +2,7 @@
   {
     "id": "svgrepo",
     "name": "SVGRepo",
+    "titleZh": "SVGRepo 图标库 - 50 万+ 免费 SVG 图标在线编辑下载",
     "url": "https://www.svgrepo.com",
     "description": {
       "zh": "超过 50 万个免费 SVG 图标和插画，支持在线编辑和批量下载",
@@ -15,6 +16,7 @@
   {
     "id": "lucide",
     "name": "Lucide",
+    "titleZh": "Lucide 图标库 - 1500+ 开源线性 SVG 图标，支持 React/Vue",
     "url": "https://lucide.dev",
     "description": {
       "zh": "简洁美观的开源图标库，提供 1500+ SVG 图标，支持主流框架",
@@ -28,6 +30,7 @@
   {
     "id": "iconify",
     "name": "Iconify",
+    "titleZh": "Iconify - 20 万+ 图标聚合框架，统一调用 150+ 图标集",
     "url": "https://iconify.design",
     "description": {
       "zh": "统一的图标框架，整合 150+ 图标集，超过 20 万个图标",
@@ -40,6 +43,7 @@
   {
     "id": "heroicons",
     "name": "Heroicons",
+    "titleZh": "Heroicons 图标库 - Tailwind CSS 官方 SVG 图标（Outline/Solid）",
     "url": "https://heroicons.com",
     "description": {
       "zh": "Tailwind CSS 团队出品的精美 SVG 图标，提供 Outline、Solid、Mini 三种风格",
@@ -52,6 +56,7 @@
   {
     "id": "undraw",
     "name": "unDraw",
+    "titleZh": "unDraw 插画库 - 免费可商用矢量插画，可自定义主色",
     "url": "https://undraw.co",
     "description": {
       "zh": "免费可商用的矢量插画库，支持自定义主色调，适合网页和产品设计",
@@ -65,6 +70,7 @@
   {
     "id": "storyset",
     "name": "Storyset",
+    "titleZh": "Storyset - Freepik 免费插画工具，多风格可编辑矢量插画",
     "url": "https://storyset.com",
     "description": {
       "zh": "Freepik 旗下免费插画工具，提供多种风格的可编辑矢量插画",
@@ -77,6 +83,7 @@
   {
     "id": "humaaans",
     "name": "Humaaans",
+    "titleZh": "Humaaans - 可自由组合的人物插画素材库",
     "url": "https://www.humaaans.com",
     "description": {
       "zh": "可自由组合的人物插画库，支持自定义姿势、服装和发型",
@@ -89,6 +96,7 @@
   {
     "id": "openpeeps",
     "name": "Open Peeps",
+    "titleZh": "Open Peeps - 手绘风格人物插画，可自定义肤色表情",
     "url": "https://openpeeps.com",
     "description": {
       "zh": "手绘风格的人物插画库，支持肤色、表情、配件等自定义组合",
@@ -101,6 +109,7 @@
   {
     "id": "freepik",
     "name": "Freepik",
+    "titleZh": "Freepik - 海量矢量素材与插画下载（设计师必备）",
     "url": "https://www.freepik.com",
     "description": {
       "zh": "海量矢量素材、PSD 和图片资源，设计师必备的素材搜索引擎",
@@ -113,6 +122,7 @@
   {
     "id": "vecteezy",
     "name": "Vecteezy",
+    "titleZh": "Vecteezy - 免费矢量素材社区，SVG/EPS/AI 可编辑",
     "url": "https://www.vecteezy.com",
     "description": {
       "zh": "免费矢量素材社区，提供大量可编辑的 SVG、EPS 和 AI 格式文件",
@@ -125,6 +135,7 @@
   {
     "id": "mixkit",
     "name": "Mixkit",
+    "titleZh": "Mixkit - 免费矢量图形、视频与音乐素材库",
     "url": "https://mixkit.co",
     "description": {
       "zh": "免费高质量设计素材，包括矢量图形、视频、音乐和模板",
@@ -137,6 +148,7 @@
   {
     "id": "drawkit",
     "name": "DrawKit",
+    "titleZh": "DrawKit - 精美矢量插画与图标，多主题包免费下载",
     "url": "https://www.drawkit.com",
     "description": {
       "zh": "精美的矢量插画和图标库，提供多种风格的主题包",
@@ -149,6 +161,7 @@
   {
     "id": "lottiefiles",
     "name": "LottieFiles",
+    "titleZh": "LottieFiles - 免费 Lottie 动画资源与在线编辑工具",
     "url": "https://lottiefiles.com",
     "description": {
       "zh": "全球最大的 Lottie 动画社区，提供海量免费动画资源和在线编辑工具",
@@ -163,6 +176,7 @@
   {
     "id": "svgator",
     "name": "SVGator",
+    "titleZh": "SVGator - 在线 SVG 动画制作工具，无需写代码",
     "url": "https://www.svgator.com",
     "description": {
       "zh": "在线 SVG 动画制作工具，无需代码即可创建复杂的 SVG 动画",
@@ -176,6 +190,7 @@
   {
     "id": "lordicon",
     "name": "Lordicon",
+    "titleZh": "Lordicon - 动态图标库，可交互 SVG 动画图标下载",
     "url": "https://lordicon.com",
     "description": {
       "zh": "精美的动态图标库，提供线性、填充等多种风格的可交互 SVG 动画图标",
@@ -189,6 +204,7 @@
   {
     "id": "keyshape",
     "name": "Keyshape",
+    "titleZh": "Keyshape - Mac 平台 SVG 动画编辑器，支持时间轴",
     "url": "https://www.keyshapeapp.com",
     "description": {
       "zh": "Mac 平台的 SVG 动画编辑器，支持时间轴动画和导出多种格式",
@@ -202,6 +218,7 @@
   {
     "id": "phosphor-icons",
     "name": "Phosphor Icons",
+    "titleZh": "Phosphor Icons - 7000+ SVG 图标，6 种粗细风格可调",
     "url": "https://phosphoricons.com",
     "description": {
       "zh": "灵活的图标家族，提供 7000+ 图标，6种粗细风格（Regular/Thin/Light/Bold/Fill/Duotone）",
@@ -215,6 +232,7 @@
   {
     "id": "tabler-icons",
     "name": "Tabler Icons",
+    "titleZh": "Tabler Icons - 4900+ 开源线性 SVG 图标，支持 React/Vue",
     "url": "https://tabler-icons.io",
     "description": {
       "zh": "免费开源 SVG 图标集，4900+ 像素完美的线条图标，支持 React/Vue",
@@ -227,6 +245,7 @@
   {
     "id": "bootstrap-icons",
     "name": "Bootstrap Icons",
+    "titleZh": "Bootstrap Icons - Bootstrap 官方 2000+ 免费 SVG 图标",
     "url": "https://icons.getbootstrap.com",
     "description": {
       "zh": "Bootstrap 官方图标库，2000+ 图标，与 Bootstrap 生态完美集成",
@@ -239,6 +258,7 @@
   {
     "id": "remix-icon",
     "name": "Remix Icon",
+    "titleZh": "Remix Icon - 2800+ 开源 SVG 图标，线性与面性双风格",
     "url": "https://remixicon.com",
     "description": {
       "zh": "开源中性风格图标系统，2800+ 图标，支持多框架",
@@ -251,6 +271,7 @@
   {
     "id": "boxicons",
     "name": "Boxicons",
+    "titleZh": "Boxicons - 1600+ 开源 SVG 图标（含品牌 Logo 图标）",
     "url": "https://boxicons.com",
     "description": {
       "zh": "精心设计的开源图标，1600+ 图标，提供 Regular/Solid/Logos 三种风格",
@@ -263,6 +284,7 @@
   {
     "id": "iconoir",
     "name": "Iconoir",
+    "titleZh": "Iconoir - 1500+ 简洁线条 SVG 图标库，开源免费",
     "url": "https://iconoir.com",
     "description": {
       "zh": "开源图标库，1500+ 简洁线条图标，支持多框架",
@@ -275,6 +297,7 @@
   {
     "id": "feather-icons",
     "name": "Feather Icons",
+    "titleZh": "Feather Icons - 280+ 极简线条 SVG 图标库（经典开源）",
     "url": "https://feathericons.com",
     "description": {
       "zh": "简洁美观的开源图标，280+ 图标，影响了众多后续图标库",
@@ -287,6 +310,7 @@
   {
     "id": "font-awesome",
     "name": "Font Awesome",
+    "titleZh": "Font Awesome 图标库 - 2000+ 免费图标字体，全量 16000+",
     "url": "https://fontawesome.com",
     "description": {
       "zh": "最流行的图标库之一，2000+ 免费图标（共 16,000+），生态完善",
@@ -300,6 +324,7 @@
   {
     "id": "iconfont",
     "name": "iconfont",
+    "titleZh": "iconfont 阿里巴巴矢量图标库 - 1000 万+ 免费图标下载",
     "url": "https://www.iconfont.cn",
     "description": {
       "zh": "阿里巴巴矢量图标库，国内最大，10,000,000+ 图标，中文支持好",
@@ -313,6 +338,7 @@
   {
     "id": "iconpark",
     "name": "IconPark",
+    "titleZh": "IconPark 图标库 - 字节跳动出品，2600+ SVG 图标可自定义",
     "url": "https://iconpark.oceanengine.com",
     "description": {
       "zh": "字节跳动出品的图标平台，2600+ 图标，多种主题风格，支持自定义",
@@ -325,6 +351,7 @@
   {
     "id": "icons8",
     "name": "Icons8",
+    "titleZh": "Icons8 - 100 万+ 多风格图标库，含免费额度",
     "url": "https://icons8.com/icons",
     "description": {
       "zh": "多风格图标库，1,000,000+ 图标，风格多样，有免费额度",
@@ -337,6 +364,7 @@
   {
     "id": "ant-design-icons",
     "name": "Ant Design Icons",
+    "titleZh": "Ant Design Icons - Ant Design 官方 400+ 图标组件",
     "url": "https://ant.design/components/icon",
     "description": {
       "zh": "Ant Design 官方图标，400+ 图标，与 Ant Design 生态完美集成",
@@ -349,6 +377,7 @@
   {
     "id": "blush",
     "name": "Blush",
+    "titleZh": "Blush - 可定制插画生成器，支持 Figma 一键调用",
     "url": "https://blush.design",
     "description": {
       "zh": "可定制插画工具，与 Figma 集成，多种艺术家风格可选",
@@ -361,6 +390,7 @@
   {
     "id": "ira-design",
     "name": "IRA Design",
+    "titleZh": "IRA Design - 渐变风格插画生成器，自由配色",
     "url": "https://iradesign.io",
     "description": {
       "zh": "渐变风格插画生成器，可自定义渐变色",
@@ -373,6 +403,7 @@
   {
     "id": "svgr",
     "name": "SVGR",
+    "titleZh": "SVGR - SVG 转 React 组件工具，在线一键转换",
     "url": "https://react-svgr.com",
     "description": {
       "zh": "SVG 转 React 组件工具，在线转换，支持多种选项",
@@ -385,6 +416,7 @@
   {
     "id": "vectr",
     "name": "Vectr",
+    "titleZh": "Vectr - 免费在线矢量图形编辑器，支持实时协作",
     "url": "https://vectr.com",
     "description": {
       "zh": "免费矢量图形编辑器，支持实时协作",
@@ -397,6 +429,7 @@
   {
     "id": "boxy-svg",
     "name": "Boxy SVG",
+    "titleZh": "Boxy SVG - 专业 SVG 编辑器，界面简洁功能强大",
     "url": "https://boxy-svg.com",
     "description": {
       "zh": "专业 SVG 编辑器，界面简洁，功能强大",
@@ -409,6 +442,7 @@
   {
     "id": "mdn-svg-tutorial",
     "name": "MDN SVG Tutorial",
+    "titleZh": "MDN SVG 教程 - 从基础概念到高级特性完整指南",
     "url": "https://developer.mozilla.org/en-US/docs/Web/SVG/Tutorial",
     "description": {
       "zh": "Mozilla 官方 SVG 教程，从基础概念到高级特性全面覆盖",
@@ -421,6 +455,7 @@
   {
     "id": "css-tricks-svg-guide",
     "name": "CSS-Tricks SVG Guide",
+    "titleZh": "CSS-Tricks SVG 完整指南 - 内联、CSS 与动画用法",
     "url": "https://css-tricks.com/using-svg/",
     "description": {
       "zh": "CSS-Tricks 的 SVG 完整指南，涵盖内联、CSS 使用和动画",
@@ -433,6 +468,7 @@
   {
     "id": "svg-on-the-web",
     "name": "SVG on the Web",
+    "titleZh": "SVG on the Web - Web 开发中的 SVG 实战使用指南",
     "url": "https://svgontheweb.com/",
     "description": {
       "zh": "SVG 在 Web 开发中的完整使用指南，实用性强",
@@ -444,6 +480,7 @@
   {
     "id": "web-dev-svg",
     "name": "web.dev SVG Guide",
+    "titleZh": "web.dev SVG 优化指南 - Google 官方最佳实践",
     "url": "https://web.dev/articles/svg",
     "description": {
       "zh": "Google 官方的 SVG 优化与最佳实践指南",
@@ -455,6 +492,7 @@
   {
     "id": "w3schools-svg",
     "name": "W3Schools SVG",
+    "titleZh": "W3Schools SVG 入门教程 - 零基础初学者教程",
     "url": "https://www.w3schools.com/graphics/svg_intro.asp",
     "description": {
       "zh": "W3Schools 的 SVG 入门教程，适合初学者",
@@ -466,6 +504,7 @@
   {
     "id": "smil-animation-guide",
     "name": "SMIL Animation Guide",
+    "titleZh": "SVG SMIL 动画教程 - 原生动画技术详解",
     "url": "https://developer.mozilla.org/en-US/docs/Web/SVG/SVG_animation_with_SMIL",
     "description": {
       "zh": "MDN 的 SMIL SVG 动画教程，原生动画技术详解",
@@ -477,6 +516,7 @@
   {
     "id": "css-tricks-svg-animation",
     "name": "CSS-Tricks SVG Animation",
+    "titleZh": "SVG 动画完整指南 - 用 CSS 与 JavaScript 实现",
     "url": "https://css-tricks.com/guide-svg-animations/",
     "description": {
       "zh": "SVG 动画完整指南，使用 CSS 和 JavaScript 实现",
@@ -489,6 +529,7 @@
   {
     "id": "greensock-svg",
     "name": "GreenSock SVG Animation",
+    "titleZh": "GSAP SVG 动画教程 - GreenSock 官方文档与实践",
     "url": "https://gsap.com/docs/v3/SVG/",
     "description": {
       "zh": "GSAP 官方 SVG 动画文档，专业级动画解决方案",
@@ -500,6 +541,7 @@
   {
     "id": "svg-path-tutorial",
     "name": "SVG Path Tutorial",
+    "titleZh": "SVG path 路径教程 - d 属性完整详解",
     "url": "https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/d",
     "description": {
       "zh": "MDN 的 SVG Path 路径属性详解",
@@ -511,6 +553,7 @@
   {
     "id": "svg-filter-effects",
     "name": "SVG Filter Effects",
+    "titleZh": "SVG 滤镜效果教程 - 模糊、阴影与特效实现",
     "url": "https://developer.mozilla.org/en-US/docs/Web/SVG/Element/filter",
     "description": {
       "zh": "SVG 滤镜效果详解，包含模糊、阴影等效果",
@@ -522,6 +565,7 @@
   {
     "id": "yoksel-svg-tools",
     "name": "Yoksel SVG Tools",
+    "titleZh": "Yoksel SVG 可视化工具 - 在线理解 SVG 语法",
     "url": "https://yoksel.github.io/svg-tools/",
     "description": {
       "zh": "SVG 可视化工具集合，帮助理解 SVG 语法",
@@ -533,6 +577,7 @@
   {
     "id": "svgo-docs",
     "name": "SVGO Documentation",
+    "titleZh": "SVGO 使用文档 - SVG 自动化压缩优化指南",
     "url": "https://github.com/svg/svgo",
     "description": {
       "zh": "SVG 优化工具 SVGO 的官方文档和使用指南",
@@ -544,6 +589,7 @@
   {
     "id": "codrops-svg",
     "name": "Codrops SVG Tutorials",
+    "titleZh": "Codrops SVG 创意教程 - 大量实战动效案例",
     "url": "https://tympanus.net/codrops/?s=svg",
     "description": {
       "zh": "Codrops 的 SVG 创意教程集合，包含大量实战案例",
@@ -556,6 +602,7 @@
   {
     "id": "svg-js-docs",
     "name": "SVG.js Documentation",
+    "titleZh": "SVG.js 官方文档 - 轻量级 SVG 操作库使用指南",
     "url": "https://svgjs.dev/docs/3.0/",
     "description": {
       "zh": "SVG.js 3.0 官方文档，轻量级 SVG 操作库",
@@ -567,6 +614,7 @@
   {
     "id": "snap-svg-docs",
     "name": "Snap.svg Documentation",
+    "titleZh": "Snap.svg 官方文档 - Adobe 出品的 SVG 操作库",
     "url": "http://snapsvg.io/docs/",
     "description": {
       "zh": "Snap.svg 官方文档，Adobe 出品的 SVG 库",
@@ -578,6 +626,7 @@
   {
     "id": "svg-animation",
     "name": "SVG Animation",
+    "titleZh": "SVG 动画教程 - 实例、无障碍与性能实践",
     "url": "https://www.svg-animation.com/",
     "description": {
       "zh": "面向开发者和设计师的 SVG 动画教程，涵盖实例、实现说明、无障碍和性能权衡",
@@ -589,6 +638,7 @@
   {
     "id": "codepen-svg",
     "name": "CodePen SVG Topic",
+    "titleZh": "CodePen SVG 作品集 - 社区精选 SVG 创意代码",
     "url": "https://codepen.io/topic/svg",
     "description": {
       "zh": "CodePen 上的 SVG 创意作品集合，社区精选",
@@ -601,6 +651,7 @@
   {
     "id": "codepen-svg-animation",
     "name": "CodePen SVG Animation",
+    "titleZh": "CodePen SVG 动画作品 - 海量创意动效灵感",
     "url": "https://codepen.io/search/pens?q=svg+animation",
     "description": {
       "zh": "CodePen 上的 SVG 动画作品搜索，海量创意灵感",
@@ -612,6 +663,7 @@
   {
     "id": "awwwards-svg",
     "name": "Awwwards SVG Websites",
+    "titleZh": "Awwwards SVG 网站案例 - 获奖级 SVG 网页设计",
     "url": "https://www.awwwards.com/websites/svg/",
     "description": {
       "zh": "Awwwards 上使用 SVG 的获奖网站，顶级设计参考",
@@ -624,6 +676,7 @@
   {
     "id": "dribbble-svg",
     "name": "Dribbble SVG",
+    "titleZh": "Dribbble SVG 设计作品 - 设计师灵感来源",
     "url": "https://dribbble.com/search/svg",
     "description": {
       "zh": "Dribbble 上的 SVG 设计作品，设计师灵感来源",
@@ -635,6 +688,7 @@
   {
     "id": "behance-svg",
     "name": "Behance SVG",
+    "titleZh": "Behance SVG 项目 - 专业 SVG 设计案例展示",
     "url": "https://www.behance.net/search/projects?search=svg",
     "description": {
       "zh": "Behance 上的 SVG 项目展示，专业设计案例",
@@ -646,6 +700,7 @@
   {
     "id": "svg-art-gallery",
     "name": "SVG Art Gallery",
+    "titleZh": "SVG 艺术作品画廊 - 探索 SVG 的创意可能性",
     "url": "https://svgartgallery.net/",
     "description": {
       "zh": "SVG 艺术作品画廊，展示 SVG 的创意可能性",
@@ -657,6 +712,7 @@
   {
     "id": "generative-svg",
     "name": "Generative Art with SVG",
+    "titleZh": "SVG 生成艺术 - 用代码创作生成艺术教程与案例",
     "url": "https://generativeartwithsvg.com/",
     "description": {
       "zh": "使用 SVG 创作生成艺术的教程和案例",
@@ -668,6 +724,7 @@
   {
     "id": "svg-experiments",
     "name": "SVG Experiments by Sara Soueidan",
+    "titleZh": "Sara Soueidan SVG 实验 - SVG 技术探索文章",
     "url": "https://www.sarasoueidan.com/blog/svg-art/",
     "description": {
       "zh": "Sara Soueidan 的 SVG 实验文章，SVG 技术探索",
@@ -679,6 +736,7 @@
   {
     "id": "codrops-svg-inspiration",
     "name": "Codrops SVG Inspiration",
+    "titleZh": "Codrops SVG 灵感合集 - 创意交互与动效参考",
     "url": "https://tympanus.net/codrops/?s=svg+inspiration",
     "description": {
       "zh": "Codrops 的 SVG 灵感文章集合，创意设计参考",
@@ -690,6 +748,7 @@
   {
     "id": "svg-party",
     "name": "SVG Party",
+    "titleZh": "SVG Party - SVG 动画与交互效果作品合集",
     "url": "https://svg-party.com/",
     "description": {
       "zh": "SVG 派对，展示各种 SVG 动画和交互效果",
@@ -701,6 +760,7 @@
   {
     "id": "svg-backgrounds",
     "name": "SVG Backgrounds",
+    "titleZh": "SVG Backgrounds 背景图案库 - 可自定义矢量背景",
     "url": "https://www.svgbackgrounds.com/",
     "description": {
       "zh": "SVG 背景图案库，可自定义的矢量背景",
@@ -712,6 +772,7 @@
   {
     "id": "haikei",
     "name": "Haikei",
+    "titleZh": "Haikei - SVG 背景生成器，一键生成波浪与斑点背景",
     "url": "https://app.haikei.app/",
     "description": {
       "zh": "SVG 背景生成器，一键生成各种风格的矢量背景",
@@ -724,6 +785,7 @@
   {
     "id": "flaticon",
     "name": "Flaticon",
+    "titleZh": "Flaticon - 300 万+ 免费图标搜索引擎，支持在线改色",
     "url": "https://www.flaticon.com",
     "description": {
       "zh": "Freepik 旗下图标搜索引擎，超过 300 万个 SVG 图标，支持在线编辑和自定义颜色",
@@ -737,6 +799,7 @@
   {
     "id": "nounproject",
     "name": "Noun Project",
+    "titleZh": "Noun Project - 1000 万+ 图标数据库，覆盖全行业",
     "url": "https://thenounproject.com",
     "description": {
       "zh": "全球最大的图标数据库之一，超过 1000 万个图标，覆盖几乎所有领域",
@@ -750,6 +813,7 @@
   {
     "id": "iconscout",
     "name": "IconScout",
+    "titleZh": "IconScout - 1400 万+ 图标插画素材，含 Lottie 动画",
     "url": "https://iconscout.com",
     "description": {
       "zh": "1400 万+ 设计资源平台，包含图标、插画、3D 和 Lottie 动画，支持 Figma 插件",
@@ -762,6 +826,7 @@
   {
     "id": "svgicons",
     "name": "SVG Icons",
+    "titleZh": "SVG Icons - 31 万+ 开源 SVG 图标，整合 227 套图标集",
     "url": "https://svgicons.com",
     "description": {
       "zh": "31 万+ 开源 SVG 图标，整合 227 套图标集，免费商用",
@@ -774,6 +839,7 @@
   {
     "id": "iconarchive",
     "name": "IconArchive",
+    "titleZh": "IconArchive - 80 万+ 免费图标，支持 SVG/PNG/ICO 下载",
     "url": "https://www.iconarchive.com",
     "description": {
       "zh": "80 万+ 免费图标资源，可按分类、艺术家、热门程度浏览，支持 PNG/SVG/ICO",
@@ -786,6 +852,7 @@
   {
     "id": "manypixels",
     "name": "ManyPixels",
+    "titleZh": "ManyPixels 插画库 - 免费可商用多场景矢量插画",
     "url": "https://www.manypixels.co/gallery",
     "description": {
       "zh": "免费可商用的矢量插画库，提供多场景插画，支持 PNG 和 SVG 格式下载",
@@ -798,6 +865,7 @@
   {
     "id": "pixeltrue",
     "name": "PixelTrue",
+    "titleZh": "PixelTrue - 高质量免费矢量插画，适合着陆页设计",
     "url": "https://www.pixeltrue.com/free-illustrations",
     "description": {
       "zh": "高质量免费矢量插画，风格现代统一，适合着陆页和产品界面",
@@ -810,6 +878,7 @@
   {
     "id": "freesvg",
     "name": "FreeSVG",
+    "titleZh": "FreeSVG - 免费 SVG 剪贴画与矢量图形（公共领域）",
     "url": "https://freesvg.org",
     "description": {
       "zh": "免费 SVG 剪贴画和矢量图形库，公共领域授权，适合各类设计项目",
@@ -822,6 +891,7 @@
   {
     "id": "svg-optimizer",
     "name": "SVG Optimizer",
+    "titleZh": "SVG 在线压缩工具 - 无损减小 SVG 文件体积",
     "url": "https://svgoptimizer.com",
     "description": {
       "zh": "在线 SVG 优化压缩工具，无损压缩，显著减小文件体积",
@@ -834,6 +904,7 @@
   {
     "id": "svg-ai",
     "name": "SVG AI",
+    "titleZh": "SVG AI - 图片转 SVG 在线工具，支持编辑与动画",
     "url": "https://www.svgai.org",
     "description": {
       "zh": "AI 驱动的 SVG 工具集，支持图片转 SVG、SVG 编辑器和 SVG 动画制作",
@@ -846,6 +917,7 @@
   {
     "id": "svgtrace",
     "name": "SvgTrace",
+    "titleZh": "SvgTrace - AI 图片转 SVG 矢量图，在线免费转换",
     "url": "https://svgtrace.com",
     "description": {
       "zh": "AI 图片转 SVG 工具，将低分辨率图片转换为高质量矢量图形",
@@ -858,6 +930,7 @@
   {
     "id": "recraft",
     "name": "Recraft",
+    "titleZh": "Recraft - AI 矢量设计工具，文生矢量图与图片矢量化",
     "url": "https://www.recraft.ai",
     "description": {
       "zh": "AI 矢量设计工具，支持文生矢量图、图片矢量化和品牌风格控制",
@@ -870,6 +943,7 @@
   {
     "id": "iconvectors",
     "name": "IconVectors",
+    "titleZh": "IconVectors - 专业 SVG 图标编辑器，批量处理与导出",
     "url": "https://iconvectors.io/",
     "description": {
       "zh": "专业桌面端 SVG 图标编辑器，支持创建、编辑、清理、批量处理与导出 SVG 图标，面向开发工作流",
@@ -882,6 +956,7 @@
   {
     "id": "freecodecamp-svg",
     "name": "freeCodeCamp SVG Guide",
+    "titleZh": "freeCodeCamp SVG 教程 - 免费入门到进阶",
     "url": "https://www.freecodecamp.org/news/tag/svg/",
     "description": {
       "zh": "免费编程教育平台提供的 SVG 入门教程，从基础到进阶，配有详细代码示例",
@@ -894,6 +969,7 @@
   {
     "id": "sarasoueidan",
     "name": "Sara Soueidan Blog",
+    "titleZh": "Sara Soueidan 博客 - SVG 模式、动画与无障碍权威文章",
     "url": "https://www.sarasoueidan.com/blog/",
     "description": {
       "zh": "SVG 领域权威专家的技术博客，深入讲解 SVG 模式、动画和可访问性",
@@ -906,6 +982,7 @@
   {
     "id": "smashing-magazine-svg",
     "name": "Smashing Magazine SVG",
+    "titleZh": "Smashing Magazine SVG 专栏 - 高质量前端实战文章",
     "url": "https://www.smashingmagazine.com/category/svg/",
     "description": {
       "zh": "知名前端设计媒体，提供深入的高质量 SVG 实战文章和教程",

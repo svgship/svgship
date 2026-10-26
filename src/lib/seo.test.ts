@@ -54,6 +54,17 @@ describe('buildSiteTitle', () => {
   it('is deterministic for the same id', () => {
     expect(buildSiteTitle(baseSite, 'en')).toBe(buildSiteTitle(baseSite, 'en'));
   });
+
+  it('prefers titleZh override in zh and ignores it in en', () => {
+    const site = { ...baseSite, titleZh: 'SVGRepo 图标库 - 50 万+ 免费 SVG 图标下载' };
+    expect(buildSiteTitle(site, 'zh')).toBe('SVGRepo 图标库 - 50 万+ 免费 SVG 图标下载');
+    expect(buildSiteTitle(site, 'en')).toBe(buildSiteTitle(baseSite, 'en'));
+  });
+
+  it('drops the brand suffix from zh fallback templates', () => {
+    expect(buildSiteTitle(baseSite, 'zh')).not.toContain('SVGShip');
+    expect(buildSiteTitle(toolSite, 'zh')).not.toContain('SVGShip');
+  });
 });
 
 describe('buildSiteDescription', () => {

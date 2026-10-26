@@ -10,6 +10,8 @@ interface SiteLike {
   description: { zh: string; en: string };
   tags?: string[];
   pricing?: 'free' | 'paid' | 'freemium';
+  /** 人工优化的中文 SEO 标题，存在时优先于模板 */
+  titleZh?: string;
 }
 
 const LICENSE_TAG_KEYS = ['免费可商用', '需署名', '仅个人免费', '付费'];
@@ -63,8 +65,8 @@ const titleTemplates: Record<CategorySlug, Record<Locale, TitleTemplate[]>> = {
         `${s.name} — ${tags[0] ? `${tags[0]} ` : ''}SVG Icons for UI Design | SVGShip`,
     ],
     zh: [
-      (s, { tags }) => `${s.name} — 免费 SVG 图标库${tags[0] ? ` · ${tags[0]}` : ''} | SVGShip`,
-      (s, { tags }) => `${s.name} — ${tags[0] ? `${tags[0]}` : ''} SVG 图标资源 | SVGShip`,
+      (s, { tags }) => `${s.name} — 免费 SVG 图标库${tags[0] ? ` · ${tags[0]}` : ''}`,
+      (s, { tags }) => `${s.name} — 免费 SVG 图标下载${tags[0] ? ` · ${tags[0]}` : ''}`,
     ],
   },
   illustrations: {
@@ -75,8 +77,8 @@ const titleTemplates: Record<CategorySlug, Record<Locale, TitleTemplate[]>> = {
         `${s.name} — ${tags[0] ? `${tags[0]} ` : ''}Vector Art & Illustrations | SVGShip`,
     ],
     zh: [
-      (s, { tags }) => `${s.name} — 免费矢量插画库${tags[0] ? ` · ${tags[0]}` : ''} | SVGShip`,
-      (s, { tags }) => `${s.name} — ${tags[0] ? `${tags[0]}` : ''} 矢量插画素材 | SVGShip`,
+      (s, { tags }) => `${s.name} — 免费矢量插画下载${tags[0] ? ` · ${tags[0]}` : ''}`,
+      (s, { tags }) => `${s.name} — 矢量插画素材${tags[0] ? ` · ${tags[0]}` : ''}`,
     ],
   },
   tools: {
@@ -85,8 +87,8 @@ const titleTemplates: Record<CategorySlug, Record<Locale, TitleTemplate[]>> = {
       (s, { tags }) => `${s.name} — ${tags[0] ? `${tags[0]} · ` : ''}SVG Tool Review | SVGShip`,
     ],
     zh: [
-      (s, { tags }) => `${s.name} — SVG ${tags[0] ?? '工具'}（设计师/开发者）| SVGShip`,
-      (s, { tags }) => `${s.name} — ${tags[0] ? `${tags[0]} · ` : ''}SVG 工具评测 | SVGShip`,
+      (s, { tags }) => `${s.name} — 在线 SVG ${tags[0] ?? '工具'}`,
+      (s, { tags }) => `${s.name} — SVG ${tags[0] ? `${tags[0]}` : ''}工具推荐`,
     ],
   },
   tutorials: {
@@ -95,8 +97,8 @@ const titleTemplates: Record<CategorySlug, Record<Locale, TitleTemplate[]>> = {
       (s, { tags }) => `Learn SVG with ${s.name}${tags[0] ? ` — ${tags[0]}` : ''} | SVGShip`,
     ],
     zh: [
-      (s, { tags }) => `${s.name} — SVG 教程${tags[0] ? ` · ${tags[0]}` : ''} | SVGShip`,
-      (s, { tags }) => `${s.name} — ${tags[0] ? `${tags[0]} · ` : ''}SVG 学习资源 | SVGShip`,
+      (s, { tags }) => `${s.name} — SVG 教程${tags[0] ? ` · ${tags[0]}` : ''}`,
+      (s, { tags }) => `${s.name} — SVG 学习资源${tags[0] ? ` · ${tags[0]}` : ''}`,
     ],
   },
   inspiration: {
@@ -105,8 +107,8 @@ const titleTemplates: Record<CategorySlug, Record<Locale, TitleTemplate[]>> = {
       (s, { tags }) => `${s.name} — ${tags[0] ? `${tags[0]} ` : ''}SVG Showcase | SVGShip`,
     ],
     zh: [
-      (s, { tags }) => `${s.name} — SVG 灵感${tags[0] ? ` · ${tags[0]}` : ''} | SVGShip`,
-      (s, { tags }) => `${s.name} — ${tags[0] ? `${tags[0]} ` : ''}SVG 创意案例 | SVGShip`,
+      (s, { tags }) => `${s.name} — SVG 灵感案例${tags[0] ? ` · ${tags[0]}` : ''}`,
+      (s, { tags }) => `${s.name} — SVG 创意作品合集${tags[0] ? ` · ${tags[0]}` : ''}`,
     ],
   },
 };
@@ -232,6 +234,9 @@ const descriptionTemplates: Record<CategorySlug, Record<Locale, DescriptionTempl
 const FALLBACK_CATEGORY: CategorySlug = 'tools';
 
 export function buildSiteTitle(site: SiteLike, locale: Locale): string {
+  // 中文标题优先用人工写入的搜索词形态（sites.json 的 titleZh），模板仅做兜底
+  if (locale === 'zh' && site.titleZh) return site.titleZh;
+
   const cat =
     (site.category as CategorySlug) in titleTemplates
       ? (site.category as CategorySlug)

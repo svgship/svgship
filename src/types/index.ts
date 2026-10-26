@@ -3,6 +3,8 @@ export type CategorySlug = 'icons' | 'illustrations' | 'tools' | 'tutorials' | '
 export interface SvgSite {
   id: string;
   name: string;
+  /** 人工优化的中文 SEO 标题；缺失时由 lib/seo.ts 的模板兜底 */
+  titleZh?: string;
   url: string;
   description: {
     zh: string;
