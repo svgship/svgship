@@ -41,7 +41,7 @@ export default function LanguagePicker() {
   };
 
   return (
-    <div className="mt-10 grid w-full max-w-md gap-4 sm:grid-cols-2">
+    <div className="mx-auto mt-10 grid w-full max-w-md gap-4 sm:grid-cols-2">
       {OPTIONS.map(({ locale, href, label, desc }) => (
         <a
           key={locale}
